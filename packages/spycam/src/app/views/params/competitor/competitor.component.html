@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Params
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-list>
+
+      <ion-list-header>Seleccion de tiendas</ion-list-header>
+      <form [formGroup]="competitorBrandForm">
+        <ion-item>
+          <ion-label>Tienda</ion-label>
+          <ion-select formControlName="competitorId" placeholder="Select One" (ionChange)="swapStore()">
+            <ion-select-option *ngFor="let item of competitors" value={{item.id}}>
+              {{item.name}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item *ngIf="selectedCompetitor">
+          <ion-label>Sucursal</ion-label>
+          <ion-select formControlName="id" value="brown" okText="Okay" cancelText="Dismiss"
+            (ionChange)="changeValuesBrand()">
+            <ion-select-option *ngFor="let item of selectedCompetitor.branchOffices" value={{item.id}}>{{item.name}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-button expand="block" (click)="acept()" [disabled]="!competitorBrandForm.valid">Aceptar</ion-button>
+      </form>
+    </ion-list>
+
+
+  </ion-card>
+</ion-content>

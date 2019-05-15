@@ -1,0 +1,7 @@
+{
+  "name": "SpyCamera",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
