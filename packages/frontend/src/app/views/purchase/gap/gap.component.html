@@ -1,0 +1,383 @@
+<!-- <div class="breadcrumb">
+    <h1>Compra</h1>
+    <ul>
+        <li><a href="">GAP Costos</a></li>
+        <li>Reporte GAP</li>
+    </ul>
+</div> -->
+
+<app-breadcrumb>
+</app-breadcrumb>
+
+<div class="separator-breadcrumb border-top"></div>
+
+<div class="row list-horizontal">
+    <div class="list-item ng-tns-c6-0 col-md-12 ng-trigger ng-trigger-animate ng-star-inserted">
+        <div class="o-hidden mb-0 d-flex flex-row">
+            <div class="flex-grow-1 pl-2 d-flex">
+                <div
+                    class="card-body align-self-center flex-column justify-content-between align-items-lg-center flex-lg-row">
+                    <!-- <div class="align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row"> -->
+                    <div class="row">
+                        <div class="col-lg-3 text-center d-none d-lg-block">
+                            <label class=" item-title text-16">Articulo</label>
+                        </div>
+
+                        <div class="col-lg-1 text-center d-none d-lg-block">
+                            <label class=" item-title text-16">Proveedor</label>
+                        </div>
+
+                        <div class="col-lg-2 text-center d-none d-lg-block">
+                            <label class=" item-title text-16">Fecha<br>{{gaper1?.sufijo}}</label>
+                        </div>
+
+                        <div class="col-lg-1 text-center d-none d-lg-block">
+                            <label class=" item-title text-16">Precio<br>{{gaper1?.sufijo}}</label>
+                        </div>
+                        <!-- <div class="col-lg-3 text-center d-none d-lg-block">
+                            <label class=" item-title text-16">{{gaper1.sufijo}}</label>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-6">Fecha</div>
+                                <div class="col-lg-6">Precio</div>
+                            </div>
+                        </div> -->
+
+
+                        <div class="col-lg-2 text-center d-none d-lg-block">
+                            <label class=" item-title text-16">Fecha<br>{{gaper2?.sufijo}}
+                            </label>
+                        </div>
+
+                        <div class="col-lg-1 text-center d-none d-lg-block">
+                            <label class=" item-title text-16">Precio<br>{{gaper2?.sufijo}}
+                            </label>
+                        </div>
+
+                        <div class="col-lg-2 text-center d-none d-lg-block ">
+                            <label class="item-title text-16 ">Divisa a la
+                                fecha</label>
+                            <br>
+                            <p class="text-16 badge badge-secondary">
+                                {{dollarPrice | currency}}</p>
+                        </div>
+
+                        <!-- RESPOSIVE -->
+                        <div class="col-lg-12 d-lg-none .d-xl-block">
+                            <a class="m-4 item-title text-16">Divisa a la
+                                fecha</a>
+                            <span class="text-24 badge badge-secondary">${{dollarPrice}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="align-self-center pl-3 pb-2 pr-3 item-select">
+                    <!-- <label class="checkbox checkbox-outline-light ">
+                        <input type="checkbox" [(ngModel)]="allSelected" (change)="selectAll($event)">
+                        <span></span>
+                        <span class="checkmark"></span>
+                    </label> -->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- DATA LIST -->
+<div class="row list-horizontal">
+    <div class="col-md-12 list-item">
+        <div *ngIf="products?.length === 0">
+            <div class="card o-hidden mb-4 d-flex flex-row">
+                <div class="flex-grow-1 pl-2 d-flex">
+                    <div
+                        class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row">
+                        <a class="w-100 w-sm-100">
+                            <div class="item-title text-18 text-black text-center">
+                                No hay resgistros cargados en base de
+                                datos</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SINGLE LIST ITEM -->
+    <div *ngFor="let item of products | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems: (total$ | async), id: 'gap-list'}; let i = index"
+        class="list-item col-md-12" [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'50px'}}">
+
+        <div class="card o-hidden mb-4 d-flex flex-row">
+            <div class="flex-grow-1 pl-2 d-flex">
+                <div
+                    class="card-body align-self-center flex-column justify-content-between align-items-lg-center flex-lg-row">
+                    <div class="row">
+                        <div class="col-lg-3 text-truncate d-none d-lg-block">
+                            <p class="text-muted">{{item.c_Codigo}}</p>
+                            <button class="pl-0 pt-0 btn btn-link item-title text-16 text-primary " placement="top"
+                                triggers="mouseenter:mouseleave" ngbPopover="{{item.c_Descri}}"
+                                (click)="navToDetail(item)">
+                                {{item.c_Descri}}
+                            </button>
+                        </div>
+
+
+                        <div class="col-lg-1 d-none d-lg-block ">
+                            <p class="m-0 pt-3 text-small text-left-sm text-center">
+                                <button class="btn btn-link" (click)="openModal(providersModal, item)">
+                                    <!-- <i class="i-Shop"></i> -->
+                                    Ver
+                                </button>
+                            </p>
+                        </div>
+
+
+                        <div class="col-lg-2 d-none d-lg-block ">
+                            <p class="m-0 pt-4 text-muted text-small text-left-sm text-center">
+                                {{item.differenceField1.date | date:"dd/MM/yyyy"}}
+                            </p>
+                        </div>
+
+
+                        <div class="col-lg-1 d-none d-lg-block " placement="right" triggers="mouseenter:mouseleave"
+                            popoverTitle="Tasa de cambio: {{item.differenceField1.dollarPrice | precision: 2}} Bs/$"
+                            ngbPopover="Bs. S: {{item.differenceField1.bsPrice | precision: 2}}">
+                            <p class="m-0 pt-4 text-muted text-small text-left-sm text-center">
+                                <span class="text-info">
+                                    {{item.differenceField1.bsPrice | toDolarToDay: item.differenceField1.dollarPrice | precision: 2 | currency}}
+                                </span>
+                            </p>
+                        </div>
+
+
+                        <div class="col-lg-2 d-none d-lg-block ">
+                            <p class="m-0 pt-4 text-muted text-small text-left-sm text-center">
+                                {{item.differenceField2.date | date:"dd/MM/yyyy"}}
+                            </p>
+                        </div>
+
+
+                        <div class="col-lg-1 d-none d-lg-block " placement="left" triggers="mouseenter:mouseleave"
+                            popoverTitle="Tasa de cambio: {{item.differenceField2.dollarPrice | precision: 2}} Bs/$"
+                            ngbPopover="Bs. S: {{item.differenceField2.bsPrice | precision: 2}}">
+                            <p class="m-0 pt-4 text-muted text-small text-left-sm text-center">
+                                <span class="text-info">
+                                    {{item.differenceField2.bsPrice | toDolarToDay: item.differenceField2.dollarPrice | precision: 2 | currency}}
+                                </span>
+                            </p>
+                        </div>
+
+
+                        <div class="col-lg-2 d-none d-lg-block ">
+
+                            <p class="m-0 pt-3 text-muted text-small  d-none d-lg-block item-badges text-center">
+                                <span class="badge badge-pill p-2 mr-1 text-16 "
+                                    [ngClass]="{'badge-success': ( ((item.differenceField2.bsPrice | toDolarToDay: item.differenceField2.dollarPrice | precision: 2) - (item.differenceField1.bsPrice | toDolarToDay: item.differenceField1.dollarPrice | precision: 2) ) | precision: 2)> 0,
+                                                'badge-danger':  ( ((item.differenceField2.bsPrice | toDolarToDay: item.differenceField2.dollarPrice | precision: 2) - (item.differenceField1.bsPrice | toDolarToDay: item.differenceField1.dollarPrice | precision: 2) ) | precision: 2)< 0,
+                                                'badge-warning': ( ((item.differenceField2.bsPrice | toDolarToDay: item.differenceField2.dollarPrice | precision: 2) - (item.differenceField1.bsPrice | toDolarToDay: item.differenceField1.dollarPrice | precision: 2) ) | precision: 2)== 0}">
+                                    {{item.gap | precision: 2}}%
+                                </span>
+                            </p>
+                        </div>
+
+                        <!-- RESPONSIVE -->
+
+                        <div class="col-md-8 col-sm-6 col-xs-12 text-truncate d-lg-none .d-xl-block">
+                            <a class="pt-0 text-left">
+                                <p class="text-muted">{{item.c_Codigo}}</p>
+                                <span class="item-title text-16" placement="top" triggers="mouseenter:mouseleave"
+                                    ngbPopover="{{item.c_Descri}}">
+                                    {{item.c_Descri}}
+                                </span>
+                            </a>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-12 d-lg-none .d-xl-block ">
+                            <p class="m-0 text-muted text-small item-badges text-center">
+                                <span class="badge badge-pill p-2 mr-1 text-16 "
+                                    [ngClass]="{'badge-success': ( ((item.differenceField2.bsPrice | toDolarToDay: item.differenceField2.dollarPrice | precision: 2) - (item.differenceField1.bsPrice | toDolarToDay: item.differenceField1.dollarPrice | precision: 2) ) | precision: 2)> 0,
+                                                'badge-danger':  ( ((item.differenceField2.bsPrice | toDolarToDay: item.differenceField2.dollarPrice | precision: 2) - (item.differenceField1.bsPrice | toDolarToDay: item.differenceField1.dollarPrice | precision: 2) ) | precision: 2)< 0,
+                                                'badge-warning': ( ((item.differenceField2.bsPrice | toDolarToDay: item.differenceField2.dollarPrice | precision: 2) - (item.differenceField1.bsPrice | toDolarToDay: item.differenceField1.dollarPrice | precision: 2) ) | precision: 2)== 0}">
+                                    {{item.gap | precision: 2}}%
+                                </span>
+                            </p>
+                        </div>
+
+
+                        <div class="col-md-12 col-sm-12 col-xs-12 d-lg-none .d-xl-block ">
+                            <p class="m-0 pt-0 text-small text-left">
+                                <button class="btn btn-link" (click)="openModal(providersModal, item)">
+                                    <!-- <i class="i-Eye text-16 text-primary"></i> -->
+                                    Proveedores
+                                </button>
+                            </p>
+                        </div>
+
+
+                        <div class="col-md-12 col-sm-12 col-xs-12 d-lg-none .d-xl-block ">
+                            <a class="m-0 text-muted text-small text-left">
+                                {{item.differenceField1.date | date:"dd/MM/yyyy"}}
+                            </a>
+
+                            <a class="m-0 pl-4 text-muted text-small text-left">
+                                <span class="text-info" placement="right" triggers="mouseenter:mouseleave"
+                                    popoverTitle="Tasa de cambio: {{item.differenceField1.dollarPrice | precision: 2}} Bs/$"
+                                    ngbPopover="Bs. S: {{item.differenceField1.bsPrice | precision: 2}}">
+                                    {{item.differenceField1.bsPrice | toDolarToDay: item.differenceField1.dollarPrice | precision: 2 | currency}}
+                                </span>
+                            </a>
+                        </div>
+
+
+                        <div class="col-md-12 col-sm-12 col-xs-12 d-lg-none .d-xl-block ">
+                            <a class="m-0 text-muted text-small text-left">
+                                {{item.differenceField2.date | date:"dd/MM/yyyy"}}
+                            </a>
+
+                            <a class="m-0 pl-4 text-muted text-small text-left">
+                                <span class="text-info" placement="right" triggers="mouseenter:mouseleave"
+                                    popoverTitle="Tasa de cambio: {{item.differenceField2.dollarPrice | precision: 2}} Bs/$"
+                                    ngbPopover="Bs. S: {{item.differenceField2.bsPrice | precision: 2}}">
+                                    {{item.differenceField2.bsPrice | toDolarToDay: item.differenceField2.dollarPrice | precision: 2 | currency}}
+                                </span>
+                            </a>
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+
+                <div class="align-self-center pl-3 pb-2 pr-3 item-select">
+                    <!-- <label class="checkbox checkbox-outline-light">
+                        <input type="checkbox" [(ngModel)]="item.isSelected">
+                        <span></span>
+                        <span class="checkmark"></span>
+                    </label> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- PAGINATION CONTROL -->
+    <div class="col-md-12 mt-3" *ngIf="products?.length">
+        <pagination-controls id="gap-list" (pageChange)="changePage($event)" previousLabel="" nextLabel="">
+        </pagination-controls>
+    </div>
+
+    <app-aside-dock>
+        <app-aside-right [style]="{'height': '100vh', 'top': '70px'}" [icon]="'i-Filter-2'" [title]="'Filtros'"
+            [styleIcon]="{'top': '120px'}">
+            <ng-container body>
+                <div [ngStyle]="{'height': '100vh', 'padding': '10px'}" class="text-center pt-3">
+                    <form #f="ngForm" [formGroup]="filterForm" (ngSubmit)="onFilterFormSubmit()"
+                        (keyup.enter)="searchProductsForGap()">
+                        <div class="row justify-content-md-center">
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="searchProducts" class=" item-title text-14">Producto</label>
+                                    <input id="searchProducts" placeholder="Buscar Productos" formControlName="search"
+                                        class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- <div class=" col-lg-2 col-md-3 col-sm-2 col-xs-12 text-right">
+                                <label class=" item-title text-14">Tasa del Dolar</label>
+                                <input class="form-control form-control-rounded text-right text-16" placeholder="{{dolarToDay | currency}}"
+                                    [(ngModel)]="filters.virtualDollar" (change)="changeVirtualDollar($event)" [formControl]="dollarControl" >
+                            </div> -->
+
+                            <div class=" col-lg-10">
+                                <label class=" item-title">Porcentaje
+                                    GAP</label>
+                                <div class="input-group mb-2">
+                                    <input class="form-control" placeholder="Desde" formControlName="gap">
+                                    <input class="form-control" placeholder="Hasta" formControlName="gap">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-10">
+                                <label class="item-title">Comparación para el
+                                    GAP</label>
+                                <div class="input-group mb-2">
+                                    <select class="form-control" formControlName="gaperKey1"
+                                        (change)="changeGapers($event)">
+                                        <option *ngFor="let gaper of listGapers1" [value]="gaper.key"
+                                            [disabled]="gaper.disabled">
+                                            {{gaper.name}}
+                                        </option>
+                                    </select>
+
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" (click)="twing()"> <i class="i-Sync"></i> </span>
+                                    </div>
+
+                                    <select class="form-control" formControlName="gaperKey2"
+                                        (change)="changeGapers($event)">
+                                        <option *ngFor="let gaper of listGapers2" [value]="gaper.key"
+                                            [disabled]="gaper.disabled">
+                                            {{gaper.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </ng-container>
+        </app-aside-right>
+
+
+    </app-aside-dock>
+
+</div>
+
+
+<!-- 
+    popoverTitle="{{(item.differenceField1.bsPrice | toDolarToDay: item.differenceField1.dollarPrice | precision: 2)}} - {{(item.differenceField2.bsPrice | toDolarToDay: item.differenceField2.dollarPrice | precision: 2)}}:::
+    {{(item.differenceField1.bsPrice | toDolarToDay: item.differenceField1.dollarPrice | precision: 2) - (item.differenceField2.bsPrice | toDolarToDay: item.differenceField2.dollarPrice | precision: 2) }}"
+                            
+ -->
+
+<ng-template #providersModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Proveedores</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card  o-hidden">
+                        <ngx-datatable style=" box-shadow: none" class="material fullscreen" [columnMode]="'force'"
+                            [headerHeight]="50" [footerHeight]="50" [rowHeight]="60" [limit]="5" [rows]="listProviders">
+
+                            <ngx-datatable-column name="code">
+                                <ng-template ngx-datatable-header-template>
+                                    Codigo
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="description">
+                                <ng-template ngx-datatable-header-template>
+                                    Descripción
+                                </ng-template>
+                            </ngx-datatable-column>
+
+                        </ngx-datatable>
+                    </div>
+                </div>
+            </div>
+            <!-- <div>
+                <h2>Oops!, algo ha salido mal :(</h2>
+            </div> -->
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark btn-rounded" (click)="modal.close('Cross click')">ok</button>
+    </div>
+</ng-template>

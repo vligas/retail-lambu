@@ -1,0 +1,197 @@
+<app-breadcrumb>
+</app-breadcrumb>
+
+<div class="separator-breadcumb border-top"></div>
+
+<form #f="ngForm" [formGroup]="filterForm">
+  <div class="row  mb-4">
+    <div class=" col-lg-4 col-md-6 col-sm-6 col-xs-12 text-right">
+      <label for="searchCurrencies" class=" item-title text-14">Moneda</label>
+      <div class="form-group">
+        <input id="searchCurrencies" placeholder="Buscar Monedas" formControlName="search"
+          class="form-control form-control-rounded">
+      </div>
+    </div>
+
+    <div class=" col-lg-3 col-md-6 col-sm-6 col-xs-12 text-right">
+      <label class=" item-title text-14">Denominación</label>
+      <input class="form-control text-right text-16" placeholder="Denominación" formControlName="denomination">
+    </div>
+
+    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 text-right">
+      <label class=" item-title text-14">Búsqueda</label>
+      <div class="form-group">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-outline-primary" ngbButtonLabel>
+            <input type="checkbox">
+            <span>Buscar</span> <i class="i-Magnifi-Glass1"></i>
+          </label>
+          <label class="btn-light btn btn-outline-secondary" ngbButtonLabel>
+            <input type="checkbox"> <i class="i-Repeat-2"></i>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 text-center">
+      <label class="item-title text-14">Nueva Moneda</label>
+      <div class="form-group">
+        <div class="btn-group btn-group-toggle " data-toggle="buttons">
+          <label class="btn btn-outline-primary btn-rounded" ngbButtonLabel>
+            <input type="checkbox" (click)="open(modalBasic, 1)">
+            <i class="i-Add text-20"></i>
+          </label>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="separator-breadcumb"></div>
+
+<!-- DATA LIST -->
+<div class="row list-horizontal">
+  <div class="list-item ng-tns-c6-0 col-md-12 ng-trigger ng-trigger-animate ng-star-inserted">
+    <div class="o-hidden mb-0 d-flex flex-row">
+      <div class="flex-grow-1 pl-2 d-flex">
+        <div class="card-body align-self-center flex-column justify-content-between align-items-lg-center flex-lg-row">
+
+          <div class="row">
+            <!-- OTHER DATA -->
+            <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12 d-none d-lg-block">
+              <label class="item-title text-16">Nombre</label>
+            </div>
+
+            <div class="col-lg-6 col-md-4 col-sm-3 col-xs-12 d-none d-lg-block">
+              <label class="item-title text-16">Ultimo precio</label>
+            </div>
+
+          </div>
+
+        </div>
+
+      
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row list-horizontal">
+  <div class="col-md-12 list-item">
+    <div *ngIf="currencies?.length === 0">
+      <div class="card o-hidden mb-4 d-flex flex-row">
+        <div class="flex-grow-1 pl-2 d-flex">
+          <div
+            class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row">
+            <a class="w-100 w-sm-100">
+              <div class="item-title text-18 text-black text-center">No hay
+                registros cargados en base de
+                datos</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngFor="let item of currencies | paginate: { itemsPerPage: pageSize, currentPage: page }; let i = index"
+    class="list-item col-md-12" [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'50px'}}">
+
+    <div class="card o-hidden mb-4 d-flex flex-row">
+
+      <div class="flex-grow-1 pl-2 d-flex">
+        <div class="card-body align-self-center flex-column justify-content-between align-items-lg-center flex-lg-row">
+          <!-- OTHER DATA -->
+
+          <div class="row">
+
+            <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12 text-truncate " placement="right"
+              triggers="mouseenter:mouseleave" ngbPopover="{{item.name}}">
+              <label class="item-title text-16">
+
+                {{item.name}}
+
+              </label>
+
+            </div>
+
+            <div class="col-lg-6 col-md-4 col-sm-3 col-xs-12 text-truncate">
+              <label class="item-title text-16">
+                <span class="badge badge-pill p-2 mr-1 text-16 " [ngClass]="{'badge-success': 'true'}">
+                  1{{item.denomination}} =
+                  {{item.lastPrice ? item.lastPrice.price : 0 }}
+                  Bs
+                </span>
+              </label>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-3 col-xs-12 text-truncate ">
+
+              <button class="btn btn-icon bg-transparent">
+                <a routerLink="/params/currencies/{{item.id}}/historic">
+                  <i class="i-Eye text-20 text-primary"></i>
+                </a>
+              </button>
+
+
+              <button class="btn btn-icon bg-transparent" (click)="deleteCurrency(item)"
+                [ngClass]="{'d-none': viewMode === 'grid'}">
+                <i class="i-Close text-16 text-primary"></i>
+              </button>
+
+
+              <button class="btn btn-icon bg-transparent" (click)="open(modalBasic, 2, item)"
+                [ngClass]="{'d-none': viewMode === 'grid'}">
+                <i class="i-File-Edit text-16 text-primary"></i>
+              </button>
+
+            </div>
+
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGINATION CONTROL -->
+  <div class="col-md-12 mt-3" *ngIf="currencies?.length">
+    <pagination-controls (pageChange)="page = $event" previousLabel="" nextLabel=""></pagination-controls>
+  </div>
+</div>
+
+
+
+<!--Modal Basic-->
+<ng-template #modalBasic let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{tittleModal}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="currencyForm">
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" formControlName="name" id="name" class="form-control" placeholder="escriba el nombre"
+          name="name">
+      </div>
+      <div class="form-group">
+        <label for="denomination">Denominación</label>
+        <input type="text" formControlName="denomination" id="denomination" class="form-control"
+          placeholder="inserte la descripción de la categoría" name="code">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark btn-rounded"
+      (click)="modal.close(currencyForm.value)">Save</button>
+  </div>
+
+
+</ng-template>

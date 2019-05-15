@@ -1,0 +1,9 @@
+import { Sequelize } from 'sequelize-typescript';
+
+export async function up(db: Sequelize) {
+    console.log('entre');
+}
+
+export async function down(db: Sequelize) {
+    console.log('sali');
+}
