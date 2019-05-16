@@ -26,7 +26,6 @@ export const databaseProviders = [
                     return filename.substring(0, filename.indexOf('.entity')).toLocaleLowerCase() === member.toLowerCase();
                 },
             });
-            console.log('ENTREEE VAD10 ------------------');
             await sequelize.authenticate();
             return sequelize;
         },
@@ -51,7 +50,6 @@ export const databaseProviders = [
                 },
             });
             await sequelize.authenticate();
-            console.log(sequelize.models);
             return sequelize;
         },
 

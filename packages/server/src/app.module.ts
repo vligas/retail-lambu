@@ -11,6 +11,8 @@ import { ProductModule } from './features/productControl/product.module';
 import { AuthModule } from './features/auth/auth.module';
 import { UserModule } from './features/userControl/user.module';
 import { EtiquetaModule } from './features/tagVad20/etiqueta.module';
+import { PruebaModule } from 'common/prueba/prueba.module';
+import { PruebaService } from 'common/prueba/service/prueba.service';
 
 
 
@@ -25,11 +27,15 @@ import { EtiquetaModule } from './features/tagVad20/etiqueta.module';
     ReportsModule,
     SpyModule,
     EtiquetaModule,
+    PruebaModule.forRoot('hola vale')
   ],
   controllers: [],
   providers: [],
 })
 export class AppModule implements NestModule {
+  constructor(servicio: PruebaService) {
+    servicio.log()
+  }
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(LoggerMiddleware).forRoutes('/');
     consumer.apply(RequestContextMiddleware).forRoutes('/');
