@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared/animations/shared-animations';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { DebugHelper } from 'protractor/built/debugger';
-import { SimpleProductDto } from '@frontend/app/shared/models/products.models';
-import { TagState } from '@frontend/app/shared/state/tag/tag.state';
-import { ProductState } from '@frontend/app/shared/state/product/product.state';
-import { PriceVariationState } from '@frontend/app/shared/state/price-variation/price-variation.state';
+import { SimpleProductDto } from '@retail/shared/models/products.models';
+import { TagState } from '@retail/shared/state/tag/tag.state';
+import { PriceVariationState } from '@retail/shared/state/price-variation/price-variation.state';
 import { Router } from '@angular/router';
-import { Tag } from '@frontend/app/shared/models/tag.model';
-import { FetchTag } from '@frontend/app/shared/state/tag/tag.actions';
-import { FetchProductsForPriceVariation } from '@frontend/app/shared/state/price-variation/price-variation.actions';
-import { RequestPriceVariationDto } from '@frontend/app/shared/dto/priceVariation.dto';
+import { Tag } from '@retail/shared/models/tag.model';
+import { FetchTag } from '@retail/shared/state/tag/tag.actions';
+import { FetchProductsForPriceVariation } from '@retail/shared/state/price-variation/price-variation.actions';
+import { RequestPriceVariationDto } from '@retail/shared/dto/priceVariation.dto';
 
 
 

@@ -3,7 +3,7 @@ import { HttpInterceptor, HttpErrorResponse, HttpHandler, HttpRequest, HttpEvent
 import { Observable, throwError } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
-import { Error } from '../../shared/models/error.model';
+import { Error } from '@retail/shared/models/error.model';
 import { environment } from '../../../environments/environment';
 @Injectable()
 export class ApiFailsInterceptor implements HttpInterceptor {
@@ -12,7 +12,7 @@ export class ApiFailsInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
         return next.handle(request).pipe(
-              // tslint:disable-next-line:no-any
+            // tslint:disable-next-line:no-any
             map((event: HttpEvent<any>) => {
                 if (event instanceof HttpResponse) {
 

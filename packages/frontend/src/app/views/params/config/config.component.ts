@@ -3,9 +3,9 @@ import gapOptions from '../../purchase/gap/gapersData';
 import { FormBuilder } from '@angular/forms';
 import * as _ from 'underscore';
 import { Store, Select } from '@ngxs/store';
-import { FetchConfig, UpdateConfig } from '@frontend/app/shared/state/config/config.actions';
-import { ConfigState } from '@frontend/app/shared/state/config/config.state';
-import { GapConfig } from '@frontend/app/shared/models/config.model';
+import { FetchConfig, UpdateConfig } from '@retail/shared/state/config/config.actions';
+import { ConfigState } from '@retail/shared/state/config/config.state';
+import { GapConfig } from '@retail/shared/models/config.model';
 import { Observable } from 'rxjs';
 
 @Component({

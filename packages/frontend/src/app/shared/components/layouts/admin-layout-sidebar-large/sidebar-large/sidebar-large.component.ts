@@ -1,17 +1,17 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { NavigationService, IMenuItem, IChildItem } from '../../../../services/navigation.service';
+import { NavigationService, IMenuItem, IChildItem } from '@retail/shared/services/navigation.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { Utils } from '../../../../utils';
+import { Utils } from '@retail/shared/utils';
 
 @Component({
-  selector: 'app-sidebar-large',
-  templateUrl: './sidebar-large.component.html',
-  styleUrls: ['./sidebar-large.component.scss']
+	selector: 'app-sidebar-large',
+	templateUrl: './sidebar-large.component.html',
+	styleUrls: ['./sidebar-large.component.scss']
 })
 export class SidebarLargeComponent implements OnInit {
 
-    selectedItem: IMenuItem;
+	selectedItem: IMenuItem;
 
 	nav: IMenuItem[];
 
@@ -33,7 +33,7 @@ export class SidebarLargeComponent implements OnInit {
 
 		this.navService.menuItems$
 			.subscribe((items) => {
-                this.nav = items;
+				this.nav = items;
 				this.setActiveFlag();
 			});
 	}
@@ -60,34 +60,34 @@ export class SidebarLargeComponent implements OnInit {
 
 	setActiveFlag() {
 		if (window && window.location) {
-            const activeRoute = window.location.hash || window.location.pathname;
+			const activeRoute = window.location.hash || window.location.pathname;
 			this.nav.forEach(item => {
 				item.active = false;
 				if (activeRoute.indexOf(item.state) !== -1) {
-                    this.selectedItem = item;
+					this.selectedItem = item;
 					item.active = true;
 				}
 				if (item.sub) {
 					item.sub.forEach(subItem => {
-                        subItem.active = false;
+						subItem.active = false;
 						if (activeRoute.indexOf(subItem.state) !== -1) {
-                            this.selectedItem = item;
-                            item.active = true;
-                        }
-                        if (subItem.sub) {
-                            subItem.sub.forEach(subChildItem => {
-                                if (activeRoute.indexOf(subChildItem.state) !== -1) {
-                                    this.selectedItem = item;
-                                    item.active = true;
-                                    subItem.active = true;
-                                }
-                            });
-                        }
+							this.selectedItem = item;
+							item.active = true;
+						}
+						if (subItem.sub) {
+							subItem.sub.forEach(subChildItem => {
+								if (activeRoute.indexOf(subChildItem.state) !== -1) {
+									this.selectedItem = item;
+									item.active = true;
+									subItem.active = true;
+								}
+							});
+						}
 					});
 				}
-            });
+			});
 		}
-    }
+	}
 
 	updateSidebar() {
 		if (Utils.isMobile()) {
@@ -101,6 +101,6 @@ export class SidebarLargeComponent implements OnInit {
 	@HostListener('window:resize', ['$event'])
 	onResize(event) {
 		this.updateSidebar();
-    }
+	}
 
 }

@@ -9,7 +9,7 @@ export class SidebarHelperService {
   sidenavInstances: SidebarDirective[];
 
   constructor() {
-      this.sidenavInstances = [];
+    this.sidenavInstances = [];
   }
 
   /**
@@ -19,7 +19,7 @@ export class SidebarHelperService {
    * @param instance
    */
   setSidenav(id, instance): void {
-      this.sidenavInstances[id] = instance;
+    this.sidenavInstances[id] = instance;
   }
 
   /**
@@ -28,7 +28,8 @@ export class SidebarHelperService {
    * @param id
    * @returns {any}
    */
-  getSidenav(id): SidebarDirective {   console.log(this.sidenavInstances);
-      return this.sidenavInstances[id];
+  getSidenav(id): SidebarDirective {
+    console.log(this.sidenavInstances);
+    return this.sidenavInstances[id];
   }
 }

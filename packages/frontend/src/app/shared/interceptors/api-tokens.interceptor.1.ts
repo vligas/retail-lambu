@@ -3,9 +3,7 @@ import { HttpInterceptor, HttpErrorResponse, HttpHandler, HttpRequest, HttpEvent
 import { Observable, throwError } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
-import { Error } from '../models/error.model';
-import { environment } from '../../../environments/environment';
-import { LocalStoreService } from '../services/local-store.service';
+import { LocalStoreService } from '@retail/shared/services/local-store.service';
 
 
 @Injectable()
