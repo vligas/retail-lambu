@@ -1,6 +1,6 @@
 {
-  "name": "common",
-  "version": "0.0.0",
+  "name": "@retail/common",
+  "version": "0.0.1",
   "description": "common services and controllers",
   "author": "Lambu",
   "license": "MIT",
