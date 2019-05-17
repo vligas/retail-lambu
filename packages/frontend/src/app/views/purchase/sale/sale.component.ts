@@ -3,11 +3,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SharedAnimations } from '@retail/shared/animations/shared-animations';
 import { AsideDockComponent } from '@retail/shared/components/aside-dock/aside-dock.component';
 import { Store, Select } from '@ngxs/store';
-import { SaleState } from '../../../shared/state/sale/sale.state';
+import { SaleState } from '@retail/shared/state/sale/sale.state';
 import { SimpleProductDto } from '@retail/shared/models/products.models';
 import { Observable } from 'rxjs';
 import { ResponseSaleDto } from '@retail/shared/dto/sale.dto';
-import { FetchSales } from '../../../shared/state/sale/sale.action';
+import { FetchSales } from '@retail/shared/state/sale/sale.action';
 import { Input } from '@angular/compiler/src/core';
 import { NgbDateStruct, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 

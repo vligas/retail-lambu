@@ -11,51 +11,56 @@ import { SharedPipesModule } from '@retail/shared/pipes/shared-pipes.module';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
-import { SessionState } from './state/session/session.state';
-import { DollarPriceState } from './state/dollarPrice/dollarPrice.state';
-import { CategoryState } from './state/category/category.state';
-import { GapState } from './state/gap/gap.state';
-import { TagState } from './state/tag/tag.state';
-import { CurrencyState } from './state/currency/currency.state';
-import { ProductState } from './state/product/product.state';
+import { SessionState } from '@retail/shared/state/session/session.state';
+import { DollarPriceState } from '@retail/shared/state/dollarPrice/dollarPrice.state';
+import { CategoryState } from '@retail/shared/state/category/category.state';
+import { GapState } from '@retail/shared/state/gap/gap.state';
+import { TagState } from '@retail/shared/state/tag/tag.state';
+import { CurrencyState } from '@retail/shared/state/currency/currency.state';
+import { ProductState } from '@retail/shared/state/product/product.state';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiFailsInterceptor } from './interceptors/api-fails.interceptor';
-import { ConfigState } from './state/config/config.state';
+import { ConfigState } from '@retail/shared/state/config/config.state';
 // import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
-import { RoleState } from './state/roleControl/role.state';
-import { PriceVariationState } from './state/price-variation/price-variation.state';
-import { UserState } from './state/userControl/user.state';
+import { RoleState } from '@retail/shared/state/roleControl/role.state';
+import { PriceVariationState } from '@retail/shared/state/price-variation/price-variation.state';
+import { UserState } from '@retail/shared/state/userControl/user.state';
 import { ApiTokensInterceptor } from './interceptors/api-tokens.interceptor.1';
-import { BranchOfficeState } from './state/branchOffice/branchOffice.state';
+import { BranchOfficeState } from '@retail/shared/state/branchOffice/branchOffice.state';
 import { ApiCurrencyInterceptor } from './interceptors/api-currency.interceptor';
-import { SaleState } from './state/sale/sale.state';
-import { CompetitorState } from './state/competitor/competitor.state';
-import { BranchOfficeCompetitorState } from './state/branchOfficeCompetitor/branchOfficeCompetitor.state';
+import { SaleState } from '@retail/shared/state/sale/sale.state';
+import { CompetitorState } from '@retail/shared/state/competitor/competitor.state';
+import { BranchOfficeCompetitorState } from '@retail/shared/state/branchOfficeCompetitor/branchOfficeCompetitor.state';
 import { ApiLocationInterceptor } from './interceptors/api-location.interceptor';
 import { AppRoutingModule } from '../app-routing.module';
+import { ServiceModule } from '@retail/shared/services/service.module';
+import { environment } from '@frontend/environments/environment';
 
 
 
 @NgModule({
   imports: [
     CommonModule,
+    // ServiceModule.forRoot({
+    //   apiUrl: environment.apiUrl
+    // }),
     NgxsModule.forRoot([
-      SessionState,
-      DollarPriceState,
-      CategoryState,
-      GapState,
-      CurrencyState,
-      TagState,
-      ProductState,
-      ConfigState,
-      ProductState,
-      RoleState,
-      PriceVariationState,
-      UserState,
-      BranchOfficeState,
-      SaleState,
-      CompetitorState,
-      BranchOfficeCompetitorState
+      // SessionState,
+      // DollarPriceState,
+      // CategoryState,
+      // GapState,
+      // CurrencyState,
+      // TagState,
+      // ProductState,
+      // ConfigState,
+      // ProductState,
+      // RoleState,
+      // PriceVariationState,
+      // UserState,
+      // BranchOfficeState,
+      // SaleState,
+      // CompetitorState,
+      // BranchOfficeCompetitorState
     ]),
     // NgxsStoragePluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
@@ -65,8 +70,9 @@ import { AppRoutingModule } from '../app-routing.module';
     ToastrModule.forRoot(),
     NgbModule,
     SharedComponentsModule,
-    SharedDirectivesModule,
-    SharedPipesModule,
+    // SharedDirectivesModule,
+    // SharedPipesModule,
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiFailsInterceptor, multi: true },

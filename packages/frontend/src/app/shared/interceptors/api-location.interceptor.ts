@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { Currency } from '@retail/shared/models/currency.model';
 import { Store, Select } from '@ngxs/store';
-import { BranchOfficeState } from '../state/branchOffice/branchOffice.state';
+import { BranchOfficeState } from '@retail/shared/state/branchOffice/branchOffice.state';
 import { BranchOffice } from '@retail/shared/models/branchOffice.model';
 
 

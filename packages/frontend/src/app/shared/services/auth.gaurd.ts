@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { AuthService } from './auth.service';
 import { Store, Select } from '@ngxs/store';
-import { SessionState } from '../state/session/session.state';
+import { SessionState } from '@retail/shared/state/session/session.state';
 import { Observable } from 'rxjs';
-import { LocalStoreService } from '@retail/shared/services/local-store.service';
 
 @Injectable({
   providedIn: 'root'

@@ -12,7 +12,6 @@ import { LayoutsModule } from './layouts/layouts.module';
 import { BreadcrumbComponent } from '../components/breadcrumb/breadcrumb.component';
 import { AsideDockComponent } from '@retail/shared/components/aside-dock/aside-dock.component';
 import { AsideRightComponent } from '@retail/shared/components/aside-dock/aside-right/aside-right.component';
-import { AppRoutingModule } from '@frontend/app/app-routing.module';
 
 const components = [
   BtnLoadingComponent,

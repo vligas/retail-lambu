@@ -6,8 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Error } from '@retail/shared/models/error.model';
 import { Currency } from '@retail/shared/models/currency.model';
 import { Store, Select } from '@ngxs/store';
-import { ChangeSelectCurrency } from '../state/currency/currency.actions';
-import { CurrencyState } from '../state/currency/currency.state';
+import { CurrencyState } from '@retail/shared/state/currency/currency.state';
 
 
 

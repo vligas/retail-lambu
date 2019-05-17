@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { SimpleProductDto } from '@retail/shared/models/products.models';
-import { ProductState } from '../../../shared/state/product/product.state';
-import { FetchProducts } from '../../../shared/state/product/product.actions';
+import { ProductState } from '@retail/shared/state/product/product.state';
+import { FetchProducts } from '@retail/shared/state/product/product.actions';
 import { ResponseProvidersByProductDto } from '@retail/shared/dto/product.dto';
-import { ProductService } from '../../../shared/services/product.service';
+import { ProductService } from '@retail/shared/services/product.service';
 import { Router } from '@angular/router';
-import { FetchTag } from '../../../shared/state/tag/tag.actions';
-import { TagState } from '../../../shared/state/tag/tag.state';
+import { FetchTag } from '@retail/shared/state/tag/tag.actions';
+import { TagState } from '@retail/shared/state/tag/tag.state';
 import { Tag } from '@retail/shared/models/tag.model';
 
 @Component({

@@ -8,7 +8,6 @@ import { SharedModule } from '../app/shared/shared.module';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from '@retail/shared/inmemory-db/inmemory-db.service';
 import { HttpClientModule } from '@angular/common/http';
-
 @NgModule({
   declarations: [
     AppComponent

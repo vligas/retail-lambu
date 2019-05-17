@@ -6,4 +6,4 @@ export interface ModelServiceOptions {
     page?: number;
 }
 
-export type ServiceOptions= ModelServiceOptions;
+export type ServiceOptions = ModelServiceOptions;

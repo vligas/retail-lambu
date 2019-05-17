@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { OptionToast } from '@retail/shared/utils';
-import { UserState } from '../../../shared/state/userControl/user.state';
+import { UserState } from '@retail/shared/state/userControl/user.state';
 import { ResponseSimpleUserDto } from '@retail/shared/dto/user.dto';
-import { FetchUsers } from '../../../shared/state/userControl/user.actions';
+import { FetchUsers } from '@retail/shared/state/userControl/user.actions';
 
 interface UserExt extends ResponseSimpleUserDto {
     isSelected: boolean

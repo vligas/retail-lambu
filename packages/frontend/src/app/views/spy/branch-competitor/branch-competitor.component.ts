@@ -3,16 +3,16 @@ import { SharedAnimations } from '@retail/shared/animations/shared-animations';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
-import { CompetitorService } from '../../../shared/services/competitor.service';
+import { CompetitorService } from '@retail/shared/services/competitor.service';
 import { Competitor } from '@retail/shared/models/competitor.model';
 import { Observable } from 'rxjs';
 import { Store, Select } from '@ngxs/store';
 import { ToastrService } from 'ngx-toastr';
-import { DeleteBranchCompetitor, AddBranchCompetitor, UpdateBranchCompetitor, FetchBranchCompetitor } from '../../../shared/state/branchOfficeCompetitor/branchOfficeCompetitor.actions';
+import { DeleteBranchCompetitor, AddBranchCompetitor, UpdateBranchCompetitor, FetchBranchCompetitor } from '@retail/shared/state/branchOfficeCompetitor/branchOfficeCompetitor.actions';
 import { BranchCompetitor } from '@retail/shared/models/branchOfficeCompetitor.model';
 import { Branch } from '@retail/shared/models/branchOfficeCompetitor.model';
-import { CompetitorState } from '../../../shared/state/competitor/competitor.state';
-import { ChangeCompetitorId } from '../../../shared/state/competitor/competitor.actions';
+import { CompetitorState } from '@retail/shared/state/competitor/competitor.state';
+import { ChangeCompetitorId } from '@retail/shared/state/competitor/competitor.actions';
 @Component({
   selector: 'app-branch-competitor',
   templateUrl: './branch-competitor.component.html',

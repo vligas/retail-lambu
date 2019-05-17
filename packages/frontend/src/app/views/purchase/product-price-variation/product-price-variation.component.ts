@@ -7,13 +7,12 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { DebugHelper } from 'protractor/built/debugger';
 import { SimpleProductDto } from '@retail/shared/models/products.models';
-import { TagState } from '../../../shared/state/tag/tag.state';
-import { ProductState } from '../../../shared/state/product/product.state';
-import { PriceVariationState } from '../../../shared/state/price-variation/price-variation.state';
+import { TagState } from '@retail/shared/state/tag/tag.state';
+import { PriceVariationState } from '@retail/shared/state/price-variation/price-variation.state';
 import { Router } from '@angular/router';
 import { Tag } from '@retail/shared/models/tag.model';
-import { FetchTag } from '../../../shared/state/tag/tag.actions';
-import { FetchProductsForPriceVariation } from '../../../shared/state/price-variation/price-variation.actions';
+import { FetchTag } from '@retail/shared/state/tag/tag.actions';
+import { FetchProductsForPriceVariation } from '@retail/shared/state/price-variation/price-variation.actions';
 import { RequestPriceVariationDto } from '@retail/shared/dto/priceVariation.dto';
 
 

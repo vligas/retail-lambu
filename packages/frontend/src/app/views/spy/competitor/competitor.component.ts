@@ -4,12 +4,12 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, of } from 'rxjs';
-import { AddCompetitor, UpdateCompetitor, FetchCompetitor, DeleteCompetitor } from '../../../shared/state/competitor/competitor.actions';
+import { AddCompetitor, UpdateCompetitor, FetchCompetitor, DeleteCompetitor } from '@retail/shared/state/competitor/competitor.actions';
 import { Store, Select } from '@ngxs/store';
 import { Competitor } from '@retail/shared/models/competitor.model';
-import { CompetitorState } from '../../../shared/state/competitor/competitor.state';
+import { CompetitorState } from '@retail/shared/state/competitor/competitor.state';
 import { Router, ActivatedRoute } from '@angular/router';
-import { CompetitorService } from '../../../shared/services/competitor.service';
+import { CompetitorService } from '@retail/shared/services/competitor.service';
 
 @Component({
   selector: 'app-competitor',

@@ -5,22 +5,22 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { Observable, from } from 'rxjs';
 
-import { FetchProductsForGap } from '../../../shared/state/gap/gap.actions';
-import { GapState } from '../../../shared/state/gap/gap.state';
+import { FetchProductsForGap } from '@retail/shared/state/gap/gap.actions';
+import { GapState } from '@retail/shared/state/gap/gap.state';
 import { Store, Select } from '@ngxs/store';
-import { DollarPriceState } from '../../../shared/state/dollarPrice/dollarPrice.state';
-import { FetchDollarPrice } from '../../../shared/state/dollarPrice/dollarPrice.actions';
+import { DollarPriceState } from '@retail/shared/state/dollarPrice/dollarPrice.state';
+import { FetchDollarPrice } from '@retail/shared/state/dollarPrice/dollarPrice.actions';
 import { DollarPrice } from '@retail/shared/models/dollarPrice.model';
 import { ResponseGapDto, Prices, RequestGapersDto } from '@retail/shared/dto/gap.dto';
 import gapersData from './gapersData';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import * as _ from 'underscore';
-import { ProductService } from '../../../shared/services/product.service';
+import { ProductService } from '@retail/shared/services/product.service';
 import { ResponseProvidersByProductDto } from '@retail/shared/dto/product.dto';
 import { Router } from '@angular/router';
-import { ConfigState } from '../../../shared/state/config/config.state';
+import { ConfigState } from '@retail/shared/state/config/config.state';
 import { Config } from '@retail/shared/models/config.model';
-import { FetchConfig } from '../../../shared/state/config/config.actions';
+import { FetchConfig } from '@retail/shared/state/config/config.actions';
 
 
 interface selectersGAP {
