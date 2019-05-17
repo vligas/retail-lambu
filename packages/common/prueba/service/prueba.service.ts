@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class PruebaServiceOptions {
@@ -6,12 +6,13 @@ export class PruebaServiceOptions {
 }
 
 
+// tslint:disable-next-line:max-classes-per-file
 @Injectable()
 export class PruebaService {
     constructor (public options: PruebaServiceOptions) {
     }
 
     log() {
-        console.log(this.options.cadena)
+        console.log(this.options.cadena);
     }
 }

@@ -8,3 +8,7 @@ export {
 export {
     PruebaService,
    } from './prueba/service/prueba.service';
+
+export {
+    DatabaseModule,
+   } from './database/database.module';
