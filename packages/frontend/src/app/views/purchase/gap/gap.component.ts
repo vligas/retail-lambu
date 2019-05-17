@@ -1,26 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared/animations/shared-animations';
 import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { Observable, from } from 'rxjs';
 
-import { FetchProductsForGap } from 'src/app/shared/state/gap/gap.actions';
-import { GapState } from 'src/app/shared/state/gap/gap.state';
+import { FetchProductsForGap } from '../../../shared/state/gap/gap.actions';
+import { GapState } from '../../../shared/state/gap/gap.state';
 import { Store, Select } from '@ngxs/store';
-import { DollarPriceState } from '@frontend/app/shared/state/dollarPrice/dollarPrice.state';
-import { FetchDollarPrice } from '@frontend/app/shared/state/dollarPrice/dollarPrice.actions';
-import { DollarPrice } from '@frontend/app/shared/models/dollarPrice.model';
-import { ResponseGapDto, Prices, RequestGapersDto } from '@frontend/app/shared/dto/gap.dto';
+import { DollarPriceState } from '../../../shared/state/dollarPrice/dollarPrice.state';
+import { FetchDollarPrice } from '../../../shared/state/dollarPrice/dollarPrice.actions';
+import { DollarPrice } from '@retail/shared/models/dollarPrice.model';
+import { ResponseGapDto, Prices, RequestGapersDto } from '@retail/shared/dto/gap.dto';
 import gapersData from './gapersData';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import * as _ from 'underscore';
-import { ProductService } from '@frontend/app/shared/services/product.service';
-import { ResponseProvidersByProductDto } from '@frontend/app/shared/dto/product.dto';
+import { ProductService } from '../../../shared/services/product.service';
+import { ResponseProvidersByProductDto } from '@retail/shared/dto/product.dto';
 import { Router } from '@angular/router';
-import { ConfigState } from '@frontend/app/shared/state/config/config.state';
-import { Config } from '@frontend/app/shared/models/config.model';
-import { FetchConfig } from '@frontend/app/shared/state/config/config.actions';
+import { ConfigState } from '../../../shared/state/config/config.state';
+import { Config } from '@retail/shared/models/config.model';
+import { FetchConfig } from '../../../shared/state/config/config.actions';
 
 
 interface selectersGAP {
@@ -98,13 +98,13 @@ export class GapComponent implements OnInit {
         this.store.dispatch(new FetchDollarPrice()).subscribe();
 
         this.products$.subscribe(products => {
-            if(products){
+            if (products) {
                 this.products = [...products];
             }
         });
 
         this.gappers$.subscribe(gappers => {
-            if(gappers){
+            if (gappers) {
                 this.filterForm.patchValue({
                     gaperKey1: (_.invert(Prices))[gappers.gapper1],
                     gaperKey2: (_.invert(Prices))[gappers.gapper2]
@@ -119,20 +119,20 @@ export class GapComponent implements OnInit {
             }
         });
 
-        this.gapConfig$.subscribe( config =>{
-            if(config){
-                let gapers: any[] = config.json.value.defaultPrices.map( item =>{
-                    let p: RequestGapersDto= {
-                        gapper1: Prices[item.gapper1], 
+        this.gapConfig$.subscribe(config => {
+            if (config) {
+                let gapers: any[] = config.json.value.defaultPrices.map(item => {
+                    let p: RequestGapersDto = {
+                        gapper1: Prices[item.gapper1],
                         gapper2: Prices[item.gapper2]
                     };
                     return p;
                 })
                 console.log('config:: ', gapers);
-                 // Arya mata al señor oscuro
+                // Arya mata al señor oscuro
                 this.store.dispatch(new FetchProductsForGap(gapers, { pageSize: this.pageSize, page: this.page })).subscribe();
             }
-            
+
         });
     }
 
@@ -205,9 +205,9 @@ export class GapComponent implements OnInit {
 
     searchProductsForGap() {
         const formValues = this.filterForm.getRawValue();
-        let listGapers: RequestGapersDto[]= [];
+        let listGapers: RequestGapersDto[] = [];
         listGapers.push({
-            gapper1: Prices[formValues.gaperKey1 as string] ,
+            gapper1: Prices[formValues.gaperKey1 as string],
             gapper2: Prices[formValues.gaperKey2 as string]
         })
         this.store.dispatch(new FetchProductsForGap(

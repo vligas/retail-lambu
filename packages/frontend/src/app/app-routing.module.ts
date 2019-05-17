@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthLayoutComponent } from '@retail/shared/components/layouts/auth-layout/auth-layout.component';
-import { AuthGaurd } from '@retail/shared/services/auth.gaurd';
-import { AdminLayoutSidebarCompactComponent } from '@retail/shared/components/layouts/admin-layout-sidebar-compact/admin-layout-sidebar-compact.component';
-import { AdminLayoutSidebarLargeComponent } from '@retail/shared/components/layouts/admin-layout-sidebar-large/admin-layout-sidebar-large.component';
+import { AuthLayoutComponent } from '../app/shared/components/layouts/auth-layout/auth-layout.component';
+import { AuthGaurd } from './shared/services/auth.gaurd';
+import { AdminLayoutSidebarCompactComponent } from '../app/shared/components/layouts/admin-layout-sidebar-compact/admin-layout-sidebar-compact.component';
+import { AdminLayoutSidebarLargeComponent } from '../app/shared/components/layouts/admin-layout-sidebar-large/admin-layout-sidebar-large.component';
 
 const adminRoutes: Routes = [
   {

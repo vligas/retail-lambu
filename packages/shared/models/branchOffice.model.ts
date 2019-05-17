@@ -1,2 +1,2 @@
-import { ResponseAllBranchOfficeDto } from '@frontend/app/shared/dto/branchOffice.dto';
+import { ResponseAllBranchOfficeDto } from '../dto/branchOffice.dto';
 export type BranchOffice = ResponseAllBranchOfficeDto;

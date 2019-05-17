@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared/animations/shared-animations';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { Tag } from '@frontend/app/shared/models/tag.model';
-import { TagState } from '@frontend/app/shared/state/tag/tag.state';
-import { FetchTag, AddTag, UpdateTag, DeleteTag } from '@frontend/app/shared/state/tag/tag.actions';
+import { Tag } from '@retail/shared/models/tag.model';
+import { TagState } from '../../../shared/state/tag/tag.state';
+import { FetchTag, AddTag, UpdateTag, DeleteTag } from '../../../shared/state/tag/tag.actions';
 import { DebugHelper } from 'protractor/built/debugger';
 
 @Component({
@@ -71,21 +71,21 @@ export class TagComponent implements OnInit {
         }
 
         this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
-        .result.then((tag: Tag) => {
-            switch (option) {
-                case 'create':
-                    this.addTag(tag);
-                    break;
-                case 'set':
-                    this.setTag(tag);
-                    break;
-                case 'delete':
-                    this.deleteTag(tag);
-                    break;
-            }
-        }, (reason) => {
-            console.log('Err!', reason);
-        });
+            .result.then((tag: Tag) => {
+                switch (option) {
+                    case 'create':
+                        this.addTag(tag);
+                        break;
+                    case 'set':
+                        this.setTag(tag);
+                        break;
+                    case 'delete':
+                        this.deleteTag(tag);
+                        break;
+                }
+            }, (reason) => {
+                console.log('Err!', reason);
+            });
     }
 
     addTag(tag: Tag) {

@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared/animations/shared-animations';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { SimpleProductDto } from '@frontend/app/shared/models/products.models';
-import { ProductState } from '@frontend/app/shared/state/product/product.state';
-import { FetchProducts } from '@frontend/app/shared/state/product/product.actions';
-import { ResponseProvidersByProductDto } from '@frontend/app/shared/dto/product.dto';
-import { ProductService } from '@frontend/app/shared/services/product.service';
+import { SimpleProductDto } from '@retail/shared/models/products.models';
+import { ProductState } from '../../../shared/state/product/product.state';
+import { FetchProducts } from '../../../shared/state/product/product.actions';
+import { ResponseProvidersByProductDto } from '@retail/shared/dto/product.dto';
+import { ProductService } from '../../../shared/services/product.service';
 import { Router } from '@angular/router';
-import { FetchTag } from '@frontend/app/shared/state/tag/tag.actions';
-import { TagState } from '@frontend/app/shared/state/tag/tag.state';
-import { Tag } from '@frontend/app/shared/models/tag.model';
+import { FetchTag } from '../../../shared/state/tag/tag.actions';
+import { TagState } from '../../../shared/state/tag/tag.state';
+import { Tag } from '@retail/shared/models/tag.model';
 
 @Component({
     selector: 'app-masterProduct',

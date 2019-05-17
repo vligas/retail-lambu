@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@frontend/app/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared/animations/shared-animations';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
-import { CompetitorService } from '@frontend/app/shared/services/competitor.service';
-import { Competitor } from '@frontend/app/shared/models/competitor.model';
+import { CompetitorService } from '../../../shared/services/competitor.service';
+import { Competitor } from '@retail/shared/models/competitor.model';
 import { Observable } from 'rxjs';
 import { Store, Select } from '@ngxs/store';
 import { ToastrService } from 'ngx-toastr';
-import { DeleteBranchCompetitor, AddBranchCompetitor, UpdateBranchCompetitor, FetchBranchCompetitor } from '@frontend/app/shared/state/branchOfficeCompetitor/branchOfficeCompetitor.actions';
-import { BranchCompetitor } from '@frontend/app/shared/models/branchOfficeCompetitor.model';
-import { Branch } from '../../../shared/models/branchOfficeCompetitor.model';
-import { BranchCompetitorStateModel, BranchOfficeCompetitorState } from '../../../shared/state/branchOfficeCompetitor/branchOfficeCompetitor.state';
-import { CompetitorState } from '@frontend/app/shared/state/competitor/competitor.state';
+import { DeleteBranchCompetitor, AddBranchCompetitor, UpdateBranchCompetitor, FetchBranchCompetitor } from '../../../shared/state/branchOfficeCompetitor/branchOfficeCompetitor.actions';
+import { BranchCompetitor } from '@retail/shared/models/branchOfficeCompetitor.model';
+import { Branch } from '@retail/shared/models/branchOfficeCompetitor.model';
+import { CompetitorState } from '../../../shared/state/competitor/competitor.state';
 import { ChangeCompetitorId } from '../../../shared/state/competitor/competitor.actions';
 @Component({
   selector: 'app-branch-competitor',
@@ -31,7 +30,7 @@ export class BranchCompetitorComponent implements OnInit {
   brandForm: FormGroup;
   filterForm: FormGroup;
   @Select(CompetitorState.selectCompetitor)
-  selectCompetitor$: Observable< Competitor>;
+  selectCompetitor$: Observable<Competitor>;
 
   constructor(
     private fb: FormBuilder,
@@ -50,9 +49,9 @@ export class BranchCompetitorComponent implements OnInit {
       ///get Competitor
       this.store.dispatch(new ChangeCompetitorId(params['idCompetitor'])).subscribe();
 
-      this.selectCompetitor$.subscribe( data => {
-        if(data){
-          this.competitor=data;
+      this.selectCompetitor$.subscribe(data => {
+        if (data) {
+          this.competitor = data;
           this.branch = data.branchOffices;
 
         }
@@ -68,36 +67,36 @@ export class BranchCompetitorComponent implements OnInit {
       name: [''],
       location: ['']
     });
-  
-  }
-open(content, option: number, brand?: BranchCompetitor) {
 
-  if (option === 1) {
-    this.tittleModal = 'Nueva Sucursal';
-    
-    this.brandForm.setValue({ name: '', location: ''});
-  } else {
-    this.tittleModal = 'Editar Sucursal';
-    this.brandForm.setValue({ name: brand.name, location: brand.location});
   }
+  open(content, option: number, brand?: BranchCompetitor) {
 
-  this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
- 
-    // tslint:disable-next-line:no-any
-    .result.then((result: any) => {
-      // tslint:disable-next-line:switch-default
-      switch (option) {
-        case 1:
-          this.addBranch(result);
-          break;
-        case 2:
-          this.editBranch(brand);
-          break;
-      }
-    }, (reason) => {
-      console.log('Err!', reason);
-    });
-}
+    if (option === 1) {
+      this.tittleModal = 'Nueva Sucursal';
+
+      this.brandForm.setValue({ name: '', location: '' });
+    } else {
+      this.tittleModal = 'Editar Sucursal';
+      this.brandForm.setValue({ name: brand.name, location: brand.location });
+    }
+
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
+
+      // tslint:disable-next-line:no-any
+      .result.then((result: any) => {
+        // tslint:disable-next-line:switch-default
+        switch (option) {
+          case 1:
+            this.addBranch(result);
+            break;
+          case 2:
+            this.editBranch(brand);
+            break;
+        }
+      }, (reason) => {
+        console.log('Err!', reason);
+      });
+  }
   deleteBranch(branch: BranchCompetitor) {
     this.store.dispatch(new DeleteBranchCompetitor(branch.id)).subscribe(
       () => {
@@ -111,7 +110,7 @@ open(content, option: number, brand?: BranchCompetitor) {
   }
 
   addBranch(branch: BranchCompetitor) {
-    this.store.dispatch(new AddBranchCompetitor({ ...this.brandForm.value, competitorId:  this.competitor.id })).subscribe(
+    this.store.dispatch(new AddBranchCompetitor({ ...this.brandForm.value, competitorId: this.competitor.id })).subscribe(
       () => {
         this.store.dispatch(new ChangeCompetitorId(this.competitor.id)).subscribe();
         this.toast.success('Sucursal de la competencia añadida', 'Finalizado');

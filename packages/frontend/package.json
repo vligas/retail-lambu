@@ -1,6 +1,6 @@
 {
-  "name": "frontend",
-  "version": "0.0.0",
+  "name": "@retail/frontend",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -53,6 +53,7 @@
     "underscore": "^1.9.1",
     "web-animations-js": "2.3.1",
     "zone.js": "~0.8.26",
+    "request": "2.79.0",
     "@retail/shared": "0.0.1"
   },
   "devDependencies": {

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
-import { Currency } from '@frontend/app/shared/models/currency.model';
+import { SharedAnimations } from '@retail/shared/animations/shared-animations';
+import { Currency } from '@retail/shared/models/currency.model';
 import { Store, Select } from '@ngxs/store';
-import { CurrencyState } from '@frontend/app/shared/state/currency/currency.state';
-import { AddCurrency, FetchCurrency, DeleteCurrency, UpdateCurrency } from '@frontend/app/shared/state/currency/currency.actions';
+import { CurrencyState } from '../../../shared/state/currency/currency.state';
+import { AddCurrency, FetchCurrency, DeleteCurrency, UpdateCurrency } from '../../../shared/state/currency/currency.actions';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
@@ -65,7 +65,7 @@ export class CurrencyComponent implements OnInit {
  * @param content 
  */
   open(content, option: number, currency?: Currency) {
-console.log('Contenido del modal', content);
+    console.log('Contenido del modal', content);
     if (option === 1) {
       this.tittleModal = 'Nueva Moneda';
       this.currencyForm.setValue({ name: '', denomination: '' });

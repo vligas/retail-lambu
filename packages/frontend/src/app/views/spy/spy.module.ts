@@ -8,12 +8,12 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SharedComponentsModule } from '@frontend/app/shared/components/shared-components.module';
+import { SharedComponentsModule } from '../../shared/components/shared-components.module';
 
 
 @NgModule({
   declarations: [
-    CompetitorComponent, 
+    CompetitorComponent,
     BranchCompetitorComponent
   ],
   imports: [

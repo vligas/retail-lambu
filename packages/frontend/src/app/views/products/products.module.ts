@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { SharedComponentsModule } from 'src/app/shared/components/shared-components.module';
+import { SharedComponentsModule } from '../../shared/components/shared-components.module';
 
-import { SharedPipesModule } from 'src/app/shared/pipes/shared-pipes.module'
+import { SharedPipesModule } from '@retail/shared/pipes/shared-pipes.module'
 import { PurchaseRoutingModule } from './products-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';

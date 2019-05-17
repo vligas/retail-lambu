@@ -4,9 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from '../app/shared/shared.module';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './shared/inmemory-db/inmemory-db.service';
+import { InMemoryDataService } from '@retail/shared/inmemory-db/inmemory-db.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

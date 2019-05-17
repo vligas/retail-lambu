@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared/animations/shared-animations';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, of } from 'rxjs';
 import { AddCompetitor, UpdateCompetitor, FetchCompetitor, DeleteCompetitor } from '../../../shared/state/competitor/competitor.actions';
 import { Store, Select } from '@ngxs/store';
-import { Competitor } from '@frontend/app/shared/models/competitor.model';
-import { CompetitorState } from '@frontend/app/shared/state/competitor/competitor.state';
+import { Competitor } from '@retail/shared/models/competitor.model';
+import { CompetitorState } from '../../../shared/state/competitor/competitor.state';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CompetitorService } from '../../../shared/services/competitor.service';
 
@@ -28,7 +28,7 @@ export class CompetitorComponent implements OnInit {
   filterForm: FormGroup;
   competitors: Competitor[];
   @Select(CompetitorState.getAllCompetitors) competitors$: Observable<Competitor[]>;
- 
+
   constructor(
     private store: Store,
     private fb: FormBuilder,
@@ -37,61 +37,61 @@ export class CompetitorComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private competitorService: CompetitorService
-    ) { 
-    
+  ) {
+
   }
 
 
   ngOnInit() {
-  
+
     this.store.dispatch(new FetchCompetitor()).subscribe();
     this.competitors$.subscribe(competitors => {
       this.competitors = competitors;
     });
-   this.competitorForm = this.fb.group({
-    name: ['', Validators.required]
-  });
-  this.filterForm = this.fb.group({
-    search: [''],
-    name: ['']
-  });
-
-  }
-
-   /**
- * Show teh popup form to add category
- * @param content 
- */
-open(content, option: number, competitor?: any) {
-
-  if (option === 1) {
-    this.tittleModal = 'Nuevo Competidor';
-    this.competitorForm.setValue({ name: ''});
-  } else {
-    this.tittleModal = 'Editar Competidor';
-    this.competitorForm.setValue({ name: competitor.name});
-  }
-
-  this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
- 
-    .result.then((result: any) => {
-      console.log('entree');
-      // tslint:disable-next-line:switch-default
-      switch (option) {
-        case 1:
-          // add category
-         
-          this.addCompetitor(result);
-          break;
-        case 2:
-          // edit category
-          this.editCurrency(competitor);
-          break;
-      }
-    }, (reason) => {
-      console.log('Err!', reason);
+    this.competitorForm = this.fb.group({
+      name: ['', Validators.required]
     });
-}
+    this.filterForm = this.fb.group({
+      search: [''],
+      name: ['']
+    });
+
+  }
+
+  /**
+* Show teh popup form to add category
+* @param content 
+*/
+  open(content, option: number, competitor?: any) {
+
+    if (option === 1) {
+      this.tittleModal = 'Nuevo Competidor';
+      this.competitorForm.setValue({ name: '' });
+    } else {
+      this.tittleModal = 'Editar Competidor';
+      this.competitorForm.setValue({ name: competitor.name });
+    }
+
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
+
+      .result.then((result: any) => {
+        console.log('entree');
+        // tslint:disable-next-line:switch-default
+        switch (option) {
+          case 1:
+            // add category
+
+            this.addCompetitor(result);
+            break;
+          case 2:
+            // edit category
+            this.editCurrency(competitor);
+            break;
+        }
+      }, (reason) => {
+        console.log('Err!', reason);
+      });
+  }
   deleteCompetitor(competitor: Competitor) {
     this.store.dispatch(new DeleteCompetitor(competitor.id)).subscribe(
       () => {
@@ -112,7 +112,7 @@ open(content, option: number, competitor?: any) {
         this.toast.error(error.message);
       }
     );
-   
+
   }
 
   editCurrency(competitor: Competitor) {
@@ -127,6 +127,6 @@ open(content, option: number, competitor?: any) {
   }
   navToDetail(obj) {
     this.router.navigate(['spy/competitor', obj.id]);
-}
+  }
 
 }

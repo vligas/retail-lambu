@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared/animations/shared-animations';
 import { Store, Select } from '@ngxs/store';
 import { ToastrService, Toast } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Role, Permits } from '@frontend/app/shared/models/auth.model';
+import { Role, Permits } from '@retail/shared/models/auth.model';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from '@frontend/app/shared/services/auth.service';
-import { RequestUpdateRoleDto, RequestCreateRolePermissionDto } from '@frontend/app/shared/dto/auth.dto';
-import { OptionToast } from '@frontend/app/shared/utils';
-import { ResponseSimpleUserDto, RequestUpdateUserDto } from '@frontend/app/shared/dto/user.dto';
-import { UserService } from '@frontend/app/shared/services/user.service';
-import { RoleState } from '@frontend/app/shared/state/roleControl/role.state';
+import { AuthService } from '../../../shared/services/auth.service';
+import { RequestUpdateRoleDto, RequestCreateRolePermissionDto } from '@retail/shared/dto/auth.dto';
+import { OptionToast } from '@retail/shared/utils';
+import { ResponseSimpleUserDto, RequestUpdateUserDto } from '@retail/shared/dto/user.dto';
+import { UserService } from '../../../shared/services/user.service';
+import { RoleState } from '../../../shared/state/roleControl/role.state';
 import { Observable } from 'rxjs';
-import { FetchRoles } from '@frontend/app/shared/state/roleControl/role.actions';
-import { UpdateUser } from '@frontend/app/shared/state/userControl/user.actions';
+import { FetchRoles } from '../../../shared/state/roleControl/role.actions';
+import { UpdateUser } from '../../../shared/state/userControl/user.actions';
 import { debounceTime } from 'rxjs/operators';
 
 interface RoleExt extends Role {

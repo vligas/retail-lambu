@@ -1,5 +1,3 @@
-import { Title } from '@angular/platform-browser';
-import { isArray } from 'util';
 
 export class Utils {
 
@@ -46,10 +44,10 @@ export class Utils {
         if (Object.keys(params).length > 0) {
             const sParams = new URLSearchParams();
             Object.keys(params).map((key) => {
-                let value= params[key];
+                let value = params[key];
 
-                if(this.isArray(value) || this.isObject(value) ){ 
-                    value= JSON.stringify(params[key]); 
+                if (this.isArray(value) || this.isObject(value)) {
+                    value = JSON.stringify(params[key]);
                 }
 
                 sParams.append(key, value);
@@ -79,15 +77,15 @@ export class Utils {
         return (obj === null || obj === undefined || obj!.toString().trim() === '');
     }
 
-    static isArray (value) {
+    static isArray(value) {
         return value && typeof value === 'object' && value.constructor === Array;
     }
 
-    static isObject (value) {
+    static isObject(value) {
         return value && typeof value === 'object' && value.constructor === Object;
     }
 
-    static isFunction (value) {
+    static isFunction(value) {
         return typeof value === 'function';
     }
 
