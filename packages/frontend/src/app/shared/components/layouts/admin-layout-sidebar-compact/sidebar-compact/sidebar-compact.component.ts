@@ -3,10 +3,10 @@ import {
   NavigationService,
   IMenuItem,
   IChildItem
-} from "../../../../services/navigation.service";
+} from "@retail/shared/services/navigation.service";
 import { Router, NavigationEnd } from "@angular/router";
 import { filter } from "rxjs/operators";
-import { Utils } from "../../../../utils";
+import { Utils } from "@retail/shared/utils";
 
 @Component({
   selector: "app-sidebar-compact",
@@ -18,7 +18,7 @@ export class SidebarCompactComponent implements OnInit {
 
   nav: IMenuItem[];
 
-  constructor(public router: Router, public navService: NavigationService) {}
+  constructor(public router: Router, public navService: NavigationService) { }
 
   ngOnInit() {
     this.updateSidebar();

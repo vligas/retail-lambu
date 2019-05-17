@@ -1,6 +1,6 @@
 import { Input, Directive, TemplateRef, ViewContainerRef, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
-import { SessionState } from '../state/session/session.state';
+import { SessionState } from '@retail/shared/state/session/session.state';
 import { Select, Store } from '@ngxs/store';
 
 @Directive({

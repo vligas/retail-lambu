@@ -1,25 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared/animations/shared-animations';
 import { Store, Select } from '@ngxs/store';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { OptionToast } from '@frontend/app/shared/utils';
-import { UserState } from '@frontend/app/shared/state/userControl/user.state';
-import { ResponseSimpleUserDto } from '@frontend/app/shared/dto/user.dto';
-import { FetchUsers } from '@frontend/app/shared/state/userControl/user.actions';
+import { OptionToast } from '@retail/shared/utils';
+import { UserState } from '@retail/shared/state/userControl/user.state';
+import { ResponseSimpleUserDto } from '@retail/shared/dto/user.dto';
+import { FetchUsers } from '@retail/shared/state/userControl/user.actions';
 
-interface UserExt extends ResponseSimpleUserDto{
+interface UserExt extends ResponseSimpleUserDto {
     isSelected: boolean
 }
 
 @Component({
-  selector: 'app-masterUser',
-  templateUrl: './masterUser.component.html',
-  styleUrls: ['./masterUser.component.scss'],
-  animations: [SharedAnimations]
+    selector: 'app-masterUser',
+    templateUrl: './masterUser.component.html',
+    styleUrls: ['./masterUser.component.scss'],
+    animations: [SharedAnimations]
 })
 export class MasterUserComponent implements OnInit {
     viewMode: 'list' | 'grid' = 'list';
@@ -33,7 +33,7 @@ export class MasterUserComponent implements OnInit {
     users$: Observable<UserExt[]>;
     users: UserExt[];
 
-    listRoles: any[]= [];
+    listRoles: any[] = [];
 
 
     constructor(
@@ -48,8 +48,8 @@ export class MasterUserComponent implements OnInit {
         console.log('[Master-User]: init.');
 
         this.store.dispatch(new FetchUsers()).subscribe();
-        this.users$.subscribe( data =>{
-            this.users= data;
+        this.users$.subscribe(data => {
+            this.users = data;
             console.log(this.users);
         })
 
@@ -71,7 +71,7 @@ export class MasterUserComponent implements OnInit {
     }
 
 
-    navToDetail(obj: UserExt){
+    navToDetail(obj: UserExt) {
         this.router.navigate(['authManagement/detail-user', obj.id]);
     }
 
@@ -82,7 +82,7 @@ export class MasterUserComponent implements OnInit {
      */
     openModal(content, option: string, user?: UserExt) {
 
-        switch (option.toLowerCase()){
+        switch (option.toLowerCase()) {
             case 'create':
                 this.userForm.setValue({ name: '', description: '', id: 0 });
                 break;
@@ -95,30 +95,30 @@ export class MasterUserComponent implements OnInit {
             case 'roles':
                 this.listRoles = user.roles;
                 console.log(this.listRoles);
-                
+
                 break;
         }
 
         this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
-        .result.then((user: UserExt) => {
-            switch (option) {
-                case 'create':
-                    // this.addTag(tag);
-                    break;
-                case 'set':
-                    this.setRole(user);
-                    break;
-                case 'delete':
-                    // this.deleteTag(tag);
-                    break;
-            }
-        }, (reason) => {
-            console.log('Err!', reason);
-        });
+            .result.then((user: UserExt) => {
+                switch (option) {
+                    case 'create':
+                        // this.addTag(tag);
+                        break;
+                    case 'set':
+                        this.setRole(user);
+                        break;
+                    case 'delete':
+                        // this.deleteTag(tag);
+                        break;
+                }
+            }, (reason) => {
+                console.log('Err!', reason);
+            });
     }
 
 
-    setRole(user: UserExt){
+    setRole(user: UserExt) {
         console.log('set user:: ', user);
 
         /* this.store.dispatch(new UpdateRole({id: role.id, register: role})).subscribe( success =>{
@@ -130,5 +130,5 @@ export class MasterUserComponent implements OnInit {
             this.toast.success('Rol actualizado exitosamente' , role.name, opt);
         }); */
     }
-    
+
 }

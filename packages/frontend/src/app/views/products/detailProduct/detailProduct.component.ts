@@ -1,24 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared/animations/shared-animations';
 import { Store, Select, Selector } from '@ngxs/store';
 import { Observable, of } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { ProductService } from '@frontend/app/shared/services/product.service';
+import { ProductService } from '@retail/shared/services/product.service';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Product, SimpleProductDto } from '@frontend/app/shared/models/products.models';
-import { TagService } from '@frontend/app/shared/services/tag.service';
-import { TagState } from '@frontend/app/shared/state/tag/tag.state';
-import { Tag } from '@frontend/app/shared/models/tag.model';
-import { FetchTag, AddTagxProduct, DeleteTagxProduct } from '@frontend/app/shared/state/tag/tag.actions';
-import { Omit } from '@frontend/app/shared/utils';
-import { echartStyles } from '@frontend/app/shared/echart-styles';
+import { Product, SimpleProductDto } from '@retail/shared/models/products.models';
+import { TagService } from '@retail/shared/services/tag.service';
+import { TagState } from '@retail/shared/state/tag/tag.state';
+import { Tag } from '@retail/shared/models/tag.model';
+import { FetchTag, AddTagxProduct, DeleteTagxProduct } from '@retail/shared/state/tag/tag.actions';
+import { Omit } from '@retail/shared/utils';
+import { echartStyles } from '@retail/shared/echart-styles';
 import { EChartOption } from 'echarts';
-import { ProductState } from '@frontend/app/shared/state/product/product.state';
-import { FetchProducts } from '@frontend/app/shared/state/product/product.actions';
-import { ResponseProvidersByProductDto } from '@frontend/app/shared/dto/product.dto';
-
 
 interface TagExtends extends Tag {
     display: string;

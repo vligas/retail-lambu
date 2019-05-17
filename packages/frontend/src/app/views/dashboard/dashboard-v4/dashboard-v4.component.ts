@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { echartStyles } from 'src/app/shared/echart-styles';
-import { ProductService } from 'src/app/shared/services/product.service';
+import { echartStyles } from '@retail/shared/echart-styles';
+import { ProductService } from '@retail/shared/services/product.service';
 
 @Component({
-	selector: 'app-dashboard-v4',
-	templateUrl: './dashboard-v4.component.html',
-	styleUrls: ['./dashboard-v4.component.scss']
+    selector: 'app-dashboard-v4',
+    templateUrl: './dashboard-v4.component.html',
+    styleUrls: ['./dashboard-v4.component.scss']
 })
 export class DashboardV4Component implements OnInit {
-	lineChart1;
-	chartLineSmall1: any;
-	products$: any;
+    lineChart1;
+    chartLineSmall1: any;
+    products$: any;
 
-	constructor(
-		private productService: ProductService
+    constructor(
+        private productService: ProductService
     ) { }
 
     ngOnInit() {

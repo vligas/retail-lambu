@@ -1,26 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared/animations/shared-animations';
 import { Store, Select } from '@ngxs/store';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { RoleState } from '@frontend/app/shared/state/roleControl/role.state';
+import { RoleState } from '@retail/shared/state/roleControl/role.state';
 import { Observable } from 'rxjs';
-import { Role } from '@frontend/app/shared/models/auth.model';
-import { FetchRoles, UpdateRole, DeleteRole } from '@frontend/app/shared/state/roleControl/role.actions';
+import { Role } from '@retail/shared/models/auth.model';
+import { FetchRoles, UpdateRole, DeleteRole } from '@retail/shared/state/roleControl/role.actions';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from '@frontend/app/shared/services/auth.service';
-import { OptionToast } from '@frontend/app/shared/utils';
+import { AuthService } from '@retail/shared/services/auth.service';
+import { OptionToast } from '@retail/shared/utils';
 
-interface RoleExt extends Role{
+interface RoleExt extends Role {
     isSelected: boolean
 }
 
 @Component({
-  selector: 'app-masterRole',
-  templateUrl: './masterRole.component.html',
-  styleUrls: ['./masterRole.component.scss'],
-  animations: [SharedAnimations]
+    selector: 'app-masterRole',
+    templateUrl: './masterRole.component.html',
+    styleUrls: ['./masterRole.component.scss'],
+    animations: [SharedAnimations]
 })
 export class MasterRoleComponent implements OnInit {
     viewMode: 'list' | 'grid' = 'list';
@@ -34,7 +34,7 @@ export class MasterRoleComponent implements OnInit {
     roles$: Observable<RoleExt[]>;
     roles: RoleExt[];
 
-    listPermits: any[]= [];
+    listPermits: any[] = [];
 
 
     constructor(
@@ -50,10 +50,10 @@ export class MasterRoleComponent implements OnInit {
         console.log('[Master-Role]: init.');
 
         this.store.dispatch(new FetchRoles()).subscribe();
-        this.roles$.subscribe( data =>{
-            this.roles= data;
+        this.roles$.subscribe(data => {
+            this.roles = data;
             console.log(this.roles);
-            
+
         })
 
         this.roleForm = this.fb.group({
@@ -74,11 +74,11 @@ export class MasterRoleComponent implements OnInit {
     }
 
 
-    navToDetail(obj: RoleExt){
+    navToDetail(obj: RoleExt) {
         this.router.navigate(['authManagement/detail-role', obj.id]);
     }
 
-    navToCreate(){
+    navToCreate() {
         this.router.navigate(['authManagement/detail-role', 0]);
     }
 
@@ -89,7 +89,7 @@ export class MasterRoleComponent implements OnInit {
      */
     openModal(content, option: string, role?: RoleExt) {
 
-        switch (option.toLowerCase()){
+        switch (option.toLowerCase()) {
             case 'create':
                 this.roleForm.setValue({ name: '', description: '', id: 0 });
                 break;
@@ -100,53 +100,53 @@ export class MasterRoleComponent implements OnInit {
                 this.roleForm.setValue({ name: role.name, description: role.description, id: role.id });
                 break;
             case 'permits':
-                this.listPermits= role.permissions;
+                this.listPermits = role.permissions;
                 break;
         }
 
         this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
-        .result.then((role: RoleExt) => {
-            switch (option) {
-                case 'create':
-                    // this.addTag(tag);
-                    break;
-                case 'set':
-                    this.setRole(role);
-                    break;
-                case 'delete':
-                    this.deleteRole(role);
-                    break;
-            }
-        }, (reason) => {
-            console.log('Err!', reason);
-        });
+            .result.then((role: RoleExt) => {
+                switch (option) {
+                    case 'create':
+                        // this.addTag(tag);
+                        break;
+                    case 'set':
+                        this.setRole(role);
+                        break;
+                    case 'delete':
+                        this.deleteRole(role);
+                        break;
+                }
+            }, (reason) => {
+                console.log('Err!', reason);
+            });
     }
 
 
-    setRole(role: RoleExt){
+    setRole(role: RoleExt) {
         console.log('set role:: ', role);
 
-        this.store.dispatch(new UpdateRole({id: role.id, register: role})).subscribe( success =>{
-            let opt: OptionToast= {
+        this.store.dispatch(new UpdateRole({ id: role.id, register: role })).subscribe(success => {
+            let opt: OptionToast = {
                 closeButton: true,
                 progressBar: true,
                 timeOut: 3000
             }
-            this.toast.success('Rol actualizado exitosamente' , role.name, opt);
+            this.toast.success('Rol actualizado exitosamente', role.name, opt);
         });
     }
 
-    deleteRole(role: RoleExt){
+    deleteRole(role: RoleExt) {
         console.log('delete role:: ', role);
 
-        this.store.dispatch(new DeleteRole(role.id)).subscribe( success =>{
-            let opt: OptionToast= {
+        this.store.dispatch(new DeleteRole(role.id)).subscribe(success => {
+            let opt: OptionToast = {
                 closeButton: true,
                 progressBar: true,
                 timeOut: 3000
             }
-            this.toast.success('Rol eliminado exitosamente' , role.name, opt);
+            this.toast.success('Rol eliminado exitosamente', role.name, opt);
         });
     }
-    
+
 }

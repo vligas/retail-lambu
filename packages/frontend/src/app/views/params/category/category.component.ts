@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
-import { DataLayerService } from 'src/app/shared/services/data-layer.service';
-import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
-import { CategoryState } from '@frontend/app/shared/state/category/category.state';
+import { DataLayerService } from '@retail/shared/services/data-layer.service';
+import { SharedAnimations } from '@retail/shared/animations/shared-animations';
+import { CategoryState } from '@retail/shared/state/category/category.state';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Store, Select } from '@ngxs/store';
-import { Category } from '@frontend/app/shared/models/category.model';
+import { Category } from '@retail/shared/models/category.model';
 import { Observable } from 'rxjs';
-import { FetchCategory, AddCategory, DeleteCategory, UpdateCategory } from '@frontend/app/shared/state/category/category.actions';
+import { FetchCategory, AddCategory, DeleteCategory, UpdateCategory } from '@retail/shared/state/category/category.actions';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 

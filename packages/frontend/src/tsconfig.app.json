@@ -5,8 +5,16 @@
     "resolveJsonModule": true,
     "types": []
   },
+  "include": [
+    "./**/*.ts",
+    "../node_modules/@retail/**/*.ts"
+  ],
+  "files": [
+    "main.ts",
+    "polyfills.ts"
+  ],
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
-  ]
+  ],
 }

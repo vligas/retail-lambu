@@ -1,13 +1,13 @@
 import { Component, OnInit, QueryList, ContentChildren, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
-import { AsideDockComponent } from '../../../shared/components/aside-dock/aside-dock.component';
+import { SharedAnimations } from '@retail/shared/animations/shared-animations';
+import { AsideDockComponent } from '@retail/shared/components/aside-dock/aside-dock.component';
 import { Store, Select } from '@ngxs/store';
-import { SaleState } from '@frontend/app/shared/state/sale/sale.state';
-import { SimpleProductDto } from '@frontend/app/shared/models/products.models';
+import { SaleState } from '@retail/shared/state/sale/sale.state';
+import { SimpleProductDto } from '@retail/shared/models/products.models';
 import { Observable } from 'rxjs';
-import { ResponseSaleDto } from '@frontend/app/shared/dto/sale.dto';
-import { FetchSales } from '@frontend/app/shared/state/sale/sale.action';
+import { ResponseSaleDto } from '@retail/shared/dto/sale.dto';
+import { FetchSales } from '@retail/shared/state/sale/sale.action';
 import { Input } from '@angular/compiler/src/core';
 import { NgbDateStruct, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 
