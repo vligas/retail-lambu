@@ -11,8 +11,8 @@ import { ProductModule } from './features/productControl/product.module';
 import { AuthModule } from './features/auth/auth.module';
 import { UserModule } from './features/userControl/user.module';
 import { EtiquetaModule } from './features/tagVad20/etiqueta.module';
-import { PruebaModule } from './common/prueba/prueba.module';
-import { PruebaService } from './common/prueba/service/prueba.service';
+import { PruebaService } from '@retail/common';
+import { PruebaModule } from '@retail/common';
 
 
 
