@@ -4,6 +4,7 @@ import { ResponseFormat } from '../dto/responseFormat.interface';
 import { ResponseProductDto, ResponseProvidersByProductDto, ResponseSimpleProductDto } from '../dto/product.dto';
 import { Tag } from '../models/tag.model';
 import { Utils } from '../utils';
+import { ServiceOpts } from './service.module';
 
 
 @Injectable({
@@ -11,11 +12,13 @@ import { Utils } from '../utils';
 })
 export class ProductService {
 
-  private options = {
-    apiUrl: 'jajs'
-  };
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private options: ServiceOpts) {
+    this.options = options;
+    console.group("ProductService Constructor");
+    console.log("Injected options");
+    console.log(this.options);
+    console.groupEnd();
   }
 
   getProducts(options: {

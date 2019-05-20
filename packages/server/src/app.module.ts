@@ -23,17 +23,17 @@ import { Role } from './database/models/VAD10/role/role.entity';
     ConfigModule,
     DatabaseModule.forRoot([{
       token: 'VAD10',
-      username: 'sa',
-      password: 'lambu123',
+      username: 'SA',
+      password: 'mcs..153',
       dialect: 'mssql',
       host: '127.0.0.1',
       logging: false,
       port: 1433,
-      database: 'STELLAR-VAD10',
+      database: 'stellar',
       benchmark: false,
       modelPaths: [__dirname + '/database/models/VAD10/**/*.entity.{ts,js}'],
       modelMatch: (filename, member) => {
-          return filename.substring(0, filename.indexOf('.entity')).toLocaleLowerCase() === member.toLowerCase();
+        return filename.substring(0, filename.indexOf('.entity')).toLocaleLowerCase() === member.toLowerCase();
       },
     }]),
     EntityModule.forFeature([Role]),/**Prueba de entity configurable */

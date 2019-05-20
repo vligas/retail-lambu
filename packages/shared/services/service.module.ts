@@ -12,19 +12,18 @@ export { ServiceOpts };
 export class ServiceModule {
 
     static forRoot(options?: ModuleOptions): ModuleWithProviders {
-        console.log("entre", options)
         return ({
             ngModule: ServiceModule,
             providers: [
-                // {
-                //     provide: FOR_ROOT_OPTIONS_TOKEN,
-                //     useValue: options
-                // },
-                // {
-                //     provide: ServiceOpts,
-                //     useFactory: provideServiceOptions,
-                //     deps: [FOR_ROOT_OPTIONS_TOKEN]
-                // }
+                {
+                    provide: FOR_ROOT_OPTIONS_TOKEN,
+                    useValue: options
+                },
+                {
+                    provide: ServiceOpts,
+                    useFactory: provideServiceOptions,
+                    deps: [FOR_ROOT_OPTIONS_TOKEN]
+                }
             ]
         });
     }
@@ -36,7 +35,6 @@ export interface ModuleOptions {
 
 export var FOR_ROOT_OPTIONS_TOKEN = new InjectionToken<ModuleOptions>("forRoot() Service configuration.");
 export function provideServiceOptions(options?: ModuleOptions): ServiceOpts {
-    console.log(options)
     var serviceOptions = new ServiceOpts();
 
     if (options) {

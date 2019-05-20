@@ -7,7 +7,7 @@
   },
   "include": [
     "./**/*.ts",
-    "../node_modules/@retail/**/*.ts"
+    "../../../node_modules/@retail/**/*.ts"
   ],
   "files": [
     "main.ts",

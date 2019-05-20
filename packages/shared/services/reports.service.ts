@@ -7,6 +7,7 @@ import { ResponsePriceVariationDto } from '../dto/priceVariation.dto';
 
 import { Utils } from '../utils';
 import { ServiceOptions } from '../models/queryOptions.model';
+import { ServiceOpts } from './service.module';
 
 @Injectable({
   providedIn: 'root'
@@ -14,14 +15,11 @@ import { ServiceOptions } from '../models/queryOptions.model';
 export class ReportsService {
 
 
-  private options = {
-    apiUrl: 'jajs'
-  };
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private options: ServiceOpts) {
   }
 
-  getProductsForGap(gapers: RequestGapersDto[], options: ServiceOptions) {
+  getProductsForGap(gapers: RequestGapersDto[], options: ServiceOptions, ) {
     let url = `${this.options.apiUrl}/gap/best`;
     const params = { gapers };
 

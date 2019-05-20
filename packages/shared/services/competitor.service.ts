@@ -4,7 +4,7 @@ import { ResponseFormat } from '../dto/responseFormat.interface';
 import { ResponseCreateCurrencyDto, ResponseCurrencyWithValues, ResponseAllCurrencyDto, RequestCreateCurrencyDto, RequestUpdateCurrencyDto, ResponseCreateCurrencyHistoricDto } from '../dto/currency.dto';
 import { map } from 'rxjs/operators';
 import { ResponseCompetitorDto, RequestCreateCompetitorDto, RequestUpdateCompetitorDto } from '../dto/competitor.dto';
-import { ServiceOpts } from './service.service';
+import { ServiceOpts } from './service.module';
 
 
 @Injectable({
@@ -12,11 +12,7 @@ import { ServiceOpts } from './service.service';
 })
 export class CompetitorService {
 
-    private options = {
-        apiUrl: 'jajs'
-    };
-
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private options: ServiceOpts) {
     }
 
     getAllCompetitors() {

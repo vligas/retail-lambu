@@ -2,18 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ResponseBranchOfficeDto, RequestCreateBranchOfficeDto, RequestUpdateBranchOfficeDto } from '../dto/branchOffice.dto';
 import { ResponseFormat } from '../dto/responseFormat.interface';
+import { ServiceOpts } from './service.module';
 
 @Injectable({
     providedIn: 'root'
 })
 export class BranchOfficeCompetitorService {
 
-
-    private options = {
-        apiUrl: 'jajs'
-    };
-
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private options: ServiceOpts) {
     }
 
     getAllBranchOffice() {

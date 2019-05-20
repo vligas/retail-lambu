@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ResponseFormat } from '../dto/responseFormat.interface';
 import { ResponseCreateDollarPriceDto, RequestCreateDollarPriceDto } from '../dto/dollarPrice.dto';
 import { map } from 'rxjs/operators';
+import { ServiceOpts } from './service.module';
 
 
 @Injectable({
@@ -10,11 +11,7 @@ import { map } from 'rxjs/operators';
 })
 export class DollarPriceService {
 
-    private options = {
-        apiUrl: 'jajs'
-    };
-
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private options: ServiceOpts) {
     }
 
     getAllDollarPrices() {
