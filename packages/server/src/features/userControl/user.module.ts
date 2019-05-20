@@ -2,13 +2,21 @@ import { Module } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UserControlController } from './user.controller';
 import { databaseProviders } from 'src/database/database.providers';
-import { DatabaseModule } from 'src/database/database.module';
+import { DatabaseModule } from '@retail/common';
 import { ConfigModule } from 'src/config/config.module';
 import { AuthModule } from '../auth/auth.module';
+import { EntityModule } from '../../database/entity.module';
+import { Role } from 'src/database/models/VAD10/role/role.entity';
+import { Permission } from 'src/database/models/VAD10/permission/permission.entity';
+import { MaSucursales } from 'src/database/models/VAD10/stellar/maSucursales/maSucursales.entity';
+import { User } from 'src/database/models/VAD10/user/user.entity'
 
 
 @Module({
-    imports: [DatabaseModule, ConfigModule],
+    imports: [
+        EntityModule.forFeature([User, Role, Permission, MaSucursales]),
+        ConfigModule
+    ],
     controllers: [UserControlController],
     providers: [UserService],
     exports: [UserService]
