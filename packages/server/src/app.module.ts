@@ -16,30 +16,34 @@ import { PruebaModule } from '@retail/common';
 import { DatabaseModule } from '@retail/common';
 import { EntityModule } from './database/entity.module';
 import { Role } from './database/models/VAD10/role/role.entity';
+import { config } from '../src/config/config.service';
+import { BranchOffice } from './database/models/VAD10/branchOffice/branchOffice.entity';
 
+export const DATABASEVAD10 = 'DataBaseVAD10';
 
 @Module({
   imports: [
     ConfigModule,
     DatabaseModule.forRoot([{
-      token: 'VAD10',
-      username: 'sa',
-      password: 'lambu123',
+      token: DATABASEVAD10,
+      username: config.get('DB_USERNAME_VAD10'),
+      password: config.get('DB_PASSWORD_VAD10'),
       dialect: 'mssql',
-      host: '127.0.0.1',
+      host: config.get('DB_HOST_VAD10'),
       logging: false,
-      port: 1433,
-      database: 'STELLAR-VAD10',
+      // tslint:disable-next-line:ban
+      port: parseInt(config.get('DB_PORT_VAD10'), 10),
+      database: config.get('DB_NAME_VAD10'),
       benchmark: false,
       modelPaths: [__dirname + '/database/models/VAD10/**/*.entity.{ts,js}'],
       modelMatch: (filename, member) => {
           return filename.substring(0, filename.indexOf('.entity')).toLocaleLowerCase() === member.toLowerCase();
       },
     }]),
-    EntityModule.forFeature([Role]),/**Prueba de entity configurable */
-    /*DatabaseModule,
+   EntityModule.forFeature([Role]), /*Prueba de entity configurable */
+   
     UserModule,
-    OdcModule,
+    /*OdcModule,
     ParamsModule,
     ProductModule,
     ReportsModule,
@@ -52,10 +56,6 @@ import { Role } from './database/models/VAD10/role/role.entity';
 })
 export class AppModule implements NestModule {
   constructor(servicio: PruebaService, @Inject(Role) roleRepo: typeof Role) {
-    roleRepo.findAll().then(data => {
-      console.log('entree');
-      console.log(data);
-    });
     servicio.log();
   }
   configure(consumer: MiddlewareConsumer) {
