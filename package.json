@@ -8,6 +8,8 @@
     "packages/*"
   ],
   "dependencies": {
-    "yarn": "^1.16.0"
+    "yarn": "^1.16.0",
+    "@nestjs/swagger": "^3.0.2"
+
   }
 }
