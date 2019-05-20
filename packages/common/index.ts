@@ -12,3 +12,7 @@ export {
 export {
     DatabaseModule,
    } from './database/database.module';
+
+export {
+    ServiceDiscoveryModule
+} from './discovery/discovery.module';
