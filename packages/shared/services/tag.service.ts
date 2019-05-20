@@ -7,17 +7,14 @@ import { ResponseTagDto } from '../dto/tag.dto';
 import { Omit, Utils } from '../utils';
 import { SimpleProductDto } from '../models/products.models';
 import { ResponseSimpleProductDto } from '../dto/product.dto';
+import { ServiceOpts } from './service.module';
 
 @Injectable({
     providedIn: 'root'
 })
 export class TagService {
 
-    private options = {
-        apiUrl: 'jajs'
-    };
-
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private options: ServiceOpts) {
     }
 
     getAllTags() {

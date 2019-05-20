@@ -4,6 +4,7 @@ import { ResponseFormat } from '../dto/responseFormat.interface';
 import { ResponseCreateCurrencyDto, ResponseCurrencyWithValues, ResponseAllCurrencyDto, RequestCreateCurrencyDto, RequestUpdateCurrencyDto, ResponseCreateCurrencyHistoricDto } from '../dto/currency.dto';
 import { map } from 'rxjs/operators';
 import { Price } from '../models/price.model';
+import { ServiceOpts } from './service.module';
 
 
 @Injectable({
@@ -11,12 +12,7 @@ import { Price } from '../models/price.model';
 })
 export class CurrencyService {
 
-
-    private options = {
-        apiUrl: 'jajs'
-    };
-
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private options: ServiceOpts) {
     }
 
     getAllCurrencies() {

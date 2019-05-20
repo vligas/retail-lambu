@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngxs/store';
 import { ResponseFormat } from '../dto/responseFormat.interface';
 import { ResponseLoginDto, ResponseRoleDto, RequestUpdateRoleDto, ResponsePermissionDto, RequestCreateRoleDto } from '../dto/auth.dto';
-import { ServiceOpts } from './service.service';
+import { ServiceOpts } from './service.module';
 
 
 @Injectable({
@@ -16,14 +16,12 @@ export class AuthService {
   //Only for demo purpose
   authenticated = false;
 
-  private options = {
-    apiUrl: 'jajs'
-  };
 
   constructor(
     private localStore: LocalStoreService,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private options: ServiceOpts
   ) {
     this.checkAuth();
   }

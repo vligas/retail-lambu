@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RequestUpdateConfigDto } from '../dto/appConfig.dto';
+import { ServiceOpts } from './service.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppConfigService {
 
-  private options = {
-    apiUrl: 'jajs'
-  };
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private options: ServiceOpts) {
   }
 
   fetch() {

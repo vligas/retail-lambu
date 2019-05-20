@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class ServiceOpts {
-    public apiUrl: string = 'http://localhost:3000'
+    public apiUrl: string = ''
 }
 
 

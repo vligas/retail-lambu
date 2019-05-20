@@ -41,26 +41,26 @@ import { environment } from '@frontend/environments/environment';
 @NgModule({
   imports: [
     CommonModule,
-    // ServiceModule.forRoot({
-    //   apiUrl: environment.apiUrl
-    // }),
+    ServiceModule.forRoot({
+      apiUrl: environment.apiUrl
+    }),
     NgxsModule.forRoot([
-      // SessionState,
-      // DollarPriceState,
-      // CategoryState,
-      // GapState,
-      // CurrencyState,
-      // TagState,
-      // ProductState,
-      // ConfigState,
-      // ProductState,
-      // RoleState,
-      // PriceVariationState,
-      // UserState,
-      // BranchOfficeState,
-      // SaleState,
-      // CompetitorState,
-      // BranchOfficeCompetitorState
+      SessionState,
+      DollarPriceState,
+      CategoryState,
+      GapState,
+      CurrencyState,
+      TagState,
+      ProductState,
+      ConfigState,
+      ProductState,
+      RoleState,
+      PriceVariationState,
+      UserState,
+      BranchOfficeState,
+      SaleState,
+      CompetitorState,
+      BranchOfficeCompetitorState
     ]),
     // NgxsStoragePluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),

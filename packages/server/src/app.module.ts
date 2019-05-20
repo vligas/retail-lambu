@@ -37,7 +37,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
       benchmark: false,
       modelPaths: [__dirname + '/database/models/VAD10/**/*.entity.{ts,js}'],
       modelMatch: (filename, member) => {
-          return filename.substring(0, filename.indexOf('.entity')).toLocaleLowerCase() === member.toLowerCase();
+        return filename.substring(0, filename.indexOf('.entity')).toLocaleLowerCase() === member.toLowerCase();
       },
     }]),
    EntityModule.forFeature([Role]), /*Prueba de entity configurable */
