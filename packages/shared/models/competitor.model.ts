@@ -1,3 +1,3 @@
-import { RequestCreateCompetitorDto, ResponseCompetitorDto } from '../dto/competitor.dto';
+import { RequestCreateCompetitorDto, ResponseCompetitorDto } from '../src/dto';
 export type Competitor = ResponseCompetitorDto;
 

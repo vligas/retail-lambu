@@ -1,2 +1,2 @@
-import { ResponseAllCurrencyDto } from '../dto/currency.dto';
+import { ResponseAllCurrencyDto } from '../src/dto';
 export type Currency = ResponseAllCurrencyDto;

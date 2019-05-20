@@ -1,7 +1,7 @@
 import { State, Store, StateContext, Action, Selector } from '@ngxs/store';
 import { FetchProductsForPriceVariation } from './price-variation.actions';
 import { tap } from 'rxjs/operators';
-import { ResponsePriceVariationDto } from '../../dto/priceVariation.dto';
+import { ResponsePriceVariationDto } from '../../src/dto';
 import { ReportsService } from '../../services/reports.service';
 
 export interface PriceVariationStateModel {

@@ -1,4 +1,4 @@
-import { RequestCreateBranchOfficeDto, ResponseBranchOfficeDto } from '../../dto/branchOffice.dto';
+import { RequestCreateBranchOfficeDto, ResponseBranchOfficeDto } from '../../src/dto';
 
 export class AddBranchCompetitor {
     static readonly type = '[BranchCompetitor] Add Branch Competitors';

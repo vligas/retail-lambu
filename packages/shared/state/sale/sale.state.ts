@@ -1,7 +1,7 @@
 import { State, Store, StateContext, Action, Selector } from '@ngxs/store';
 import { FetchSales } from './sale.action';
 import { tap } from 'rxjs/operators';
-import { ResponseSaleDto } from '../../dto/sale.dto';
+import { ResponseSaleDto } from '../../src/dto';
 import { ReportsService } from '../../services/reports.service';
 
 

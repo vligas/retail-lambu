@@ -2,7 +2,7 @@ import { State, Store, StateContext, Action, Selector } from '@ngxs/store';
 import { tap, find } from 'rxjs/operators';
 import { FetchTag, UpdateTag, AddTag, DeleteTag, AddTagxProduct, DeleteTagxProduct } from './tag.actions';
 import { TagService } from '../../services/tag.service';
-import { ResponseTagDto } from '../../dto/tag.dto';
+import { ResponseTagDto } from '../../src/dto';
 
 
 export interface TagStateModel {

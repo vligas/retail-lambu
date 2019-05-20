@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ResponseFormat } from '../dto/responseFormat.interface';
-import { ResponseCreateCategoryDto, RequestCreateCategoryDto, RequestUpdateCategoryDto } from '../dto/category.dto';
+import {
+    ResponseFormat,
+    ResponseCreateCategoryDto,
+    RequestCreateCategoryDto,
+    RequestUpdateCategoryDto
+} from '../src/dto';
 import { map } from 'rxjs/operators';
 import { ServiceOpts } from './service.module';
 

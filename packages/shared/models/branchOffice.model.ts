@@ -1,2 +1,2 @@
-import { ResponseAllBranchOfficeDto } from '../dto/branchOffice.dto';
+import { ResponseAllBranchOfficeDto } from '../src/dto';
 export type BranchOffice = ResponseAllBranchOfficeDto;

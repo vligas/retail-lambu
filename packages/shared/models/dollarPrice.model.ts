@@ -1,2 +1,2 @@
-import { ResponseCreateDollarPriceDto } from '../dto/dollarPrice.dto';
+import { ResponseCreateDollarPriceDto } from '../src/dto';
 export type DollarPrice = ResponseCreateDollarPriceDto;

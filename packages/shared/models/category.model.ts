@@ -1,2 +1,2 @@
-import { ResponseCreateCategoryDto } from '../dto/category.dto';
+import { ResponseCreateCategoryDto } from '../src/dto';
 export type Category = ResponseCreateCategoryDto;

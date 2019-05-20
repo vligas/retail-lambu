@@ -1,4 +1,4 @@
-import { RequestUpdateConfigDto } from '../../dto/appConfig.dto';
+import { RequestUpdateConfigDto } from '../../src/dto';
 
 export class FetchConfig {
     static readonly type = '[Config] Fetch Config';

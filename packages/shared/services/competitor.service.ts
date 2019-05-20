@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ResponseFormat } from '../dto/responseFormat.interface';
-import { ResponseCreateCurrencyDto, ResponseCurrencyWithValues, ResponseAllCurrencyDto, RequestCreateCurrencyDto, RequestUpdateCurrencyDto, ResponseCreateCurrencyHistoricDto } from '../dto/currency.dto';
-import { map } from 'rxjs/operators';
-import { ResponseCompetitorDto, RequestCreateCompetitorDto, RequestUpdateCompetitorDto } from '../dto/competitor.dto';
+import {
+    ResponseFormat,
+    ResponseCompetitorDto,
+    RequestCreateCompetitorDto,
+    RequestUpdateCompetitorDto
+} from '../src/dto';
 import { ServiceOpts } from './service.module';
 
 

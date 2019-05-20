@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ResponseFormat } from '../dto/responseFormat.interface';
+import {
+    ResponseFormat,
+    ResponseTagDto
+} from '../src/dto';
 import { Tag } from '../models/tag.model';
 // import dummy from '@frontend/app/views/params/tag/dummy';
-import { ResponseTagDto } from '../dto/tag.dto';
 import { Omit, Utils } from '../utils';
 import { SimpleProductDto } from '../models/products.models';
-import { ResponseSimpleProductDto } from '../dto/product.dto';
 import { ServiceOpts } from './service.module';
 
 @Injectable({

@@ -8,7 +8,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { OptionToast } from '@retail/shared/utils';
 import { UserState } from '@retail/shared/state/userControl/user.state';
-import { ResponseSimpleUserDto } from '@retail/shared/dto/user.dto';
+import { ResponseSimpleUserDto } from '@retail/shared';
 import { FetchUsers } from '@retail/shared/state/userControl/user.actions';
 
 interface UserExt extends ResponseSimpleUserDto {

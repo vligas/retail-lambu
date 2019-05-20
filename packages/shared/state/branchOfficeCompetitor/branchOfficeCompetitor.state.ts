@@ -3,9 +3,7 @@ import { tap } from 'rxjs/operators';
 import { AddBranchCompetitor, UpdateBranchCompetitor, FetchBranchCompetitor, DeleteBranchCompetitor } from '../../state/branchOfficeCompetitor/branchOfficeCompetitor.actions';
 import { BranchCompetitor } from '../../models/branchOfficeCompetitor.model';
 import { BranchOfficeCompetitorService } from '../../services/branch-office-competitor.service';
-import { ResponseBranchOfficeDto } from '../../dto/branchOffice.dto';
-import { FetchCompetitor } from '../competitor/competitor.actions';
-
+import { ResponseBranchOfficeDto } from '../../src/dto';
 export class BranchCompetitorStateModel {
 
     branchCompetitors: ResponseBranchOfficeDto[];

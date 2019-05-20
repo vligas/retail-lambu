@@ -6,4 +6,5 @@
  * found in the LICENSE file at https://angular.io/license
  */
 export { SharedAnimations } from './animations/shared-animations';
-export * from './components/index';
+export * from './components';
+export * from './dto';
