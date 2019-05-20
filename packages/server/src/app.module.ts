@@ -23,20 +23,20 @@ import { Role } from './database/models/VAD10/role/role.entity';
     ConfigModule,
     DatabaseModule.forRoot([{
       token: 'VAD10',
-      username: 'root',
-      password: '123456',
+      username: 'sa',
+      password: 'lambu123',
       dialect: 'mssql',
       host: '127.0.0.1',
       logging: false,
-      port: 3001,
-      database: 'VAD10',
+      port: 1433,
+      database: 'STELLAR-VAD10',
       benchmark: false,
       modelPaths: [__dirname + '/database/models/VAD10/**/*.entity.{ts,js}'],
       modelMatch: (filename, member) => {
           return filename.substring(0, filename.indexOf('.entity')).toLocaleLowerCase() === member.toLowerCase();
       },
     }]),
-    //EntityModule.forFeature([Role]),/**Prueba de entity configurable */
+    EntityModule.forFeature([Role]),/**Prueba de entity configurable */
     /*DatabaseModule,
     UserModule,
     OdcModule,
@@ -51,8 +51,12 @@ import { Role } from './database/models/VAD10/role/role.entity';
   providers: [],
 })
 export class AppModule implements NestModule {
-  constructor(servicio: PruebaService) {
-    servicio.log()
+  constructor(servicio: PruebaService, @Inject(Role) roleRepo: typeof Role) {
+    roleRepo.findAll().then(data => {
+      console.log('entree');
+      console.log(data);
+    });
+    servicio.log();
   }
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(LoggerMiddleware).forRoutes('/');
