@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ResponseBranchOfficeDto, RequestCreateBranchOfficeDto, RequestUpdateBranchOfficeDto } from '../dto/branchOffice.dto';
-import { ResponseFormat } from '../dto/responseFormat.interface';
+import {
+    ResponseFormat,
+    ResponseBranchOfficeDto,
+    RequestCreateBranchOfficeDto,
+    RequestUpdateBranchOfficeDto
+} from '../src/dto';
 import { ServiceOpts } from './service.module';
 
 @Injectable({

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { DataLayerService } from '../../services/data-layer.service';
+import { DataLayerService } from '../../../services/data-layer.service';
 import { Observable, combineLatest } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { startWith, debounceTime, switchMap, map } from 'rxjs/operators';
-import { SharedAnimations } from '../../animations/shared-animations';
-import { SearchService } from '../../services/search.service';
+import { SharedAnimations } from '../../index';
+import { SearchService } from '../../../services/search.service';
 
 @Component({
   selector: 'app-search',
@@ -29,13 +29,13 @@ export class SearchComponent implements OnInit {
     this.results$ = combineLatest(
       this.dl.getProducts(),
       this.searchCtrl.valueChanges
-      .pipe(startWith(''), debounceTime(200))
+        .pipe(startWith(''), debounceTime(200))
     )
-    .pipe(map(([products, searchTerm]) => {
-      return products.filter(p => {
-        return p.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
-      });
-    }));
+      .pipe(map(([products, searchTerm]) => {
+        return products.filter(p => {
+          return p.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+        });
+      }));
   }
 
 }

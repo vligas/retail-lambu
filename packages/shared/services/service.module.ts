@@ -1,5 +1,4 @@
 import { NgModule, ModuleWithProviders, InjectionToken } from "@angular/core";
-import { Options } from 'selenium-webdriver';
 import { ServiceOpts } from './service.service';
 import { Service } from "./service.service";
 

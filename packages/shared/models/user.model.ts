@@ -1,3 +1,3 @@
-import { ResponseLoginDto } from '../dto/auth.dto';
+import { ResponseLoginDto } from '../src/dto';
 
 export type User = ResponseLoginDto['user'];

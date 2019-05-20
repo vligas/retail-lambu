@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 import { Tag } from '@retail/shared/models/tag.model';
 import { FetchTag } from '@retail/shared/state/tag/tag.actions';
 import { FetchProductsForPriceVariation } from '@retail/shared/state/price-variation/price-variation.actions';
-import { RequestPriceVariationDto } from '@retail/shared/dto/priceVariation.dto';
+import { RequestPriceVariationDto } from '@retail/shared';
 
 
 

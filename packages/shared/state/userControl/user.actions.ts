@@ -1,4 +1,4 @@
-import { RequestUpdateUserDto } from '../../dto/user.dto';
+import { RequestUpdateUserDto } from '../../src/dto';
 
 export class FetchUsers {
     static readonly type = '[User] Fetch all Users';

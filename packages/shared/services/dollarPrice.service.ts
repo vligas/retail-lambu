@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ResponseFormat } from '../dto/responseFormat.interface';
-import { ResponseCreateDollarPriceDto, RequestCreateDollarPriceDto } from '../dto/dollarPrice.dto';
-import { map } from 'rxjs/operators';
+import {
+    ResponseFormat,
+    ResponseCreateDollarPriceDto,
+    RequestCreateDollarPriceDto
+} from '../src/dto';
 import { ServiceOpts } from './service.module';
 
 

@@ -4,8 +4,14 @@ import { Router } from '@angular/router';
 import { of, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngxs/store';
-import { ResponseFormat } from '../dto/responseFormat.interface';
-import { ResponseLoginDto, ResponseRoleDto, RequestUpdateRoleDto, ResponsePermissionDto, RequestCreateRoleDto } from '../dto/auth.dto';
+import {
+  ResponseFormat,
+  ResponseLoginDto,
+  ResponseRoleDto,
+  RequestUpdateRoleDto,
+  ResponsePermissionDto,
+  RequestCreateRoleDto
+} from '../src/dto';
 import { ServiceOpts } from './service.module';
 
 

@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ResponseFormat } from '../dto/responseFormat.interface';
-import { ResponseGapDto, RequestGapersDto } from '../dto/gap.dto';
-import { ResponseSaleDto } from '../dto/sale.dto';
-import { ResponsePriceVariationDto } from '../dto/priceVariation.dto';
-
+import {
+  ResponseGapDto,
+  RequestGapersDto,
+  ResponseFormat,
+  ResponseSaleDto,
+  ResponsePriceVariationDto
+} from '../src/dto';
 import { Utils } from '../utils';
 import { ServiceOptions } from '../models/queryOptions.model';
 import { ServiceOpts } from './service.module';

@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ResponseFormat } from '../dto/responseFormat.interface';
-import { ResponseSimpleUserDto, RequestUpdateUserDto } from '../dto/user.dto';
+import {
+  ResponseSimpleUserDto,
+  RequestUpdateUserDto,
+  ResponseFormat
+} from '../src/dto';
 import { ServiceOpts } from './service.module';
 
 @Injectable({

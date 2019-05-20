@@ -1,7 +1,7 @@
 import { State, Store, StateContext, Action, Selector } from '@ngxs/store';
 import { FetchProductsForGap } from './gap.actions';
 import { tap } from 'rxjs/operators';
-import { ResponseGapDto, Prices, RequestGapersDto } from '../../dto/gap.dto';
+import { ResponseGapDto, Prices, RequestGapersDto } from '../../src/dto';
 import { ReportsService } from '../../services/reports.service';
 
 

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared/animations/shared-animations';
+import {
+    SharedAnimations,
+    RequestUpdateRoleDto,
+    RequestCreateRolePermissionDto,
+    RequestCreateRoleDto
+} from '@retail/shared';
 import { Store, Select } from '@ngxs/store';
 import { ToastrService, Toast } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -10,7 +15,6 @@ import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from '@retail/shared/services/auth.service';
 import { async } from 'q';
-import { RequestUpdateRoleDto, RequestCreateRolePermissionDto, RequestCreateRoleDto } from '@retail/shared/dto/auth.dto';
 import { OptionToast, Utils } from '@retail/shared/utils';
 import { debounceTime } from 'rxjs/operators';
 

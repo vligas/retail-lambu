@@ -1,4 +1,4 @@
-import { RequestGapersDto } from '../../dto/gap.dto';
+import { RequestGapersDto } from '../../src/dto';
 import { ServiceOptions } from '../../models/queryOptions.model';
 
 export class FetchProductsForGap {

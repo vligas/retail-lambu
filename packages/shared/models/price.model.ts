@@ -1,2 +1,2 @@
-import { ResponseCurrencyWithValues } from '../dto/currency.dto';
+import { ResponseCurrencyWithValues } from '../src/dto';
 export type Price = ResponseCurrencyWithValues['values'][0];

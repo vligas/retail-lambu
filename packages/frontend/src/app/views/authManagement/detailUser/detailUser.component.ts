@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared';
 import { Store, Select } from '@ngxs/store';
 import { ToastrService, Toast } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -7,9 +7,8 @@ import { Role, Permits } from '@retail/shared/models/auth.model';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from '@retail/shared/services/auth.service';
-import { RequestUpdateRoleDto, RequestCreateRolePermissionDto } from '@retail/shared/dto/auth.dto';
 import { OptionToast } from '@retail/shared/utils';
-import { ResponseSimpleUserDto, RequestUpdateUserDto } from '@retail/shared/dto/user.dto';
+import { ResponseSimpleUserDto, RequestUpdateUserDto } from '@retail/shared';
 import { UserService } from '@retail/shared/services/user.service';
 import { RoleState } from '@retail/shared/state/roleControl/role.state';
 import { Observable } from 'rxjs';

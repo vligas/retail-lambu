@@ -1,5 +1,5 @@
 
-import { RequestCreateCompetitorDto, RequestUpdateCompetitorDto, ResponseCompetitorDto } from '../../dto/competitor.dto';
+import { RequestCreateCompetitorDto, RequestUpdateCompetitorDto, ResponseCompetitorDto } from '../../src/dto';
 
 
 export class AddCompetitor {

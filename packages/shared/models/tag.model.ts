@@ -1,3 +1,3 @@
-import { ResponseTagDto } from '../dto/tag.dto';
+import { ResponseTagDto } from '../src/dto';
 
 export type Tag = ResponseTagDto;

@@ -2,7 +2,7 @@ import { State, Store, StateContext, Action, Selector } from '@ngxs/store';
 import { tap } from 'rxjs/operators';
 import { FetchRoles, UpdateRole, CreateRole, DeleteRole } from './role.actions';
 import { AuthService } from '../../services/auth.service';
-import { ResponseRoleDto } from '../../dto/auth.dto';
+import { ResponseRoleDto } from '../../src/dto';
 
 
 export interface RoleStateModel {

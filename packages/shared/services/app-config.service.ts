@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RequestUpdateConfigDto } from '../dto/appConfig.dto';
+import { RequestUpdateConfigDto } from '../src/dto';
 import { ServiceOpts } from './service.module';
 
 @Injectable({

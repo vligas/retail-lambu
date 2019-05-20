@@ -1,7 +1,7 @@
 import { State, Store, StateContext, Action, Selector } from '@ngxs/store';
 import { tap } from 'rxjs/operators';
 import { AuthService } from '../../services/auth.service';
-import { ResponseSimpleUserDto } from '../../dto/user.dto';
+import { ResponseSimpleUserDto } from '../../src/dto';
 import { FetchUsers, UpdateUser } from './user.actions';
 import { UserService } from '../../services/user.service';
 

@@ -1,4 +1,4 @@
-import { RequestUpdateRoleDto, RequestCreateRoleDto } from '../../dto/auth.dto';
+import { RequestUpdateRoleDto, RequestCreateRoleDto } from '../../src/dto';
 
 export class FetchRoles {
     static readonly type = '[Role] Fetch all Roles';

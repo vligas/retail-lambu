@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import { SimpleProductDto } from '@retail/shared/models/products.models';
 import { ProductState } from '@retail/shared/state/product/product.state';
 import { FetchProducts } from '@retail/shared/state/product/product.actions';
-import { ResponseProvidersByProductDto } from '@retail/shared/dto/product.dto';
+import { ResponseProvidersByProductDto } from '@retail/shared';
 import { ProductService } from '@retail/shared/services/product.service';
 import { Router } from '@angular/router';
 import { FetchTag } from '@retail/shared/state/tag/tag.actions';
