@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared';
 import { Store, Select, Selector } from '@ngxs/store';
 import { Observable, of } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';

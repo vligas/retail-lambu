@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';

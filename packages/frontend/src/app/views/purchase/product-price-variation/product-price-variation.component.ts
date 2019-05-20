@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';

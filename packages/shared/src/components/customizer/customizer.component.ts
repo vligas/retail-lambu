@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { NavigationService } from "../../services/navigation.service";
-import { CustomizerService } from "../../services/customizer.service";
+import { NavigationService } from "../../../services/navigation.service";
+import { CustomizerService } from "../../../services/customizer.service";
 import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
 
@@ -20,7 +20,7 @@ export class CustomizerComponent implements OnInit, OnDestroy {
     public navService: NavigationService,
     public customizer: CustomizerService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.nav = [...this.navService.defaultMenu];
@@ -42,7 +42,7 @@ export class CustomizerComponent implements OnInit, OnDestroy {
       });
     }
   }
-  ngOnDestroy() {}
+  ngOnDestroy() { }
 
   selectLayout(selectedLayout) {
     this.customizer.selectedLayout = selectedLayout;
@@ -51,7 +51,7 @@ export class CustomizerComponent implements OnInit, OnDestroy {
     this.changeLayoutRoute(selectedLayout.name);
     // reset color on layout change
     if (this.customizer.selectedSidebarColor) {
-        this.selectSidebarColor(this.customizer.selectedSidebarColor);
+      this.selectSidebarColor(this.customizer.selectedSidebarColor);
     }
   }
 
@@ -72,6 +72,6 @@ export class CustomizerComponent implements OnInit, OnDestroy {
   }
 
   toggleDir() {
-      this.customizer.toggleDir(this.isRTL);
+    this.customizer.toggleDir(this.isRTL);
   }
 }

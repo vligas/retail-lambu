@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared';
 import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';

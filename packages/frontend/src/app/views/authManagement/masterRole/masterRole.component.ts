@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared';
 import { Store, Select } from '@ngxs/store';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';

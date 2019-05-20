@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SearchModule } from '@retail/shared/components/search/search.module';
+import { SearchModule } from '@retail/shared';
 import { SharedComponentsModule } from '../shared/components/shared-components.module';
 import { SharedDirectivesModule } from '../shared/directives/shared-directives.module';
 import { SharedPipesModule } from '@retail/shared/pipes/shared-pipes.module';

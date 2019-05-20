@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared';
 import { Currency } from '@retail/shared/models/currency.model';
 import { Store, Select } from '@ngxs/store';
 import { CurrencyState } from '@retail/shared/state/currency/currency.state';
