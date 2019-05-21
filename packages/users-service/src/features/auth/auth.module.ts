@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AuthController } from './auth.controller';
 import { UserModule } from '../userControl/user.module';
 import { AuthService } from './auth.service';
-import { ConfigModule } from 'src/config/config.module';
+import { ConfigModule } from '@retail/common';
 import { config } from 'src/config/config.service';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { PassportModule } from '@nestjs/passport';
@@ -14,7 +14,7 @@ import { RoleService } from './role.service';
     controllers: [AuthController],
     imports: [
         PassportModule.register({
-            defaultStrategy: 'jwt'
+            defaultStrategy: 'jwt',
         }),
         JwtModule.register({
             secretOrPrivateKey: config.get('APP_SECRET_KEY'),
@@ -23,7 +23,7 @@ import { RoleService } from './role.service';
             },
         }),
         UserModule,
-        ConfigModule
+        ConfigModule,
     ],
     providers: [AuthService, JwtStrategy, RoleService],
     exports: [AuthService, JwtStrategy, RoleService]

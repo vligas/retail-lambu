@@ -1,5 +1,5 @@
-import { Module, DynamicModule, Global} from '@nestjs/common';
-import { Sequelize } from 'sequelize-typescript';
+import { Module, DynamicModule, Global, Provider } from '@nestjs/common';
+import { Sequelize, Model } from 'sequelize-typescript';
 
 interface DatabaseConnectionOptions {
     token: string;
@@ -24,6 +24,7 @@ export class DatabaseModule {
             return {
                 provide: option.token,
                 useFactory: async () => {
+                    // tslint:disable-next-line:no-any
                     const sequelize = new Sequelize(option as any);
                     await sequelize.authenticate();
                     console.log('CONNECTION - ', option.token);
@@ -37,4 +38,31 @@ export class DatabaseModule {
             exports: result
         };
     }
+}
+
+@Module({})
+export class EntityModule {
+    private static count = 0;
+    private static entites: Array<typeof Model> = [];
+    
+
+ static forFeature(entidades: Array<typeof Model>): DynamicModule {
+        EntityModule.entites = EntityModule.entites.concat(entidades);
+        const result: Provider[] = EntityModule.entites.map(entidad => {
+            return {
+                provide: entidad,
+                useValue: entidad,
+
+            };
+           
+        });
+        return {
+            module: EntityModule,
+            providers: result,
+            exports: result
+        };
+    }
+   /* onModuleInit(): any {
+        console.log('ENTRE', EntityModule.count);
+    }*/
 }
