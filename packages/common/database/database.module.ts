@@ -30,7 +30,7 @@ export class DatabaseModule {
                     return sequelize;
                 },
             };
-        })
+        });
         return {
             module: DatabaseModule,
             providers: result,
