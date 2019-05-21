@@ -8,7 +8,6 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { RoleService } from './role.service';
-import { DatabaseModule } from '@retail/common';
 
 
 @Module({
@@ -23,7 +22,6 @@ import { DatabaseModule } from '@retail/common';
                 expiresIn: 3600,
             },
         }),
-        DatabaseModule,
         UserModule,
         ConfigModule
     ],

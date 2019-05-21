@@ -6,6 +6,7 @@ import { RoleService } from './role.service';
 // import { PermissionsGuard } from 'src/common/guards/permissions.guard';
 import { UserService } from '../userControl/user.service';
 import { RequestContext } from 'src/common/interfaces/requestContext.class';
+import { async } from 'q';
 
 
 @Controller('auth')
@@ -61,5 +62,13 @@ export class AuthController {
     async delete(@Param('id') id: number) {
         await this.roleService.deleteRol(id);
         return 'ok';
+    }
+
+    @Get('canActivate')
+    async canActivate(){
+        console.log('///////////////////////////');
+        console.log('Esta activo');
+        
+        return true;
     }
 }

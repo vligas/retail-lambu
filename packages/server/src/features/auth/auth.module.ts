@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, HttpModule } from '@nestjs/common';
 import { AuthController } from './auth.controller';
 import { DatabaseModule } from 'src/database/database.module';
 import { UserModule } from '../userControl/user.module';
@@ -14,6 +14,7 @@ import { RoleService } from './role.service';
 @Module({
     controllers: [AuthController],
     imports: [
+        HttpModule,
         PassportModule.register({
             defaultStrategy: 'jwt'
         }),

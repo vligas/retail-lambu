@@ -2,7 +2,7 @@ import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { AuthGuard } from '@nestjs/passport';
 import { UserService } from 'src/features/userControl/user.service';
-import { logger } from '../services/logger.service';
+// import { logger } from '../services/logger.service';
 import { RoleService } from 'src/features/auth/role.service';
 import { config } from 'src/config/config.service';
 
@@ -16,13 +16,14 @@ export const PermissionsGuard = (...permissions: string[]): any => {
             this.roleService.allPermissions().then(dbPermissions => {
                 permissions.forEach(p => {
                     if (!dbPermissions.find(permission => permission.name === p)) {
-                        logger.error(`[PermissionGuard] The permission '${p}' is not present in the database`);
+                        // logger.error(`[PermissionGuard] The permission '${p}' is not present in the database`);
                     }
                 });
             });
         }
 
-        async canActivate(context: ExecutionContext): Promise<boolean> {
+        async canActivate( context: ExecutionContext ): Promise<boolean> {
+            
             if (config.get("NODE_ENV") === 'development') {
                 return true;
             }

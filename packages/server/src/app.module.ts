@@ -43,6 +43,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
    EntityModule.forFeature([Role]), /*Prueba de entity configurable */
    
     UserModule,
+    AuthModule,
     /*OdcModule,
     ParamsModule,
     ProductModule,

@@ -1,11 +1,9 @@
 import { Controller, Get, Post, Body, All, UseGuards, ValidationPipe, Param, Put, Delete } from '@nestjs/common';
 import { RequestLoginDto, RequestCreateRoleDto, RequestUpdateRoleDto } from './auth.dto';
 import { AuthService } from './auth.service';
-import { AuthGuard } from '@nestjs/passport';
 import { RoleService } from './role.service';
-import { PermissionsGuard } from 'src/common/guards/permissions.guard';
 import { UserService } from '../userControl/user.service';
-import { RequestContext } from 'src/common/interfaces/requestContext.class';
+import { PermissionsGuard } from '@retail/common';
 
 
 @Controller('auth')
@@ -28,7 +26,7 @@ export class AuthController {
     @All('protected')
     @UseGuards(PermissionsGuard('can-update-products'))
     async protect() {
-        console.log('entre');
+        console.log('=========================entre');
     }
 
 
