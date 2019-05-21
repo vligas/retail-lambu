@@ -7,7 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchModule } from '@retail/shared';
 import { SharedComponentsModule } from '../shared/components/shared-components.module';
 import { SharedDirectivesModule } from '../shared/directives/shared-directives.module';
-import { SharedPipesModule } from '@retail/shared/pipes/shared-pipes.module';
+import { SharedPipesModule } from '@retail/shared';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';

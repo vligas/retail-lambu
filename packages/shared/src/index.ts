@@ -10,5 +10,7 @@ export * from './components';
 export * from './dto';
 export * from './inmemory-db';
 export * from './models';
+export * from './pipes';
+
 
 

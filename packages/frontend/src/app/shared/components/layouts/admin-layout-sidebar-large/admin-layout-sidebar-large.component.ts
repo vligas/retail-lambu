@@ -1,7 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavigationService } from '@retail/shared/services/navigation.service';
 import { SearchService } from '@retail/shared/services/search.service';
-import { Router, RouteConfigLoadStart, ResolveStart, RouteConfigLoadEnd, ResolveEnd } from '@angular/router';
+import {
+  Router,
+  RouteConfigLoadStart,
+  ResolveStart,
+  RouteConfigLoadEnd,
+  ResolveEnd
+} from '@angular/router';
 import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 
 @Component({

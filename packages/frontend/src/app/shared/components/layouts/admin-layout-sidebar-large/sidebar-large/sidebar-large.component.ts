@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { NavigationService, IMenuItem, IChildItem } from '@retail/shared/services/navigation.service';
+import { NavigationService, IMenuItem } from '@retail/shared/services/navigation.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Utils } from '@retail/shared/utils';

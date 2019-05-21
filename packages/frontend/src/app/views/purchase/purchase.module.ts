@@ -4,7 +4,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedComponentsModule } from '../../shared/components/shared-components.module';
 
-import { SharedPipesModule } from '@retail/shared/pipes/shared-pipes.module';
+import { SharedPipesModule } from '@retail/shared';
 import { PurchaseRoutingModule } from './purchase-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { GapComponent } from './gap/gap.component';

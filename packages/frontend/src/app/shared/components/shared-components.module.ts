@@ -5,11 +5,10 @@ import {
   FeatherIconComponent,
   SearchModule,
   AsideDockComponent,
-  AsideRightComponent
+  AsideRightComponent,
+  SharedPipesModule
 } from '@retail/shared';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterModule } from '@angular/router';
-import { SharedPipesModule } from '@retail/shared/pipes/shared-pipes.module';
 import { SharedDirectivesModule } from '../directives/shared-directives.module';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { LayoutsModule } from './layouts/layouts.module';
