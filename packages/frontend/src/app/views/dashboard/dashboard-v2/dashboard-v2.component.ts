@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { echartStyles } from '@retail/shared/echart-styles';
-import { ProductService } from '@retail/shared/services/product.service';
+import { ProductService } from '@retail/shared';
 
 @Component({
     selector: 'app-dashboard-v2',

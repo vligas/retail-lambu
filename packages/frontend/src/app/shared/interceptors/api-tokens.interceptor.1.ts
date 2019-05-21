@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpErrorResponse, HttpHandler, HttpRequest, HttpEvent, HttpResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { tap, catchError, map } from 'rxjs/operators';
+import {
+    HttpInterceptor,
+    HttpHandler,
+    HttpRequest,
+    HttpEvent
+} from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
-import { LocalStoreService } from '@retail/shared/services/local-store.service';
+import { LocalStoreService } from '@retail/shared';
 
 
 @Injectable()

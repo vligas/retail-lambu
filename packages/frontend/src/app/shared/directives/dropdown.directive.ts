@@ -1,5 +1,8 @@
 import { Directive } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import {
+  Router,
+  NavigationEnd
+} from '@angular/router';
 import { DropdownLinkDirective } from './dropdown-link.directive';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';

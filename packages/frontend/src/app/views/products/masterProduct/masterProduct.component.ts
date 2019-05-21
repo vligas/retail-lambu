@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared/animations/shared-animations';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { SimpleProductDto } from '@retail/shared/models/products.models';
-import { ProductState } from '@retail/shared/state/product/product.state';
-import { FetchProducts } from '@retail/shared/state/product/product.actions';
-import { ResponseProvidersByProductDto } from '@retail/shared/dto/product.dto';
-import { ProductService } from '@retail/shared/services/product.service';
+import {
+    ProductState,
+    ProductService,
+    SharedAnimations,
+    SimpleProductDto,
+    Tag,
+    ResponseProvidersByProductDto,
+    FetchProducts,
+    FetchTag,
+    TagState
+} from '@retail/shared';
 import { Router } from '@angular/router';
-import { FetchTag } from '@retail/shared/state/tag/tag.actions';
-import { TagState } from '@retail/shared/state/tag/tag.state';
-import { Tag } from '@retail/shared/models/tag.model';
 
 @Component({
     selector: 'app-masterProduct',

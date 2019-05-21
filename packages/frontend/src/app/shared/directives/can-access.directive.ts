@@ -1,7 +1,17 @@
-import { Input, Directive, TemplateRef, ViewContainerRef, OnInit, OnDestroy } from '@angular/core';
+import {
+    Input,
+    Directive,
+    TemplateRef,
+    ViewContainerRef,
+    OnInit,
+    OnDestroy
+} from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
-import { SessionState } from '@retail/shared/state/session/session.state';
-import { Select, Store } from '@ngxs/store';
+import { SessionState } from '@retail/shared';
+import {
+    Select,
+    Store
+} from '@ngxs/store';
 
 @Directive({
     selector: '[canAccess]'

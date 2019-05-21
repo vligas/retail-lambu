@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedComponentsModule } from '../../shared/components/shared-components.module';
-import { SharedPipesModule } from '@retail/shared/pipes/shared-pipes.module'
+import { SharedPipesModule } from '@retail/shared'
 import { AuthManagementRoutingModule } from './authManagement-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';

@@ -1,17 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared/animations/shared-animations';
-import { Store, Select, Selector } from '@ngxs/store';
+import { Store, Select } from '@ngxs/store';
 import { Observable, of } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { ProductService } from '@retail/shared/services/product.service';
+import {
+    SharedAnimations,
+    ProductService,
+    TagService,
+    Product,
+    SimpleProductDto,
+    Tag,
+    TagState,
+    FetchTag,
+    AddTagxProduct,
+    DeleteTagxProduct
+} from '@retail/shared';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Product, SimpleProductDto } from '@retail/shared/models/products.models';
-import { TagService } from '@retail/shared/services/tag.service';
-import { TagState } from '@retail/shared/state/tag/tag.state';
-import { Tag } from '@retail/shared/models/tag.model';
-import { FetchTag, AddTagxProduct, DeleteTagxProduct } from '@retail/shared/state/tag/tag.actions';
 import { Omit } from '@retail/shared/utils';
 import { echartStyles } from '@retail/shared/echart-styles';
 import { EChartOption } from 'echarts';

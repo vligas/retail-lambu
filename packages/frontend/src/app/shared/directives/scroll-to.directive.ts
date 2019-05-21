@@ -1,10 +1,16 @@
-import { Directive, ElementRef, Attribute, OnInit, HostListener } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Attribute,
+  OnInit,
+  HostListener
+} from '@angular/core';
 
 @Directive({ selector: '[scrollTo]' })
 export class ScrollToDirective implements OnInit {
-  constructor( @Attribute('scrollTo') public elmID: string, private el: ElementRef) { }
+  constructor(@Attribute('scrollTo') public elmID: string, private el: ElementRef) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   currentYPosition() {
     // Firefox, Chrome, Opera, Safari

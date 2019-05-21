@@ -1,17 +1,20 @@
-import { Directive, HostListener } from '@angular/core';
-  
-  
-  @Directive({
+import {
+    Directive,
+    HostListener
+} from '@angular/core';
+
+
+@Directive({
     selector: '[fullScreenWindow]'
-  })
-  export class FullScreenWindowDirective {
+})
+export class FullScreenWindowDirective {
     // Full screen
     private cancelFullScreen(el) {
         var requestMethod = el.cancelFullScreen || el.webkitCancelFullScreen || el.mozCancelFullScreen || el.exitFullscreen;
         if (requestMethod) { // cancel full screen.
             requestMethod.call(el);
-        } 
-        
+        }
+
         // else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
         //     var wscript = new ActiveXObject("WScript.Shell");
         //     if (wscript !== null) {
@@ -26,7 +29,7 @@ import { Directive, HostListener } from '@angular/core';
 
         if (requestMethod) { // Native full screen.
             requestMethod.call(el);
-        } 
+        }
         // else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
         //     var wscript = new ActiveXObject("WScript.Shell");
         //     if (wscript !== null) {
@@ -48,6 +51,5 @@ import { Directive, HostListener } from '@angular/core';
         }
         return false;
     }
-  
-  }
-  
+
+}

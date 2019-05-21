@@ -1,20 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared/animations/shared-animations';
+import { SharedAnimations } from '@retail/shared';
 import { Store, Select } from '@ngxs/store';
-import { ToastrService, Toast } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Role, Permits } from '@retail/shared/models/auth.model';
-import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
+import {
+    Role,
+    AuthService,
+    UserService,
+    ResponseSimpleUserDto,
+    RequestUpdateUserDto,
+    RoleState,
+    FetchRoles,
+    UpdateUser
+} from '@retail/shared';
+import { FormBuilder, FormControl } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from '@retail/shared/services/auth.service';
-import { RequestUpdateRoleDto, RequestCreateRolePermissionDto } from '@retail/shared/dto/auth.dto';
 import { OptionToast } from '@retail/shared/utils';
-import { ResponseSimpleUserDto, RequestUpdateUserDto } from '@retail/shared/dto/user.dto';
-import { UserService } from '@retail/shared/services/user.service';
-import { RoleState } from '@retail/shared/state/roleControl/role.state';
 import { Observable } from 'rxjs';
-import { FetchRoles } from '@retail/shared/state/roleControl/role.actions';
-import { UpdateUser } from '@retail/shared/state/userControl/user.actions';
 import { debounceTime } from 'rxjs/operators';
 
 interface RoleExt extends Role {

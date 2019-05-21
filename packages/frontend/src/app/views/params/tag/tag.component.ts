@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared/animations/shared-animations';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { Tag } from '@retail/shared/models/tag.model';
-import { TagState } from '@retail/shared/state/tag/tag.state';
-import { FetchTag, AddTag, UpdateTag, DeleteTag } from '@retail/shared/state/tag/tag.actions';
-import { DebugHelper } from 'protractor/built/debugger';
+import {
+    SharedAnimations,
+    Tag,
+    TagState,
+    FetchTag,
+    AddTag,
+    UpdateTag,
+    DeleteTag
+} from '@retail/shared';
 
 @Component({
     selector: 'app-tag',

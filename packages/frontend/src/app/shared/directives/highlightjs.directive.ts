@@ -1,4 +1,8 @@
-import { Directive, Input, ElementRef } from '@angular/core';
+import {
+  Directive,
+  Input,
+  ElementRef
+} from '@angular/core';
 import hljs from 'highlight.js';
 // import hljs from 'highlight.js/lib/highlight';
 // import javascript from 'highlight.js/lib/languages/javascript';
