@@ -5,7 +5,7 @@ import {
     ResponseCompetitorDto,
     RequestCreateCompetitorDto,
     RequestUpdateCompetitorDto
-} from '../dto';
+} from '../../dto';
 import { ServiceOpts } from './service.module';
 
 

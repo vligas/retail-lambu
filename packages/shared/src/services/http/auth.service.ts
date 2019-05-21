@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LocalStoreService } from './local-store.service';
+import { LocalStoreService } from '../others/local-store.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -10,7 +10,7 @@ import {
   RequestUpdateRoleDto,
   ResponsePermissionDto,
   RequestCreateRoleDto
-} from '../dto';
+} from '../../dto';
 import { ServiceOpts } from './service.module';
 
 

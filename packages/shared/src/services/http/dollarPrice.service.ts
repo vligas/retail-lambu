@@ -4,7 +4,7 @@ import {
     ResponseFormat,
     ResponseCreateDollarPriceDto,
     RequestCreateDollarPriceDto
-} from '../dto';
+} from '../../dto';
 import { ServiceOpts } from './service.module';
 
 

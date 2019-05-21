@@ -5,9 +5,9 @@ import {
   ResponseProductDto,
   ResponseProvidersByProductDto,
   ResponseSimpleProductDto
-} from '../dto';
-import { Tag } from '../models';
-import { Utils } from '../utils';
+} from '../../dto';
+import { Tag } from '../../models';
+import { Utils } from '../../utils';
 import { ServiceOpts } from './service.module';
 
 
