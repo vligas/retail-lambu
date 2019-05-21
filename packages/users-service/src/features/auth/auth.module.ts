@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { AuthController } from './auth.controller';
-// import { DatabaseModule } from 'src/database/database.module';
 import { UserModule } from '../userControl/user.module';
 import { AuthService } from './auth.service';
 import { ConfigModule } from 'src/config/config.module';
@@ -9,6 +8,7 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { RoleService } from './role.service';
+import { DatabaseModule } from '@retail/common';
 
 
 @Module({
@@ -23,7 +23,7 @@ import { RoleService } from './role.service';
                 expiresIn: 3600,
             },
         }),
-        // DatabaseModule,
+        DatabaseModule,
         UserModule,
         ConfigModule
     ],

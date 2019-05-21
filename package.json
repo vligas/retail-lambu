@@ -9,7 +9,7 @@
   ],
   "dependencies": {
     "yarn": "^1.16.0",
-    "@nestjs/swagger": "^3.0.2"
-
+    "@nestjs/swagger": "^3.0.2",
+    "@nestjs/platform-express": "^6.1.1"
   }
 }

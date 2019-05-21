@@ -5,6 +5,7 @@ import { ConfigModule } from './config/config.module';
 import { config } from './config/config.service';
 import { EntityModule } from './database/entity.module';
 import { DatabaseModule } from '@retail/common';
+import { UserModule } from './features/userControl/user.module';
 
 export const DATABASEVAD10 = 'DataBaseVAD10';
 
@@ -28,6 +29,8 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
       },
     }]),
    EntityModule.forFeature([]),
+
+   UserModule
     
   ],
   controllers: [AppController],
