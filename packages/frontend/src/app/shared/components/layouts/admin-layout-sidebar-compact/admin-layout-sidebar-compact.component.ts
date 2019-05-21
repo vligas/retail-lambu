@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationService } from '@retail/shared/services/navigation.service';
-import { SearchService } from '@retail/shared/services/search.service';
+import {
+  NavigationService,
+  SearchService
+} from '@retail/shared';
+
 import {
   Router,
   RouteConfigLoadStart,

@@ -1,10 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent } from '@angular/common/http';
+import {
+  HttpInterceptor,
+  HttpHandler,
+  HttpRequest,
+  HttpEvent
+} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
-import { Currency } from '@retail/shared';
-import { Store, Select } from '@ngxs/store';
-import { CurrencyState } from '@retail/shared/state/currency/currency.state';
+import {
+  Currency,
+  CurrencyState
+} from '@retail/shared';
+import {
+  Store,
+  Select
+} from '@ngxs/store';
 
 
 

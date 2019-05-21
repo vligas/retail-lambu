@@ -11,6 +11,8 @@ export * from './dto';
 export * from './inmemory-db';
 export * from './models';
 export * from './pipes';
+export * from './services';
+export * from './state';
 
 
 

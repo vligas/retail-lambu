@@ -1,5 +1,8 @@
 import {
-  Directive, HostBinding, Inject, Input, OnInit, OnDestroy
+  Directive,
+  HostBinding,
+  Inject,
+  Input
 } from '@angular/core';
 
 import { AppDropdownDirective } from './dropdown.directive';

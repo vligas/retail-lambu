@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Store, Select } from '@ngxs/store';
-import { SessionState } from '@retail/shared/state/session/session.state';
+import { SessionState } from '@retail/shared';
 import { Observable } from 'rxjs';
 
 @Injectable({
