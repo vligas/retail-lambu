@@ -16,12 +16,8 @@ import { EntityModule } from './database/entity.module';
 import { Role } from './database/models/VAD10/role/role.entity';
 import { config } from '../src/config/config.service';
 import { ConsulService } from '@retail/common/discovery/services/consul.service';
-<<<<<<< HEAD
 import { AUTH_SERVICE_NAME, RETAIL_SERVICE_NAME } from '@retail/common/utils/constants';
-=======
-import { AUTH_SERVICE_NAME } from '@retail/common/utils/constants';
 import { ConfigModule } from '@retail/common';
->>>>>>> 122801ce06ac7fc26b76db49521a882a2235a641
 
 export const DATABASEVAD10 = 'DataBaseVAD10';
 
