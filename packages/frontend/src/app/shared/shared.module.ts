@@ -5,19 +5,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {
   SearchModule,
-  SharedDirectivesModule
-} from '@retail/shared';
-import { SharedComponentsModule } from '../shared/components/shared-components.module';
-import { NgxsModule } from '@ngxs/store';
-import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ApiFailsInterceptor } from './interceptors/api-fails.interceptor';
-// import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
-import { ApiTokensInterceptor } from './interceptors/api-tokens.interceptor.1';
-import { ApiCurrencyInterceptor } from './interceptors/api-currency.interceptor';
-import { ApiLocationInterceptor } from './interceptors/api-location.interceptor';
-import {
+  SharedDirectivesModule,
   SharedPipesModule,
   ServiceModule,
   BranchOfficeCompetitorState,
@@ -36,6 +24,18 @@ import {
   DollarPriceState,
   SessionState
 } from '@retail/shared';
+import {
+  ApiCurrencyInterceptor,
+  ApiFailsInterceptor,
+  ApiLocationInterceptor,
+  ApiTokensInterceptor
+} from './interceptors';
+import { SharedComponentsModule } from '../shared/components/shared-components.module';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+// import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { environment } from '@frontend/environments/environment';
 
 

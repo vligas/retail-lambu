@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import {
   NavigationService,
   IMenuItem,
   IChildItem
-} from '@retail/shared';
+} from '../../services';
 @Component({
   selector: 'app-breadcrumb',
   templateUrl: './breadcrumb.component.html',

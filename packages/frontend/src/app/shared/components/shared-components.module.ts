@@ -7,12 +7,12 @@ import {
   AsideDockComponent,
   AsideRightComponent,
   SharedPipesModule,
-  SharedDirectivesModule
+  SharedDirectivesModule,
+  BreadcrumbComponent
 } from '@retail/shared';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { LayoutsModule } from './layouts/layouts.module';
-import { BreadcrumbComponent } from '../components/breadcrumb/breadcrumb.component';
 
 const components = [
   BtnLoadingComponent,
