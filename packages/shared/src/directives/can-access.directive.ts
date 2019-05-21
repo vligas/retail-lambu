@@ -7,7 +7,7 @@ import {
     OnDestroy
 } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
-import { SessionState } from '@retail/shared';
+import { SessionState } from '../state';
 import {
     Select,
     Store

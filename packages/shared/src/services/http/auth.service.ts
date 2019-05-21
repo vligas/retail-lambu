@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LocalStoreService } from '../others/local-store.service';
+import { LocalStoreService } from '../others';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 

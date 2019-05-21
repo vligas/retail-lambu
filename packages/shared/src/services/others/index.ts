@@ -9,4 +9,5 @@ export {
     NavigationService
 } from './navigation.service';
 export { SearchService } from './search.service';
+export { SidebarHelperService } from './sidebar-helper.service';
 
