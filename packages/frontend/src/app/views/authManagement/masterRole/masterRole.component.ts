@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { RoleState } from '@retail/shared/state/roleControl/role.state';
 import { Observable } from 'rxjs';
-import { Role } from '@retail/shared/models/auth.model';
+import { Role } from '@retail/shared';
 import { FetchRoles, UpdateRole, DeleteRole } from '@retail/shared/state/roleControl/role.actions';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';

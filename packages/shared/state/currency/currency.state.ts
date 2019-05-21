@@ -1,9 +1,17 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
-import { Currency } from '../../models/currency.model';
-import { AddCurrency, DeleteCurrency, FetchCurrency, UpdateCurrency, FetchCurrencyHistoric, AddPrice, DeletePrice, ChangeSelectCurrency } from './currency.actions';
+import { Currency, CurrencyHistoric } from '../../src/models';
+import {
+    AddCurrency,
+    DeleteCurrency,
+    FetchCurrency,
+    UpdateCurrency,
+    FetchCurrencyHistoric,
+    AddPrice,
+    DeletePrice,
+    ChangeSelectCurrency
+} from './currency.actions';
 import { CurrencyService } from '../../services/currency.service';
 import { tap } from 'rxjs/operators';
-import { CurrencyHistoric } from '../../models/currencyHistoric.model';
 
 export class CurrencyStateModel {
     currencies: Currency[];

@@ -1,5 +1,5 @@
 import { RequestGapersDto } from '../../src/dto';
-import { ServiceOptions } from '../../models/queryOptions.model';
+import { ServiceOptions } from '../../src/models';
 
 export class FetchProductsForGap {
     static readonly type = '[GAP] Get all Product for GAP';

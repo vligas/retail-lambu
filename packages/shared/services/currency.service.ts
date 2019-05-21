@@ -8,7 +8,7 @@ import {
     RequestUpdateCurrencyDto,
     ResponseCreateCurrencyHistoricDto
 } from '../src/dto';
-import { Price } from '../models/price.model';
+import { Price } from '../src/models';
 import { ServiceOpts } from './service.module';
 
 

@@ -1,5 +1,5 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
-import { Category } from '../../models/category.model';
+import { Category } from '../../src/models';
 import { AddCategory, DeleteCategory, FetchCategory, UpdateCategory } from './category.actions';
 import { CategoryService } from '../../services/category.service';
 import { tap } from 'rxjs/operators';

@@ -6,7 +6,6 @@ import {
     RequestCreateCategoryDto,
     RequestUpdateCategoryDto
 } from '../src/dto';
-import { map } from 'rxjs/operators';
 import { ServiceOpts } from './service.module';
 
 

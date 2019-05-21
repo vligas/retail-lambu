@@ -1,4 +1,4 @@
-import { Tag } from '../../models/tag.model'
+import { Tag } from '../../src/models/tag.model'
 import { Omit } from '../../utils';
 
 export class AddTag {

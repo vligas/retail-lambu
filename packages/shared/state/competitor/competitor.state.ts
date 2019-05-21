@@ -1,5 +1,5 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
-import { Competitor } from '../../models/competitor.model';
+import { Competitor } from '../../src/models';
 import { AddCompetitor, FetchCompetitor, DeleteCompetitor, UpdateCompetitor, ChangeCompetitorId } from './competitor.actions';
 import { CompetitorService } from '../../services/competitor.service';
 import { tap } from 'rxjs/operators';

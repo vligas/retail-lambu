@@ -1,2 +1,2 @@
-import { ResponseCurrencyWithValues } from '../src/dto';
+import { ResponseCurrencyWithValues } from '../dto';
 export type CurrencyHistoric = ResponseCurrencyWithValues;

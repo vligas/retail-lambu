@@ -1,5 +1,5 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
-import { BranchOffice } from '../../models/branchOffice.model';
+import { BranchOffice } from '../../src/models';
 import { FetchBranchOffice, ChangeSelectBranch } from './branchOffice.actions';
 import { BranchOfficeService } from '../../services/branchOffice.service';
 import { tap } from 'rxjs/operators';

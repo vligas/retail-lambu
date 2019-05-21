@@ -1,4 +1,4 @@
-import { BranchOffice } from '../../models/branchOffice.model';
+import { BranchOffice } from '../../src/models';
 
 export class FetchBranchOffice {
     static readonly type = '[BranchOffice] Fetch All BranchOffices';

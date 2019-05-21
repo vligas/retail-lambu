@@ -8,3 +8,7 @@
 export { SharedAnimations } from './animations/shared-animations';
 export * from './components';
 export * from './dto';
+export * from './inmemory-db';
+export * from './models';
+
+

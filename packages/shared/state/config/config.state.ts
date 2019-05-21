@@ -1,4 +1,4 @@
-import { Config } from '../../models/config.model';
+import { Config } from '../../src/models';
 import { State, Selector, Action, StateContext } from '@ngxs/store';
 import { FetchConfig, UpdateConfig } from './config.actions';
 import { AppConfigService } from '../../services/app-config.service';

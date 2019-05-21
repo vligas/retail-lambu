@@ -10,7 +10,7 @@ import { GapState } from '@retail/shared/state/gap/gap.state';
 import { Store, Select } from '@ngxs/store';
 import { DollarPriceState } from '@retail/shared/state/dollarPrice/dollarPrice.state';
 import { FetchDollarPrice } from '@retail/shared/state/dollarPrice/dollarPrice.actions';
-import { DollarPrice } from '@retail/shared/models/dollarPrice.model';
+import { DollarPrice, Config } from '@retail/shared';
 import { ResponseGapDto, Prices, RequestGapersDto, ResponseProvidersByProductDto } from '@retail/shared';
 import gapersData from './gapersData';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -18,7 +18,6 @@ import * as _ from 'underscore';
 import { ProductService } from '@retail/shared/services/product.service';
 import { Router } from '@angular/router';
 import { ConfigState } from '@retail/shared/state/config/config.state';
-import { Config } from '@retail/shared/models/config.model';
 import { FetchConfig } from '@retail/shared/state/config/config.actions';
 
 

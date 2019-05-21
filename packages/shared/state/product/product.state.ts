@@ -3,7 +3,7 @@ import { tap } from 'rxjs/operators';
 import { FetchProducts } from './product.actions';
 import { ProductService } from '../../services/product.service';
 import { TagService } from '../../services/tag.service';
-import { SimpleProductDto } from '../../models/products.models';
+import { SimpleProductDto } from '../../src/models';
 
 
 export interface ProductStateModel {

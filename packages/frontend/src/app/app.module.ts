@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from '../app/shared/shared.module';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from '@retail/shared/inmemory-db/inmemory-db.service';
+import { InMemoryDataService } from '@retail/shared';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [

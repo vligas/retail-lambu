@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { LocalStoreService } from './local-store.service';
 import { Router } from '@angular/router';
-import { of, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Store } from '@ngxs/store';
+
 import {
   ResponseFormat,
   ResponseLoginDto,

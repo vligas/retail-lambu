@@ -5,7 +5,7 @@ import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { Tag } from '@retail/shared/models/tag.model';
+import { Tag } from '@retail/shared';
 import { TagState } from '@retail/shared/state/tag/tag.state';
 import { FetchTag, AddTag, UpdateTag, DeleteTag } from '@retail/shared/state/tag/tag.actions';
 import { DebugHelper } from 'protractor/built/debugger';

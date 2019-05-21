@@ -6,7 +6,7 @@ import {
   ResponseProvidersByProductDto,
   ResponseSimpleProductDto
 } from '../src/dto';
-import { Tag } from '../models/tag.model';
+import { Tag } from '../src/models';
 import { Utils } from '../utils';
 import { ServiceOpts } from './service.module';
 

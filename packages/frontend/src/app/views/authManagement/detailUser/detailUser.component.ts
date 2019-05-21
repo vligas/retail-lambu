@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedAnimations } from '@retail/shared';
 import { Store, Select } from '@ngxs/store';
-import { ToastrService, Toast } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Role, Permits } from '@retail/shared/models/auth.model';
-import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
+import { Role } from '@retail/shared';
+import { FormBuilder, FormControl } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from '@retail/shared/services/auth.service';
 import { OptionToast } from '@retail/shared/utils';

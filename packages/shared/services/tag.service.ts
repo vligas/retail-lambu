@@ -4,10 +4,10 @@ import {
     ResponseFormat,
     ResponseTagDto
 } from '../src/dto';
-import { Tag } from '../models/tag.model';
+import { Tag } from '../src/models';
 // import dummy from '@frontend/app/views/params/tag/dummy';
 import { Omit, Utils } from '../utils';
-import { SimpleProductDto } from '../models/products.models';
+import { SimpleProductDto } from '../src/models/products.models';
 import { ServiceOpts } from './service.module';
 
 @Injectable({

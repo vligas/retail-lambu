@@ -58,7 +58,8 @@ export {
     RequestUpdateProductDto,
     ResponseProductDto,
     ResponseProvidersByProductDto,
-    ResponseSimpleProductDto
+    ResponseSimpleProductDto,
+
 } from './product.dto';
 
 export {

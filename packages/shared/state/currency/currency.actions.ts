@@ -1,7 +1,5 @@
-import { Currency } from '../../models/currency.model';
+import { Currency, Price } from '../../src/models';
 import { Omit } from '../../utils';
-import { CurrencyHistoric } from '../../models/currencyHistoric.model';
-import { Price } from '../../models/price.model';
 
 export class AddCurrency {
     static readonly type = '[Currency] Add Currency';

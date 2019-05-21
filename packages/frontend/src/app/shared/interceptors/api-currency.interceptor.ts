@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpErrorResponse, HttpHandler, HttpRequest, HttpEvent, HttpResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { tap, catchError, map } from 'rxjs/operators';
+import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
-import { Error } from '@retail/shared/models/error.model';
-import { Currency } from '@retail/shared/models/currency.model';
+import { Currency } from '@retail/shared';
 import { Store, Select } from '@ngxs/store';
 import { CurrencyState } from '@retail/shared/state/currency/currency.state';
 

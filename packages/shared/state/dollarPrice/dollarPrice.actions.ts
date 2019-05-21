@@ -1,4 +1,4 @@
-import { DollarPrice } from '../../models/dollarPrice.model'
+import { DollarPrice } from '../../src/models'
 import { Omit } from '../../utils';
 
 export class AddDollarPrice {

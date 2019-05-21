@@ -1,4 +1,4 @@
-import { Category } from '../../models/category.model'
+import { Category } from '../../src/models'
 import { Omit } from '../../utils';
 
 export class AddCategory {

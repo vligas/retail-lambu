@@ -1,8 +1,8 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
-import { DollarPrice } from '../../models/dollarPrice.model';
+import { DollarPrice } from '../../src/models';
 import { AddDollarPrice, DeleteDollarPrice, FetchDollarPrice } from './dollarPrice.actions';
 import { DollarPriceService } from '../../services/dollarPrice.service';
-import { tap, map } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
 
 export class DollarPriceStateModel {

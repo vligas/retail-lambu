@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { CurrencyHistoric } from '@retail/shared/models/currencyHistoric.model';
+import { CurrencyHistoric, Price } from '@retail/shared';
 import { ActivatedRoute } from '@angular/router';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { CurrencyState } from '@retail/shared/state/currency/currency.state';
 import { FetchCurrencyHistoric, DeletePrice, AddPrice } from '@retail/shared/state/currency/currency.actions';
-import { Currency } from '@retail/shared/models/currency.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SharedAnimations } from '@retail/shared';
 import { echartStyles } from '@retail/shared/echart-styles';
-import { Price } from '@retail/shared/models/price.model';
 import { ToastrService } from 'ngx-toastr';
 
 

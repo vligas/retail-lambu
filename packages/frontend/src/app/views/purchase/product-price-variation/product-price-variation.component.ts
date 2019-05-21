@@ -1,16 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedAnimations } from '@retail/shared';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { DebugHelper } from 'protractor/built/debugger';
-import { SimpleProductDto } from '@retail/shared/models/products.models';
+import { SimpleProductDto, Tag } from '@retail/shared';
 import { TagState } from '@retail/shared/state/tag/tag.state';
 import { PriceVariationState } from '@retail/shared/state/price-variation/price-variation.state';
-import { Router } from '@angular/router';
-import { Tag } from '@retail/shared/models/tag.model';
 import { FetchTag } from '@retail/shared/state/tag/tag.actions';
 import { FetchProductsForPriceVariation } from '@retail/shared/state/price-variation/price-variation.actions';
 import { RequestPriceVariationDto } from '@retail/shared';

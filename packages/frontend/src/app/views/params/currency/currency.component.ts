@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedAnimations } from '@retail/shared';
-import { Currency } from '@retail/shared/models/currency.model';
+import { Currency } from '@retail/shared';
 import { Store, Select } from '@ngxs/store';
 import { CurrencyState } from '@retail/shared/state/currency/currency.state';
 import { AddCurrency, FetchCurrency, DeleteCurrency, UpdateCurrency } from '@retail/shared/state/currency/currency.actions';

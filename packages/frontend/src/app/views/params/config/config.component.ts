@@ -5,7 +5,7 @@ import * as _ from 'underscore';
 import { Store, Select } from '@ngxs/store';
 import { FetchConfig, UpdateConfig } from '@retail/shared/state/config/config.actions';
 import { ConfigState } from '@retail/shared/state/config/config.state';
-import { GapConfig } from '@retail/shared/models/config.model';
+import { GapConfig } from '@retail/shared';
 import { Observable } from 'rxjs';
 
 @Component({

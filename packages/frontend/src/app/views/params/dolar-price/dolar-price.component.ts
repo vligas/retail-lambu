@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { echartStyles } from '@retail/shared/echart-styles';
-import { DollarPrice } from '@retail/shared/models/dollarPrice.model';
+import { DollarPrice } from '@retail/shared';
 import { Store, Select } from '@ngxs/store';
 import { AddDollarPrice, FetchDollarPrice, DeleteDollarPrice } from '@retail/shared/state/dollarPrice/dollarPrice.actions';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';

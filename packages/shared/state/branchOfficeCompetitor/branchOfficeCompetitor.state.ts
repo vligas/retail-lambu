@@ -1,7 +1,7 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { tap } from 'rxjs/operators';
 import { AddBranchCompetitor, UpdateBranchCompetitor, FetchBranchCompetitor, DeleteBranchCompetitor } from '../../state/branchOfficeCompetitor/branchOfficeCompetitor.actions';
-import { BranchCompetitor } from '../../models/branchOfficeCompetitor.model';
+import { BranchCompetitor } from '../../src/models';
 import { BranchOfficeCompetitorService } from '../../services/branch-office-competitor.service';
 import { ResponseBranchOfficeDto } from '../../src/dto';
 export class BranchCompetitorStateModel {

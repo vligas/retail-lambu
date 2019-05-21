@@ -5,7 +5,7 @@ import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { SimpleProductDto } from '@retail/shared/models/products.models';
+import { SimpleProductDto, Tag } from '@retail/shared';
 import { ProductState } from '@retail/shared/state/product/product.state';
 import { FetchProducts } from '@retail/shared/state/product/product.actions';
 import { ResponseProvidersByProductDto } from '@retail/shared';
@@ -13,7 +13,6 @@ import { ProductService } from '@retail/shared/services/product.service';
 import { Router } from '@angular/router';
 import { FetchTag } from '@retail/shared/state/tag/tag.actions';
 import { TagState } from '@retail/shared/state/tag/tag.state';
-import { Tag } from '@retail/shared/models/tag.model';
 
 @Component({
     selector: 'app-masterProduct',

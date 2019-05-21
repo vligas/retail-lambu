@@ -3,18 +3,17 @@ import {
     SharedAnimations,
     RequestUpdateRoleDto,
     RequestCreateRolePermissionDto,
-    RequestCreateRoleDto
+    RequestCreateRoleDto,
+    Role,
+    Permits
 } from '@retail/shared';
-import { Store, Select } from '@ngxs/store';
-import { ToastrService, Toast } from 'ngx-toastr';
+import { Store } from '@ngxs/store';
+import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Role, Permits } from '@retail/shared/models/auth.model';
-import { FetchRoles, UpdateRole, CreateRole } from '@retail/shared/state/roleControl/role.actions';
+import { UpdateRole, CreateRole } from '@retail/shared/state/roleControl/role.actions';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from '@retail/shared/services/auth.service';
-import { async } from 'q';
 import { OptionToast, Utils } from '@retail/shared/utils';
 import { debounceTime } from 'rxjs/operators';
 

@@ -1,5 +1,5 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
-import { User } from '../../models/user.model';
+import { User } from '../../src/models/user.model';
 import { Login, Logout } from './session.actions';
 import { AuthService } from '../../services/auth.service';
 import { LocalStoreService } from '../../services/local-store.service';

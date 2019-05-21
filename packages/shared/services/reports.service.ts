@@ -8,7 +8,7 @@ import {
   ResponsePriceVariationDto
 } from '../src/dto';
 import { Utils } from '../utils';
-import { ServiceOptions } from '../models/queryOptions.model';
+import { ServiceOptions } from '../src/models';
 import { ServiceOpts } from './service.module';
 
 @Injectable({

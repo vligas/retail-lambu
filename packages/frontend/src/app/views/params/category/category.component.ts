@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
-import { DataLayerService } from '@retail/shared/services/data-layer.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SharedAnimations } from '@retail/shared';
 import { CategoryState } from '@retail/shared/state/category/category.state';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Store, Select } from '@ngxs/store';
-import { Category } from '@retail/shared/models/category.model';
+import { Category } from '@retail/shared';
 import { Observable } from 'rxjs';
 import { FetchCategory, AddCategory, DeleteCategory, UpdateCategory } from '@retail/shared/state/category/category.actions';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
