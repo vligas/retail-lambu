@@ -1,21 +1,25 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\angelica.meza\Documents\Repositorios\mono-retail\retail-mono\node_modules\yarn\bin\yarn.js install --mutex network:42424 --non-interactive
+  C:\Program Files\nodejs\node.exe C:\Users\vligas\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js workspace @retail/common add @types/consul
 
 PATH: 
-  C:\Users\angelica.meza\Documents\Repositorios\mono-retail\retail-mono\node_modules\.bin;C:\Users\angelica.meza\Documents\Repositorios\mono-retail\node_modules\.bin;C:\Users\angelica.meza\Documents\Repositorios\node_modules\.bin;C:\Users\angelica.meza\Documents\node_modules\.bin;C:\Users\angelica.meza\node_modules\.bin;C:\Users\node_modules\.bin;C:\node_modules\.bin;C:\Program Files\nodejs;C:\Users\angelica.meza\Documents\Repositorios\mono-retail\retail-mono\node_modules\.bin;C:\Python27\;C:\Python27\Scripts;C:\Program Files\Microsoft MPI\Bin\;C:\ProgramData\Boxstarter;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\xampp\mysql\bin;C:\xampp\php;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\xampp\php\php.exe;C:\composer;C:\TDM-GCC-64\bin;C:\Program Files\LLVM\bin;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\Android\Android Studio\Sdk\tools;C:\Program Files\Android\Android Studio\Sdk\platforms-tools;C:\Program Files\Android\Android Studio\Sdk\platform-tools;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio\;C:\Program Files\Android\Sdk\platform-tools;C:\Users\angelica.meza\AppData\Roaming\npm;C:\Users\angelica.meza\AppData\Roaming\npm\node_modules\@angular\cli\bin;
+  C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Docker\Docker\Resources\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\PuTTY\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio\;C:\Program Files\consul;C:\ProgramData\chocolatey\bin;C:\Users\vligas\AppData\Local\Microsoft\WindowsApps;C:\Users\vligas\AppData\Roaming\npm;C:\Users\vligas\AppData\Local\Programs\Microsoft VS Code\bin
 
 Yarn version: 
-  1.16.0
+  1.15.2
 
 Node version: 
-  10.13.0
+  10.15.3
 
 Platform: 
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/typescript/-/typescript-3.2.2.tgz: unexpected end of file
-      at Zlib.zlibOnError [as onerror] (zlib.js:154:17)
+  SyntaxError: C:\Users\vligas\Documents\trabajo\valcro-lerna\monorepo\packages\common\package.json: Unexpected token / in JSON at position 1321
+      at JSON.parse (<anonymous>)
+      at C:\Users\vligas\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\vligas\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:304:30)
+      at C:\Users\vligas\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:315:13
 
 npm manifest: 
   {
@@ -1715,6 +1719,13 @@ Lockfile:
     version "3.4.32"
     resolved "https://registry.yarnpkg.com/@types/connect/-/connect-3.4.32.tgz#aa0e9616b9435ccad02bc52b5b454ffc2c70ba28"
     integrity sha512-4r8qa0quOvh7lGD0pre62CAb1oni1OO6ecJLGCezTmhQ8Fz50Arx9RUszryR8KlgK6avuSXvviL6yWyViQABOg==
+    dependencies:
+      "@types/node" "*"
+  
+  "@types/consul@^0.34.1":
+    version "0.23.33"
+    resolved "https://registry.yarnpkg.com/@types/consul/-/consul-0.23.33.tgz#ef9876fd75fdfed9b5b1afe320ccdb6456eb90d2"
+    integrity sha512-scpn9tiAh+IJXJipP2cpp0kJCUeWGOnoBfChGK+k2Zi0ifQMyPUHhG/d9J+Eyz4T/ZCn+J5yvq4Wr0b45TwACg==
     dependencies:
       "@types/node" "*"
   
@@ -4297,6 +4308,13 @@ Lockfile:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/constants-browserify/-/constants-browserify-1.0.0.tgz#c20b96d8c617748aaf1c16021760cd27fcb8cb75"
     integrity sha1-wguW2MYXdIqvHBYCF2DNJ/y4y3U=
+  
+  consul@^0.34.1:
+    version "0.34.1"
+    resolved "https://registry.yarnpkg.com/consul/-/consul-0.34.1.tgz#b000638ad99db038fbb98e508c32d758bf598968"
+    integrity sha512-xCLBzPQBgnDgC2LdYnrT/Fc6PglRU6u7EBkpW0ExAx3Am/CdtKcP5o/3jfwOy7PBAwBqnJk3AYdwwGg+arriiQ==
+    dependencies:
+      papi "^0.29.0"
   
   content-disposition@0.5.2:
     version "0.5.2"
@@ -10939,6 +10957,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.10.tgz#4328badb5086a426aa90f541977d4955da5c9732"
     integrity sha512-0DTvPVU3ed8+HNXOu5Bs+o//Mbdj9VNQMUOe9oKCwh8l0GNwpTDMKCWbRjgtD291AWnkAgkqA/LOnQS8AmS1tw==
   
+  papi@^0.29.0:
+    version "0.29.1"
+    resolved "https://registry.yarnpkg.com/papi/-/papi-0.29.1.tgz#7373e2c527f5117d61fd2a0e6c6b1dd72bf7f180"
+    integrity sha512-Y9ipSMfWuuVFO3zY9PlxOmEg+bQ7CeJ28sa9/a0veYNynLf9fwjR3+3fld5otEy7okUaEOUuCHVH62MyTmACXQ==
+  
   parallel-transform@^1.1.0:
     version "1.1.0"
     resolved "https://registry.yarnpkg.com/parallel-transform/-/parallel-transform-1.1.0.tgz#d410f065b05da23081fcd10f28854c29bda33b06"
@@ -15160,6 +15183,11 @@ Lockfile:
       which-module "^1.0.0"
       y18n "^3.2.1"
       yargs-parser "^5.0.0"
+  
+  yarn@^1.16.0:
+    version "1.16.0"
+    resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.16.0.tgz#5701b58ac555ff91f7b889b7d791b3dc86f8f999"
+    integrity sha512-cfemyGlnWKA1zopUUgebTPf8C4WkPIZ+TJmklwcEAJ4u6oWPtJeAzrsamaGGh/+b1XWe8W51yzAImC4AWbWR1g==
   
   yeast@0.1.2:
     version "0.1.2"
