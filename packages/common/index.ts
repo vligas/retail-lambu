@@ -16,3 +16,5 @@ export {
 export {
     ServiceDiscoveryModule
 } from './discovery/discovery.module';
+
+export * from './utils';
