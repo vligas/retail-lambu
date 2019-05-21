@@ -2,16 +2,20 @@
 import 'reflect-metadata';
 
 export {
- PruebaModule,
+    PruebaModule,
 } from './prueba/prueba.module';
 
 export {
     PruebaService,
-   } from './prueba/service/prueba.service';
+} from './prueba/service/prueba.service';
 
 export {
     DatabaseModule,
-   } from './database/database.module';
+} from './src/database/database.module';
+
+export {
+    PermissionsGuard,
+} from './src/guards/permissions.guard';
 
 export {
     ServiceDiscoveryModule

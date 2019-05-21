@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SearchModule } from '@retail/shared';
+import {
+  SearchModule,
+  SharedDirectivesModule
+} from '@retail/shared';
 import { SharedComponentsModule } from '../shared/components/shared-components.module';
-import { SharedDirectivesModule } from '../shared/directives/shared-directives.module';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';

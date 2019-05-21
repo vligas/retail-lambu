@@ -6,8 +6,8 @@ import {
   OnInit,
   Inject
 } from '@angular/core';
-import { SidebarHelperService } from '../services/sidebar-helper.service';
-import { Utils } from '@retail/shared';
+import { SidebarHelperService } from '../services';
+import { Utils } from '../utils';
 
 @Directive({
   selector: '[appSidebarContainer]'

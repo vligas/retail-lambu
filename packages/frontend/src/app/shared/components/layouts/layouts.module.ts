@@ -7,12 +7,17 @@ import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { BlankLayoutComponent } from './blank-layout/blank-layout.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
-import { SearchModule, FooterComponent, CustomizerComponent, SharedPipesModule } from '@retail/shared';
+import {
+  SearchModule,
+  FooterComponent,
+  CustomizerComponent,
+  SharedPipesModule,
+  SharedDirectivesModule
+} from '@retail/shared';
 import { SidebarLargeComponent } from './admin-layout-sidebar-large/sidebar-large/sidebar-large.component';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { SidebarCompactComponent } from './admin-layout-sidebar-compact/sidebar-compact/sidebar-compact.component';
 import { HeaderSidebarCompactComponent } from './admin-layout-sidebar-compact/header-sidebar-compact/header-sidebar-compact.component';
-import { SharedDirectivesModule } from '../../directives/shared-directives.module';
 import { FormsModule } from '@angular/forms';
 import { MaintenanceLayoutComponent } from './maintenance-layout/maintenance-layout.component';
 

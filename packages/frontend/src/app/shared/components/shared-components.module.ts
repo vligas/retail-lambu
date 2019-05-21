@@ -6,10 +6,10 @@ import {
   SearchModule,
   AsideDockComponent,
   AsideRightComponent,
-  SharedPipesModule
+  SharedPipesModule,
+  SharedDirectivesModule
 } from '@retail/shared';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SharedDirectivesModule } from '../directives/shared-directives.module';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { LayoutsModule } from './layouts/layouts.module';
 import { BreadcrumbComponent } from '../components/breadcrumb/breadcrumb.component';
