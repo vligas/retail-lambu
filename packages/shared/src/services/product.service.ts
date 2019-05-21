@@ -7,7 +7,7 @@ import {
   ResponseSimpleProductDto
 } from '../dto';
 import { Tag } from '../models';
-import { Utils } from '../../utils';
+import { Utils } from '../utils';
 import { ServiceOpts } from './service.module';
 
 

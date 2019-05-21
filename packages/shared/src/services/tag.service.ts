@@ -5,7 +5,7 @@ import {
     ResponseTagDto
 } from '../dto';
 import { Tag } from '../models';
-import { Omit, Utils } from '../../utils';
+import { Omit, Utils } from '../utils';
 import { SimpleProductDto } from '../models';
 import { ServiceOpts } from './service.module';
 

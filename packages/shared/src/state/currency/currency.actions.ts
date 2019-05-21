@@ -1,5 +1,5 @@
 import { Currency, Price } from '../../models';
-import { Omit } from '../../../utils';
+import { Omit } from '../../utils';
 
 export class AddCurrency {
     static readonly type = '[Currency] Add Currency';

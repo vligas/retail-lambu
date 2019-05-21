@@ -7,7 +7,7 @@ import {
   ResponseSaleDto,
   ResponsePriceVariationDto
 } from '../dto';
-import { Utils } from '../../utils';
+import { Utils } from '../utils';
 import { ServiceOptions } from '../models';
 import { ServiceOpts } from './service.module';
 

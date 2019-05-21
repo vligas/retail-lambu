@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { echartStyles } from '@retail/shared/echart-styles';
-import { DollarPrice } from '@retail/shared';
 import { Store, Select } from '@ngxs/store';
 import {
   AddDollarPrice,
   FetchDollarPrice,
   DeleteDollarPrice,
-  DollarPriceState
+  DollarPriceState,
+  echartStyles,
+  DollarPrice
 } from '@retail/shared';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';

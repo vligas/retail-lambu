@@ -6,7 +6,8 @@ import {
     UpdateRole,
     DeleteRole,
     Role,
-    AuthService
+    AuthService,
+    OptionToast
 } from '@retail/shared';
 import { Store, Select } from '@ngxs/store';
 import { ToastrService } from 'ngx-toastr';
@@ -14,7 +15,6 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { OptionToast } from '@retail/shared/utils';
 
 interface RoleExt extends Role {
     isSelected: boolean
