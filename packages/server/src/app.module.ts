@@ -9,15 +9,18 @@ import { SpyModule } from './features/spy/spy.module';
 import { RequestContextMiddleware } from './common/middlewares/request-context.middleware';
 import { ProductModule } from './features/productControl/product.module';
 import { UserModule } from './features/userControl/user.module';
-import { PruebaService, ServiceDiscoveryModule } from '@retail/common';
-import { PruebaModule } from '@retail/common';
-import { DatabaseModule } from '@retail/common';
+import { 
+  ServiceDiscoveryModule,
+  ServiceCommunicationModule,
+  CommonModule,
+  DatabaseModule,
+  ConsulService,
+  ConfigModule
+} from '@retail/common';
 import { EntityModule } from './database/entity.module';
 import { Role } from './database/models/VAD10/role/role.entity';
 import { config } from '../src/config/config.service';
-import { ConsulService } from '@retail/common/discovery/services/consul.service';
-import { AUTH_SERVICE_NAME, RETAIL_SERVICE_NAME } from '@retail/common/utils/constants';
-import { ConfigModule } from '@retail/common';
+import { AUTH_SERVICE_NAME, RETAIL_SERVICE_NAME } from '@retail/common/src/utils/constants';
 
 export const DATABASEVAD10 = 'DataBaseVAD10';
 
@@ -41,6 +44,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
           return filename.substring(0, filename.indexOf('.entity')).toLocaleLowerCase() === member.toLowerCase();
         },
       }]), 
+      
     ServiceDiscoveryModule.forRoot({
       app: {
         name: RETAIL_SERVICE_NAME,
@@ -53,13 +57,13 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
       },
       discover: [AUTH_SERVICE_NAME]
     }),
+    CommonModule,
     UserModule,
     //OdcModule,
     ParamsModule,
     ProductModule,
     ReportsModule,
     SpyModule,
-    PruebaModule.forFeature('hola vale')
   ],
   controllers: [],
   providers: [],

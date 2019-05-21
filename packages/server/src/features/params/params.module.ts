@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { DatabaseModule } from 'src/database/database.module';
-import { ConfigModule } from '@retail/common';
+import { ConfigModule, ServiceCommunicationModule } from '@retail/common';
 import { DollarPriceController } from './dollarPrice/dollarPrice.controller';
 import { DollarPriceService } from './dollarPrice/dollarPrice.service';
 import { CategoryController } from './category/category.controller';
@@ -24,8 +24,6 @@ import { Product } from '../../database/models/VAD10/exProduct/product.entity';
 import { TagProduct } from '../../database/models/VAD10/tagProduct/tagProduct.entity';
 import { Config } from '../../database/models/VAD10/config/config.entity';
 import { MaSucursales } from '../../database/models/VAD10/stellar/maSucursales/maSucursales.entity';
-import { PruebaModule } from '@retail/common';
-import { PruebaService } from '../../common/prueba/service/prueba.service';
 
 @Module({
     imports: [
@@ -41,7 +39,7 @@ import { PruebaService } from '../../common/prueba/service/prueba.service';
             MaSucursales,
         ]),
         ConfigModule,
-        PruebaModule.forFeature('hola vale 2'),
+        ServiceCommunicationModule
        
     ],
     controllers: [
@@ -69,9 +67,5 @@ import { PruebaService } from '../../common/prueba/service/prueba.service';
         BranchOfficeService
     ]
 })
-export class ParamsModule {
-    constructor(servicio: PruebaService) {
-        servicio.log();
-      }
-    
+export class ParamsModule {    
 }

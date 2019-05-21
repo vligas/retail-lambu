@@ -3,6 +3,8 @@ import { Currency } from 'src/database/models/VAD10/currency/currency.entity';
 import { RequestCreateCurrencyDto, RequestUpdateCurrencyDto, RequestAllCurrencyDto } from './currency.dto';
 import { ServiceOptions } from 'src/common/interfaces/serviceOptions.interface';
 import { CurrencyHistory } from 'src/database/models/VAD10/currencyHistory/currencyHistory.entity';
+import { HttpCommunicationService } from '@retail/common';
+import { AUTH_SERVICE_NAME } from '@retail/common/src/utils/constants';
 
 @Injectable()
 export class CurrencyService {
@@ -11,6 +13,7 @@ export class CurrencyService {
     constructor(
         @Inject(Currency) private readonly currencyRepository: typeof Currency,
         @Inject(CurrencyHistory) private readonly currencyHistoryRepository: typeof CurrencyHistory,
+        private http: HttpCommunicationService
     ) { }
 
     async createHistoric(object: Partial<CurrencyHistory>): Promise<CurrencyHistory> {
@@ -19,6 +22,16 @@ export class CurrencyService {
     }
 
     async all(qs: RequestAllCurrencyDto, options: ServiceOptions) {
+
+        const res = await this.http.call(AUTH_SERVICE_NAME, {
+            method: 'POST',
+            endpoint: 'login',
+            body: {
+                username: 'lgonzalez',
+                password: '123'
+            },
+        });
+
         const result = await this.currencyRepository.findAll({
             limit: options.pageSize,
             include: [{
