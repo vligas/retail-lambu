@@ -44,7 +44,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
           return filename.substring(0, filename.indexOf('.entity')).toLocaleLowerCase() === member.toLowerCase();
         },
       }]), 
-      
+
     ServiceDiscoveryModule.forRoot({
       app: {
         name: RETAIL_SERVICE_NAME,

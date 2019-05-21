@@ -5,6 +5,10 @@
     "resolveJsonModule": true,
     "types": []
   },
+  "include": [
+    "./**/*.ts",
+    "../../../node_modules/@retail/shared/**/*.ts"
+  ],
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
