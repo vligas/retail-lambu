@@ -19,6 +19,7 @@ import { Role } from './database/models/VAD10/role/role.entity';
 import { config } from '../src/config/config.service';
 import { BranchOffice } from './database/models/VAD10/branchOffice/branchOffice.entity';
 import { ConsulService } from '@retail/common/discovery/services/consul.service';
+import { AUTH_SERVICE_NAME } from '@retail/common/utils/constants';
 
 export const DATABASEVAD10 = 'DataBaseVAD10';
 
@@ -41,7 +42,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
           return filename.substring(0, filename.indexOf('.entity')).toLocaleLowerCase() === member.toLowerCase();
         },
       }]),
-    EntityModule.forFeature([Role]), /*Prueba de entity configurable */
+    EntityModule.forFeature([Role]), 
     ServiceDiscoveryModule.forRoot({
       app: {
         name: 'retail',
@@ -51,9 +52,11 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
       consul: {
         address: '127.0.0.1',
         port: 8500
-      }
+      },
+      discover: [AUTH_SERVICE_NAME]
     }),
     UserModule,
+    AuthModule,
     /*OdcModule,
     ParamsModule,
     ProductModule,

@@ -1,9 +1,10 @@
-import { Module, DynamicModule} from '@nestjs/common';
+import { Module, DynamicModule, Global} from '@nestjs/common';
 import { DiscoveryOptions } from './options/discovery.options';
 import * as consul from 'consul';
 import { ConsulService } from './services/consul.service';
 
 @Module({})
+@Global()
 export class ServiceDiscoveryModule {
     
     static forRoot(options: DiscoveryOptions): DynamicModule {
@@ -22,9 +23,11 @@ export class ServiceDiscoveryModule {
                 provide: 'CONSUL',
                 useValue: client
             },
-                ConsulService
+                ConsulService,
             ],
-            exports: [ConsulService]
+            exports: [
+                ConsulService,
+            ]
         };
     }
 }

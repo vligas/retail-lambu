@@ -22,9 +22,7 @@ export const PermissionsGuard = (...permissions: string[]): any => {
             });
         }
 
-        async canActivate(
-            context: ExecutionContext
-        ): Promise<boolean> {
+        async canActivate(context: ExecutionContext): Promise<boolean> {
             if (config.get("NODE_ENV") === 'development') {
                 return true;
             }
