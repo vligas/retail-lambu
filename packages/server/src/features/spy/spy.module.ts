@@ -11,12 +11,7 @@ import { RouteController } from './router/route.controller';
 import { RouteService } from './router/route.service';
 import { AuthModule } from '../auth/auth.module';
 import { EntityModule } from '@retail/common/src/database/database.module';
-import { Competitor } from '../../database/models/VAD10/competitor/competitor.entity';
-import { BranchOffice } from '../../database/models/VAD10/branchOffice/branchOffice.entity';
-import { Role } from '../../database/models/VAD10/role/role.entity';
-import { CompetitorPrice } from '../../database/models/VAD10/competitorPrice/competitorPrice.entity';
-import { RouteUser } from '../../database/models/VAD10/routerUser/routeUser.entity';
-import { User } from '../../database/models/VAD10/user/user.entity';
+import {  BranchOffice, Competitor, Role, CompetitorPrice, RouteUser, User} from '../../database';
 
 @Module({
   imports: [

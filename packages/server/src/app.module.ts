@@ -12,8 +12,6 @@ import { UserModule } from './features/userControl/user.module';
 import { PruebaService, ServiceDiscoveryModule } from '@retail/common';
 import { PruebaModule } from '@retail/common';
 import { DatabaseModule } from '@retail/common';
-import { EntityModule } from './database/entity.module';
-import { Role } from './database/models/VAD10/role/role.entity';
 import { config } from '../src/config/config.service';
 import { ConsulService } from '@retail/common/discovery/services/consul.service';
 import { AUTH_SERVICE_NAME, RETAIL_SERVICE_NAME } from '@retail/common/utils/constants';
