@@ -9,7 +9,6 @@ import { RequestCreateBranchOfficeDto, RequestUpdateBranchOfficeDto } from './br
 import { AuthGuard } from '@nestjs/passport';
 import { PermissionsGuard } from 'src/common/guards/permissions.guard';
 
-@UseGuards(PermissionsGuard())
 @Controller('branch-office')
 export class BranchOfficeController {
 

@@ -9,11 +9,18 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { RoleService } from './role.service';
+import { EntityModule } from '@retail/common/database/database.module';
+import { Role } from '../../database/models/VAD10/role/role.entity';
+import { Permission } from '../../database/models/VAD10/permission/permission.entity';
 
 
 @Module({
     controllers: [AuthController],
     imports: [
+        EntityModule.forFeature([
+            Permission,
+            Role
+        ]),
         PassportModule.register({
             defaultStrategy: 'jwt'
         }),
@@ -23,7 +30,6 @@ import { RoleService } from './role.service';
                 expiresIn: 3600,
             },
         }),
-        DatabaseModule,
         UserModule,
         ConfigModule
     ],

@@ -1,10 +1,10 @@
-import { Module, DynamicModule} from '@nestjs/common'
+import { Module, DynamicModule} from '@nestjs/common';
 import { PruebaService, PruebaServiceOptions } from './service/prueba.service';
 
 
 @Module({})
 export class PruebaModule {
-    static forRoot(cadena: string): DynamicModule {
+    static forFeature(cadena: string): DynamicModule {
         return {
             module: PruebaModule,
             providers: [PruebaService, {
@@ -14,6 +14,6 @@ export class PruebaModule {
                 }
             }],
             exports: [PruebaService]
-        }
+        };
     }
 }

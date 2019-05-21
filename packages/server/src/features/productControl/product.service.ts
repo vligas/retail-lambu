@@ -18,8 +18,8 @@ import { Currency } from 'src/database/models/VAD10/currency/currency.entity';
 export class ProductService {
 
     constructor(
-        @Inject(Product) private readonly productRepository: typeof Product,
         @Inject(TrOdc) private readonly trOdcRepository: typeof TrOdc,
+        @Inject(Product) private readonly productRepository: typeof Product,
         @Inject(MaOdc) private readonly maOdcRepository: typeof MaOdc,
         @Inject(MaProveedores) private readonly maProviderRepository: typeof MaProveedores,
         @Inject(Tag) private readonly tagRepository: typeof Tag,

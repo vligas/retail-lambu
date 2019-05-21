@@ -12,7 +12,6 @@ import { AuthGuard } from '@nestjs/passport';
 import { PermissionsGuard } from 'src/common/guards/permissions.guard';
 
 
-@UseGuards(PermissionsGuard())
 @Controller('competitor-price')
 export class CompetitorPriceController {
 

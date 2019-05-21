@@ -5,7 +5,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { PermissionsGuard } from 'src/common/guards/permissions.guard';
 
 
-@UseGuards(PermissionsGuard())
+//@UseGuards(PermissionsGuard())
 @Controller('categories')
 export class CategoryController {
 

@@ -11,7 +11,7 @@ import { ServiceOptions } from 'src/common/interfaces/serviceOptions.interface';
 import { AuthGuard } from '@nestjs/passport';
 import { PermissionsGuard } from 'src/common/guards/permissions.guard';
 
-@UseGuards(PermissionsGuard())
+//@UseGuards(PermissionsGuard())
 @Controller('tag')
 export class TagController {
 
