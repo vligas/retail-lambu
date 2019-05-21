@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { ProductControlController } from './product.controller';
-import { EntityModule } from '@retail/common/database/database.module';
+import { EntityModule } from '@retail/common/src/database/database.module';
 import { Product } from '../../database/models/VAD10/exProduct/product.entity';
 import { TrOdc } from 'src/database/models/VAD10/stellar/trOdc/trOdc.entity';
 import { MaOdc } from '../../database/models/VAD10/stellar/maOdc/maOdc.entity';
@@ -11,7 +11,7 @@ import { MaDepartamentos } from '../../database/models/VAD10/stellar/maDepartame
 import { MaGrupos } from '../../database/models/VAD10/stellar/maGrupos/maGrupos.entity';
 import { MaSubgrupos } from '../../database/models/VAD10/stellar/maSubgrupos/maSubgrupos.entity';
 import { Currency } from '../../database/models/VAD10/currency/currency.entity';
-import { ConfigModule } from 'src/config/config.module';
+import { ConfigModule } from '@retail/common';
 
 @Module({
     imports: [

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { DatabaseModule } from 'src/database/database.module';
-import { ConfigModule } from 'src/config/config.module';
+import { ConfigModule } from '@retail/common';
 import { DollarPriceController } from './dollarPrice/dollarPrice.controller';
 import { DollarPriceService } from './dollarPrice/dollarPrice.service';
 import { CategoryController } from './category/category.controller';
@@ -14,7 +14,7 @@ import { AppConfigController } from './appConfig/appConfig.controller';
 import { BranchOfficeController } from './branchOffice/branchOffice.controller';
 import { BranchOfficeService } from './branchOffice/branchOffice.service';
 import { AuthModule } from '../auth/auth.module';
-import { EntityModule } from '@retail/common/database/database.module';
+import { EntityModule } from '@retail/common/src/database/database.module';
 import { DollarPrice } from '../../database/models/VAD10/dollarPrice/dollarPrice.entity';
 import { Category } from '../../database/models/VAD10/category/category.entity';
 import { Currency } from '../../database/models/VAD10/currency/currency.entity';

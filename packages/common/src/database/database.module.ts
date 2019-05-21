@@ -24,6 +24,7 @@ export class DatabaseModule {
             return {
                 provide: option.token,
                 useFactory: async () => {
+                    // tslint:disable-next-line:no-any
                     const sequelize = new Sequelize(option as any);
                     await sequelize.authenticate();
                     console.log('CONNECTION - ', option.token);

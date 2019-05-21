@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { CompetitorController } from './competitor/competitor.controller';
 import { CompetitorService } from './competitor/competitor.service';
-import { ConfigModule } from 'src/config/config.module';
+import { ConfigModule } from '@retail/common';
 import { ParamsModule } from '../params/params.module';
 import { BranchOfficeController } from './branch-office/branch-office.controller';
 import { BranchOfficeService } from './branch-office/branch-office.service';
@@ -10,7 +10,7 @@ import { CompetitorPriceService } from './competitorPrice/competitorPrice.servic
 import { RouteController } from './router/route.controller';
 import { RouteService } from './router/route.service';
 import { AuthModule } from '../auth/auth.module';
-import { EntityModule } from '@retail/common/database/database.module';
+import { EntityModule } from '@retail/common/src/database/database.module';
 import { Competitor } from '../../database/models/VAD10/competitor/competitor.entity';
 import { BranchOffice } from '../../database/models/VAD10/branchOffice/branchOffice.entity';
 import { Role } from '../../database/models/VAD10/role/role.entity';

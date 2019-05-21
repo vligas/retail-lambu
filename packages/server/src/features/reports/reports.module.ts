@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
-import { DatabaseModule } from 'src/database/database.module';
-import { ConfigModule } from 'src/config/config.module';
+import { ConfigModule } from '@retail/common';
 import { GapController } from './gap/gap.controller';
 import { GapService } from './gap/gap.service';
 import { ParamsModule } from '../params/params.module';
@@ -9,7 +8,7 @@ import { PriceVariationService } from './priceVariation/priceVariation.service';
 import { SaleController } from './sale/sale.controller';
 import { SaleService } from './sale/sale.service';
 import { AuthModule } from '../auth/auth.module';
-import { EntityModule } from '@retail/common/database/database.module';
+import { EntityModule } from '@retail/common/src/database/database.module';
 import { TrInventario } from '../../database/models/VAD10/stellar/trInventario/trInventario.entity';
 import { Product } from '../../database/models/VAD10/exProduct/product.entity';
 import { Tag } from '../../database/models/VAD10/tag/tag.entity';

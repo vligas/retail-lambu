@@ -1,5 +1,5 @@
-import { Module, NestModule, MiddlewareConsumer, Inject } from '@nestjs/common';
-import { ConfigModule } from './config/config.module';
+import { Module, NestModule, MiddlewareConsumer, Inject, OnModuleInit } from '@nestjs/common';
+//import { ConfigModule } from './config/config.module';
 //import { DatabaseModule } from './database/database.module';
 import { LoggerMiddleware } from './common/middlewares/logger.middleware';
 import { OdcModule } from './features/odcControl/odc.module';
@@ -17,12 +17,14 @@ import { Role } from './database/models/VAD10/role/role.entity';
 import { config } from '../src/config/config.service';
 import { ConsulService } from '@retail/common/discovery/services/consul.service';
 import { AUTH_SERVICE_NAME } from '@retail/common/utils/constants';
+import { ConfigModule } from '@retail/common';
 
 export const DATABASEVAD10 = 'DataBaseVAD10';
 
 @Module({
   imports: [
-      ConfigModule,
+    ConfigModule.forRoot(`./src/config/enviroments/${process.env.NODE_ENV || 'development'}.env`),
+    
       DatabaseModule.forRoot([{
         token: DATABASEVAD10,
         username: config.get('DB_USERNAME_VAD10'),
@@ -38,8 +40,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
         modelMatch: (filename, member) => {
           return filename.substring(0, filename.indexOf('.entity')).toLocaleLowerCase() === member.toLowerCase();
         },
-      }]),
-    EntityModule.forFeature([Role]), 
+      }]), 
     ServiceDiscoveryModule.forRoot({
       app: {
         name: 'retail',
@@ -53,7 +54,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
       discover: [AUTH_SERVICE_NAME]
     }),
     UserModule,
-    OdcModule,
+    //OdcModule,
     ParamsModule,
     ProductModule,
     ReportsModule,
