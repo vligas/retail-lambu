@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { echartStyles } from '@retail/shared/echart-styles';
-import { DollarPrice } from '@retail/shared';
 import { Store, Select } from '@ngxs/store';
-import { AddDollarPrice, FetchDollarPrice, DeleteDollarPrice } from '@retail/shared/state/dollarPrice/dollarPrice.actions';
+import {
+  AddDollarPrice,
+  FetchDollarPrice,
+  DeleteDollarPrice,
+  DollarPriceState,
+  echartStyles,
+  DollarPrice
+} from '@retail/shared';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { DollarPriceState } from '@retail/shared/state/dollarPrice/dollarPrice.state';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 

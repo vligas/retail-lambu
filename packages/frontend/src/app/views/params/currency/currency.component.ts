@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared';
-import { Currency } from '@retail/shared';
 import { Store, Select } from '@ngxs/store';
-import { CurrencyState } from '@retail/shared/state/currency/currency.state';
-import { AddCurrency, FetchCurrency, DeleteCurrency, UpdateCurrency } from '@retail/shared/state/currency/currency.actions';
+import {
+  SharedAnimations,
+  Currency,
+  CurrencyState,
+  AddCurrency,
+  FetchCurrency,
+  DeleteCurrency,
+  UpdateCurrency
+} from '@retail/shared';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';

@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared';
+import {
+    SharedAnimations,
+    UserState,
+    FetchUsers,
+    ResponseSimpleUserDto
+} from '@retail/shared';
 import { Store, Select } from '@ngxs/store';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { UserState } from '@retail/shared/state/userControl/user.state';
-import { ResponseSimpleUserDto } from '@retail/shared';
-import { FetchUsers } from '@retail/shared/state/userControl/user.actions';
+
 
 interface UserExt extends ResponseSimpleUserDto {
     isSelected: boolean

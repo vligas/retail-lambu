@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { echartStyles } from '@retail/shared/echart-styles';
-import { ProductService } from '@retail/shared/services/product.service';
+import {
+    ProductService,
+    echartStyles
+} from '@retail/shared';
 
 @Component({
     selector: 'app-dashboard-v4',

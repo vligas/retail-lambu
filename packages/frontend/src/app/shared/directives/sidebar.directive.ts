@@ -1,6 +1,13 @@
-import { Directive, ElementRef, HostListener, Input, OnInit, Inject } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostListener,
+  Input,
+  OnInit,
+  Inject
+} from '@angular/core';
 import { SidebarHelperService } from '../services/sidebar-helper.service';
-import { Utils } from '@retail/shared/utils';
+import { Utils } from '@retail/shared';
 
 @Directive({
   selector: '[appSidebarContainer]'

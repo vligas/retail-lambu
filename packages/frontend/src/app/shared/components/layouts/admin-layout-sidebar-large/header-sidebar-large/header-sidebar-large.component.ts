@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationService } from '@retail/shared/services/navigation.service';
-import { SearchService } from '@retail/shared/services/search.service';
-import { AuthService } from '@retail/shared/services/auth.service';
+import {
+  NavigationService,
+  SearchService,
+  AuthService,
+  Currency,
+  BranchOffice,
+  BranchOfficeService,
+  CurrencyState,
+  BranchOfficeState,
+  FetchCurrency,
+  ChangeSelectCurrency,
+  FetchBranchOffice,
+  ChangeSelectBranch
+} from '@retail/shared';
 import { Store, Select } from '@ngxs/store';
-import { CurrencyState } from '@retail/shared/state/currency/currency.state';
-import { BranchOfficeState } from '@retail/shared/state/branchOffice/branchOffice.state';
 import { Observable } from 'rxjs';
-import { Currency, BranchOffice } from '@retail/shared';
-import { FetchCurrency, ChangeSelectCurrency } from '@retail/shared/state/currency/currency.actions';
-import { FetchBranchOffice, ChangeSelectBranch } from '@retail/shared/state/branchOffice/branchOffice.actions';
-import { BranchOfficeService } from '@retail/shared/services/branchOffice.service';
 
 
 @Component({

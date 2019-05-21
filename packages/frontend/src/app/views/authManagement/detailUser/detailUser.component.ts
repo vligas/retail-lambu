@@ -3,17 +3,20 @@ import { SharedAnimations } from '@retail/shared';
 import { Store, Select } from '@ngxs/store';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Role } from '@retail/shared';
+import {
+    Role,
+    AuthService,
+    UserService,
+    ResponseSimpleUserDto,
+    RequestUpdateUserDto,
+    RoleState,
+    FetchRoles,
+    UpdateUser,
+    OptionToast
+} from '@retail/shared';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from '@retail/shared/services/auth.service';
-import { OptionToast } from '@retail/shared/utils';
-import { ResponseSimpleUserDto, RequestUpdateUserDto } from '@retail/shared';
-import { UserService } from '@retail/shared/services/user.service';
-import { RoleState } from '@retail/shared/state/roleControl/role.state';
 import { Observable } from 'rxjs';
-import { FetchRoles } from '@retail/shared/state/roleControl/role.actions';
-import { UpdateUser } from '@retail/shared/state/userControl/user.actions';
 import { debounceTime } from 'rxjs/operators';
 
 interface RoleExt extends Role {

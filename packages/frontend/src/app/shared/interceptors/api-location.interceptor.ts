@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent } from '@angular/common/http';
+import {
+  HttpInterceptor,
+  HttpHandler,
+  HttpRequest,
+  HttpEvent
+} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { Store, Select } from '@ngxs/store';
-import { BranchOfficeState } from '@retail/shared/state/branchOffice/branchOffice.state';
-import { BranchOffice } from '@retail/shared';
+import { BranchOffice, BranchOfficeState } from '@retail/shared';
 
 
 

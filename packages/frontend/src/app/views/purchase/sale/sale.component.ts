@@ -1,12 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { SharedAnimations } from '@retail/shared';
-import { AsideDockComponent } from '@retail/shared';
+import {
+  AsideDockComponent,
+  ResponseSaleDto,
+  SharedAnimations,
+  SaleState,
+  FetchSales
+} from '@retail/shared';
 import { Store, Select } from '@ngxs/store';
-import { SaleState } from '@retail/shared/state/sale/sale.state';
 import { Observable } from 'rxjs';
-import { ResponseSaleDto } from '@retail/shared';
-import { FetchSales } from '@retail/shared/state/sale/sale.action';
 import { NgbDateStruct, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({

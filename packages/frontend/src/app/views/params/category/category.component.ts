@@ -1,11 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SharedAnimations } from '@retail/shared';
-import { CategoryState } from '@retail/shared/state/category/category.state';
+import {
+  SharedAnimations,
+  CategoryState,
+  FetchCategory,
+  AddCategory,
+  DeleteCategory,
+  UpdateCategory
+} from '@retail/shared';
+
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Store, Select } from '@ngxs/store';
 import { Category } from '@retail/shared';
 import { Observable } from 'rxjs';
-import { FetchCategory, AddCategory, DeleteCategory, UpdateCategory } from '@retail/shared/state/category/category.actions';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 

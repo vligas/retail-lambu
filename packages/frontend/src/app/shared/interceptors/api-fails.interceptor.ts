@@ -1,7 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpErrorResponse, HttpHandler, HttpRequest, HttpEvent, HttpResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import {
+    HttpInterceptor,
+    HttpErrorResponse,
+    HttpHandler,
+    HttpRequest,
+    HttpEvent,
+    HttpResponse
+} from '@angular/common/http';
+import {
+    Observable,
+    throwError
+} from 'rxjs';
+import {
+    catchError,
+    map
+} from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Error } from '@retail/shared';
 import { environment } from '../../../environments/environment';

@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared';
+import {
+    SharedAnimations,
+    RoleState,
+    FetchRoles,
+    UpdateRole,
+    DeleteRole,
+    Role,
+    AuthService,
+    OptionToast
+} from '@retail/shared';
 import { Store, Select } from '@ngxs/store';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { RoleState } from '@retail/shared/state/roleControl/role.state';
 import { Observable } from 'rxjs';
-import { Role } from '@retail/shared';
-import { FetchRoles, UpdateRole, DeleteRole } from '@retail/shared/state/roleControl/role.actions';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from '@retail/shared/services/auth.service';
-import { OptionToast } from '@retail/shared/utils';
 
 interface RoleExt extends Role {
     isSelected: boolean

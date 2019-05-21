@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from '@retail/shared';
+import {
+  SharedAnimations,
+  CompetitorService,
+  Competitor,
+  CompetitorState,
+  AddCompetitor,
+  UpdateCompetitor,
+  FetchCompetitor,
+  DeleteCompetitor
+} from '@retail/shared';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
-import { AddCompetitor, UpdateCompetitor, FetchCompetitor, DeleteCompetitor } from '@retail/shared/state/competitor/competitor.actions';
 import { Store, Select } from '@ngxs/store';
-import { Competitor } from '@retail/shared';
-import { CompetitorState } from '@retail/shared/state/competitor/competitor.state';
 import { Router, ActivatedRoute } from '@angular/router';
-import { CompetitorService } from '@retail/shared/services/competitor.service';
 
 @Component({
   selector: 'app-competitor',

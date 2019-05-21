@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EChartOption } from 'echarts';
-import { echartStyles } from '@retail/shared/echart-styles';
+import { echartStyles } from '@retail/shared';
 
 @Component({
     selector: 'app-dashboad-default',
