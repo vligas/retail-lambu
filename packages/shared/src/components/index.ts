@@ -14,4 +14,5 @@ export { FooterComponent } from './footer/footer.component';
 export { FormWizardModule } from './form-wizard/form-wizard.module';
 export { SearchModule } from './search/search.module';
 export { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+export * from './layouts';
 
