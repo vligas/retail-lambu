@@ -1,14 +1,33 @@
 import { Module } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { ProductControlController } from './product.controller';
-import { databaseProviders } from 'src/database/database.providers';
-import { DatabaseModule } from 'src/database/database.module';
-import { ConfigModule } from 'src/config/config.module';
-import { AuthModule } from '../auth/auth.module';
-
+import { EntityModule } from '@retail/common/src/database/database.module';
+import { Product } from '../../database/models/VAD10/exProduct/product.entity';
+import { TrOdc } from 'src/database/models/VAD10/stellar/trOdc/trOdc.entity';
+import { MaOdc } from '../../database/models/VAD10/stellar/maOdc/maOdc.entity';
+import { MaProveedores } from '../../database/models/VAD10/stellar/maProveedores/maProveedores.entity';
+import { Tag } from '../../database/models/VAD10/tag/tag.entity';
+import { MaDepartamentos } from '../../database/models/VAD10/stellar/maDepartamentos/maDepartamentos.entity';
+import { MaGrupos } from '../../database/models/VAD10/stellar/maGrupos/maGrupos.entity';
+import { MaSubgrupos } from '../../database/models/VAD10/stellar/maSubgrupos/maSubgrupos.entity';
+import { Currency } from '../../database/models/VAD10/currency/currency.entity';
+import { ConfigModule } from '@retail/common';
 
 @Module({
-    imports: [DatabaseModule, ConfigModule, AuthModule],
+    imports: [
+    EntityModule.forFeature([
+        TrOdc,
+        Product,
+        MaOdc, 
+        MaProveedores,
+        Tag, 
+        MaDepartamentos,
+        MaGrupos,
+        MaSubgrupos,
+        Currency,
+    ]),
+    ConfigModule
+ ],
     controllers: [ProductControlController],
     providers: [ProductService],
     exports: [ProductService]

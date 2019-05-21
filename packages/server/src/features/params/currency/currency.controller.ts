@@ -11,7 +11,7 @@ import { RequestContext } from 'src/common/interfaces/requestContext.class';
 import { AuthGuard } from '@nestjs/passport';
 import { PermissionsGuard } from 'src/common/guards/permissions.guard';
 
-@UseGuards(PermissionsGuard())
+//@UseGuards(PermissionsGuard())
 @Controller('currencies')
 export class CurrencyController {
 

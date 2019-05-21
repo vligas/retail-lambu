@@ -8,7 +8,6 @@ import { ServiceOptions } from 'src/common/interfaces/serviceOptions.interface';
 import { RequestCreateCompetitorDto, RequestUpdateCompetitorDto } from './competitor.dto';
 import { PermissionsGuard } from 'src/common/guards/permissions.guard';
 
-@UseGuards(PermissionsGuard())
 @Controller('competitor')
 export class CompetitorController {
 

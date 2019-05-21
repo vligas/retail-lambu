@@ -22,3 +22,7 @@ export {
 } from './discovery/discovery.module';
 
 export * from './utils';
+
+export {
+    ConfigModule,
+}from './src/config/config.module';

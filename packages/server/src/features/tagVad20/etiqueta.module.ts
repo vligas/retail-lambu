@@ -3,7 +3,7 @@ import { EtiquetaService } from './etiqueta.service';
 import { EtiquetaControlController } from './etiqueta.controller';
 import { databaseProviders } from 'src/database/database.providers';
 import { DatabaseModule } from 'src/database/database.module';
-import { ConfigModule } from 'src/config/config.module';
+import { ConfigModule } from '@retail/common';
 import { AuthModule } from '../auth/auth.module';
 
 

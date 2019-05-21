@@ -19,7 +19,7 @@ export class UserService {
         @Inject(Role) private readonly roleRepository: typeof Role,
         @Inject(Permission) private readonly permissionRepository: typeof Permission,
         @Inject(MaSucursales) private readonly sucursalRepository: typeof MaSucursales,
-        @Inject(DATABASEVAD10) private readonly db: Sequelize
+       @Inject(DATABASEVAD10) private readonly db: Sequelize
     ) { }
 
 

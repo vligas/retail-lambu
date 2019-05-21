@@ -7,7 +7,6 @@ export class OdcService {
         @Inject(ExOdc) private readonly odcRepository: typeof ExOdc,
     ) { }
 
-    
     async all() {
         return await this.odcRepository.findAll();
     }
