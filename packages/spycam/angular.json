@@ -1,5 +1,5 @@
 {
-  "$schema": "./node_modules/@angular-devkit/core/src/workspace/workspace-schema.json",
+  "$schema": "../../node_modules/@angular-devkit/core/src/workspace/workspace-schema.json",
   "version": 1,
   "defaultProject": "app",
   "newProjectRoot": "projects",
@@ -14,6 +14,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "preserveSymlinks": true,
             "outputPath": "www",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -43,7 +44,7 @@
               }
             ],
             "scripts": [
-              "node_modules/echarts/dist/echarts.min.js"
+              "../../node_modules/echarts/dist/echarts.min.js"
             ],
             "es5BrowserSupport": true
           },

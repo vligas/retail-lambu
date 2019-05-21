@@ -19,7 +19,6 @@ export class SaleService {
     ) { }
 
     async getProductsWithSales(options: ServiceOptions) {
-        console.log('ENTRAAAAAAAAAAA');
 
         let where = {}
 
