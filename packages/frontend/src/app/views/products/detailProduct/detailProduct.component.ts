@@ -13,12 +13,12 @@ import {
     TagState,
     FetchTag,
     AddTagxProduct,
-    DeleteTagxProduct
+    DeleteTagxProduct,
+    echartStyles,
+    Omit
 } from '@retail/shared';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Omit } from '@retail/shared/utils';
-import { echartStyles } from '@retail/shared/echart-styles';
 import { EChartOption } from 'echarts';
 
 interface TagExtends extends Tag {

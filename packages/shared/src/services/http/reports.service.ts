@@ -6,9 +6,9 @@ import {
   ResponseFormat,
   ResponseSaleDto,
   ResponsePriceVariationDto
-} from '../dto';
+} from '../../dto';
 import { Utils } from '../../utils';
-import { ServiceOptions } from '../models';
+import { ServiceOptions } from '../../models';
 import { ServiceOpts } from './service.module';
 
 @Injectable({

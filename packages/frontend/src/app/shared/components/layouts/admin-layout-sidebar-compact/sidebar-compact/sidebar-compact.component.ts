@@ -2,10 +2,10 @@ import { Component, OnInit, HostListener } from "@angular/core";
 import {
   NavigationService,
   IMenuItem,
+  Utils
 } from '@retail/shared';
 import { Router, NavigationEnd } from "@angular/router";
 import { filter } from "rxjs/operators";
-import { Utils } from "@retail/shared/utils";
 
 @Component({
   selector: "app-sidebar-compact",

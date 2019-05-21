@@ -1,5 +1,5 @@
 import { Category } from '../../models';
-import { Omit } from '../../../utils';
+import { Omit } from '../../utils';
 
 export class AddCategory {
     static readonly type = '[Category] Add category';

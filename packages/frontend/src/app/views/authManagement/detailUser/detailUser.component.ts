@@ -11,11 +11,11 @@ import {
     RequestUpdateUserDto,
     RoleState,
     FetchRoles,
-    UpdateUser
+    UpdateUser,
+    OptionToast
 } from '@retail/shared';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { OptionToast } from '@retail/shared/utils';
 import { Observable } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 

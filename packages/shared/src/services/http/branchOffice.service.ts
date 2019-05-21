@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {
     ResponseAllBranchOfficeDto,
     ResponseFormat
-} from '../dto';
+} from '../../dto';
 import { ServiceOpts } from './service.module';
 
 @Injectable({

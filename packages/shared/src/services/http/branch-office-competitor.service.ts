@@ -5,7 +5,7 @@ import {
     ResponseBranchOfficeDto,
     RequestCreateBranchOfficeDto,
     RequestUpdateBranchOfficeDto
-} from '../dto';
+} from '../../dto';
 import { ServiceOpts } from './service.module';
 
 @Injectable({

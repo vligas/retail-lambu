@@ -4,7 +4,7 @@ import {
   ResponseSimpleUserDto,
   RequestUpdateUserDto,
   ResponseFormat
-} from '../dto';
+} from '../../dto';
 import { ServiceOpts } from './service.module';
 
 @Injectable({

@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import {
     ResponseFormat,
     ResponseTagDto
-} from '../dto';
-import { Tag } from '../models';
+} from '../../dto';
+import { Tag } from '../../models';
 import { Omit, Utils } from '../../utils';
-import { SimpleProductDto } from '../models';
+import { SimpleProductDto } from '../../models';
 import { ServiceOpts } from './service.module';
 
 @Injectable({

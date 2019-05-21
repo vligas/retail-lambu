@@ -5,7 +5,7 @@ import {
     ResponseCreateCategoryDto,
     RequestCreateCategoryDto,
     RequestUpdateCategoryDto
-} from '../dto';
+} from '../../dto';
 import { ServiceOpts } from './service.module';
 
 

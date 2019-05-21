@@ -1,5 +1,5 @@
 import { Tag } from '../../models';
-import { Omit } from '../../../utils';
+import { Omit } from '../../utils';
 
 export class AddTag {
     static readonly type = '[Tag] Add tag';

@@ -16,6 +16,8 @@ export {
 export {
     ServiceDiscoveryModule
 } from './discovery/discovery.module';
+
+export * from './utils';
 /*export {
     ConfigModule,
    } from './config/config.module';

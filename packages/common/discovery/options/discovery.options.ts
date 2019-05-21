@@ -12,4 +12,6 @@ export class DiscoveryOptions {
         address: string;
         port: number;
     };
+
+    discover: string[] = [];
 }
