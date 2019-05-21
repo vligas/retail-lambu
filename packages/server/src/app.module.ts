@@ -56,6 +56,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
       discover: [AUTH_SERVICE_NAME]
     }),
     UserModule,
+    AuthModule,
     /*OdcModule,
     ParamsModule,
     ProductModule,

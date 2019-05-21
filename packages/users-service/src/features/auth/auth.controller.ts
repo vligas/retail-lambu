@@ -1,9 +1,12 @@
 import { Controller, Get, Post, Body, All, UseGuards, ValidationPipe, Param, Put, Delete } from '@nestjs/common';
 import { RequestLoginDto, RequestCreateRoleDto, RequestUpdateRoleDto } from './auth.dto';
 import { AuthService } from './auth.service';
+import { AuthGuard } from '@nestjs/passport';
 import { RoleService } from './role.service';
+// import { PermissionsGuard } from 'src/common/guards/permissions.guard';
 import { UserService } from '../userControl/user.service';
-import { PermissionsGuard } from '@retail/common';
+import { RequestContext } from 'src/common/interfaces/requestContext.class';
+import { async } from 'q';
 
 
 @Controller('auth')
@@ -24,9 +27,9 @@ export class AuthController {
 
 
     @All('protected')
-    @UseGuards(PermissionsGuard('can-update-products'))
+    // @UseGuards(PermissionsGuard('can-update-products'))
     async protect() {
-        console.log('=========================entre');
+        console.log('entre');
     }
 
 
@@ -59,5 +62,13 @@ export class AuthController {
     async delete(@Param('id') id: number) {
         await this.roleService.deleteRol(id);
         return 'ok';
+    }
+
+    @Get('canActivate')
+    async canActivate(){
+        console.log('///////////////////////////');
+        console.log('Esta activo');
+        
+        return true;
     }
 }
