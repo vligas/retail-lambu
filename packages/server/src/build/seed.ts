@@ -31,7 +31,7 @@ export async function seedsCommand() {
                 }
                 const algo = new (SeedClass as any)(...params.reverse());
                 await algo.run();
-                logger.info(`[seed end]\t✅🙈 ${SeedClass.name}`);
+                logger.info(`[seed end]\t✅\t🙈 ${SeedClass.name}`);
             }
             break;
         case 'new':
