@@ -1,12 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators
+} from '@angular/forms';
 import { Router } from '@angular/router';
-import { Competitor } from '@frontend/app/shared/models/competitor.model';
+import {
+  Competitor,
+  CompetitorState,
+  FetchCompetitor,
+  SaveActualCompetitor,
+  RequestCompetitorBrandDto
+} from '@retail/shared';
 import { Select, Store } from '@ngxs/store';
-import { CompetitorState } from '@frontend/app/shared/state/competitor/competitor.state';
 import { Observable } from 'rxjs';
-import { FetchCompetitor, AddCompetitor } from '@frontend/app/shared/state/competitor/competitor.actions';
-import { RequestCompetitorBrandDto } from '@frontend/app/shared/dto/competitor.dto';
 
 @Component({
   selector: 'app-competitor',
@@ -66,7 +76,7 @@ export class CompetitorComponent implements OnInit {
 
   acept() {
 
-    this.store.dispatch(new AddCompetitor(this.brand)).subscribe();
+    this.store.dispatch(new SaveActualCompetitor(this.brand)).subscribe();
     this.router.navigateByUrl('/business');
   }
 

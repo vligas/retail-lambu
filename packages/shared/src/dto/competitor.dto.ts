@@ -22,8 +22,16 @@ export interface ResponseCompetitorDto {
     name: string;
 
     branchOffices: {
+        id: number;
         name: string;
         location: string;
         competitorId: number;
     }[];
+}
+
+export interface RequestCompetitorBrandDto {
+    id: number;
+    name: string;
+    location: string;
+    competitorId: number;
 }

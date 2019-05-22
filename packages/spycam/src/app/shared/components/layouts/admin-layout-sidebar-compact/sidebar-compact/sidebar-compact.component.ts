@@ -1,24 +1,27 @@
-import { Component, OnInit, HostListener } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  HostListener
+} from '@angular/core';
 import {
   NavigationService,
-  IMenuItem,
-  IChildItem
-} from "../../../../services/navigation.service";
-import { Router, NavigationEnd } from "@angular/router";
-import { filter } from "rxjs/operators";
-import { Utils } from "../../../../utils";
+  IMenuItem
+} from '@retail/shared';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { Utils } from '@retail/shared';
 
 @Component({
-  selector: "app-sidebar-compact",
-  templateUrl: "./sidebar-compact.component.html",
-  styleUrls: ["./sidebar-compact.component.scss"]
+  selector: 'app-sidebar-compact',
+  templateUrl: './sidebar-compact.component.html',
+  styleUrls: ['./sidebar-compact.component.scss']
 })
 export class SidebarCompactComponent implements OnInit {
   selectedItem: IMenuItem;
 
   nav: IMenuItem[];
 
-  constructor(public router: Router, public navService: NavigationService) {}
+  constructor(public router: Router, public navService: NavigationService) { }
 
   ngOnInit() {
     this.updateSidebar();
@@ -104,7 +107,7 @@ export class SidebarCompactComponent implements OnInit {
     state.childnavOpen = !state.childnavOpen;
   }
 
-  @HostListener("window:resize", ["$event"])
+  @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.updateSidebar();
   }

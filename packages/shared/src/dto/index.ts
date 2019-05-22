@@ -21,7 +21,8 @@ export {
 export {
     RequestCreateCompetitorDto,
     RequestUpdateCompetitorDto,
-    ResponseCompetitorDto
+    ResponseCompetitorDto,
+    RequestCompetitorBrandDto
 } from './competitor.dto';
 
 export {
@@ -98,3 +99,7 @@ export {
     RequestUpdateUserDto,
     ResponseSimpleUserDto
 } from './user.dto';
+
+export {
+    RequestCreateCompetitorPriceDto
+} from './competitorPrice.dto';

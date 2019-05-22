@@ -30,16 +30,13 @@ import {
   ApiLocationInterceptor,
   ApiTokensInterceptor
 } from './interceptors';
-import { SharedComponentsModule } from '../shared/components/shared-components.module';
+import { SharedComponentsModule } from './components/shared-components.module';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { environment } from '@frontend/environments/environment';
-
-
-
 @NgModule({
   imports: [
     CommonModule,
@@ -63,7 +60,7 @@ import { environment } from '@frontend/environments/environment';
       SaleState,
       CompetitorState,
       BranchOfficeCompetitorState
-    ]),
+    ], { developmentMode: !environment.production }),
     // NgxsStoragePluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
@@ -72,9 +69,8 @@ import { environment } from '@frontend/environments/environment';
     ToastrModule.forRoot(),
     NgbModule,
     SharedComponentsModule,
-    // SharedDirectivesModule,
-    // SharedPipesModule,
-
+    SharedDirectivesModule,
+    SharedPipesModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiFailsInterceptor, multi: true },

@@ -18,3 +18,6 @@ export {
 } from './service.module';
 export { TagService } from './tag.service';
 export { UserService } from './user.service';
+export { CompetitorPriceService } from './competitor-price.service';
+
+

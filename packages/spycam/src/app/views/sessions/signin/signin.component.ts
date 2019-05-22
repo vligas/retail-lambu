@@ -1,9 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from '../../../shared/services/auth.service';
-import { Router, RouteConfigLoadStart, ResolveStart, RouteConfigLoadEnd, ResolveEnd } from '@angular/router';
-import { Login } from '@frontend/app/shared/state/session/session.actions';
+import {
+    Component,
+    OnInit
+} from '@angular/core';
+import {
+    FormGroup,
+    FormBuilder,
+    Validators
+} from '@angular/forms';
+import {
+    Router,
+    RouteConfigLoadStart,
+    ResolveStart,
+    RouteConfigLoadEnd,
+    ResolveEnd
+} from '@angular/router';
+import {
+    Login,
+    AuthService,
+    SharedAnimations
+} from '@retail/shared';
 import { Store } from '@ngxs/store';
 
 @Component({

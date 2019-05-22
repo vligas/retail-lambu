@@ -11,21 +11,22 @@
 
 
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { NavParams, IonContent, Events } from '@ionic/angular';
-import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview/ngx';
-import { CompetitorPriceService } from '@frontend/app/shared/services/competitor-price.service';
-import { RequestCreateCompetitorPriceDto } from '@frontend/app/shared/dto/competitorPrice.dto';
+import { IonContent, Events } from '@ionic/angular';
+import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions } from '@ionic-native/camera-preview/ngx';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { Store, Select } from '@ngxs/store';
-import { ProductState } from '@frontend/app/shared/state/product/product.state';
 import { Observable } from 'rxjs';
-import { SimpleProductDto } from '@frontend/app/shared/models/products.models';
-import { FetchProducts } from '@frontend/app/shared/state/product/product.actions';
-import { CompetitorState } from '@frontend/app/shared/state/competitor/competitor.state';
-import { RequestCompetitorBrandDto } from '@frontend/app/shared/dto/competitor.dto';
-import { AddCompetitor, FetchBrandCompetitor } from '@frontend/app/shared/state/competitor/competitor.actions';
+import {
+  SimpleProductDto,
+  FetchProducts,
+  CompetitorState,
+  RequestCompetitorBrandDto,
+  ProductState,
+  RequestCreateCompetitorPriceDto,
+  CompetitorPriceService
+} from '@retail/shared';
 
 const cameraPreviewOpts: CameraPreviewOptions = {
   x: 50,

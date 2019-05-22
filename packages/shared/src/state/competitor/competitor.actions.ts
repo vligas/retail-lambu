@@ -1,6 +1,16 @@
 
-import { RequestCreateCompetitorDto, RequestUpdateCompetitorDto } from '../../dto';
+import {
+    RequestCreateCompetitorDto,
+    RequestUpdateCompetitorDto,
+    RequestCompetitorBrandDto
+} from '../../dto';
 
+
+
+export class SaveActualCompetitor {
+    static readonly type = '[Competitor] Save Competitor';
+    constructor(public payload: RequestCompetitorBrandDto) { }
+}
 
 export class AddCompetitor {
     static readonly type = '[Competitor] Add Competitor';

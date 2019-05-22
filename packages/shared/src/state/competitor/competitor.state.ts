@@ -1,13 +1,30 @@
-import { State, Action, StateContext, Selector } from '@ngxs/store';
+import {
+    State,
+    Action,
+    StateContext,
+    Selector
+} from '@ngxs/store';
 import { Competitor } from '../../models';
-import { AddCompetitor, FetchCompetitor, DeleteCompetitor, UpdateCompetitor, ChangeCompetitorId } from './competitor.actions';
+import {
+    AddCompetitor,
+    FetchCompetitor,
+    DeleteCompetitor,
+    UpdateCompetitor,
+    ChangeCompetitorId,
+    SaveActualCompetitor
+} from './competitor.actions';
 import { CompetitorService } from '../../services';
 import { tap } from 'rxjs/operators';
+import {
+    RequestCompetitorBrandDto
+} from '../../dto';
+
 
 export class CompetitorStateModel {
 
     competitors: Competitor[];
     selectCompetitor: Competitor;
+    actualBrand: RequestCompetitorBrandDto;
 
 }
 
@@ -16,6 +33,7 @@ export class CompetitorStateModel {
     defaults: {
         competitors: [],
         selectCompetitor: null,
+        actualBrand: { competitorId: 0, id: 0, location: '', name: '' },
 
     }
 })
@@ -32,6 +50,18 @@ export class CompetitorState {
     @Selector()
     static selectCompetitor(state: CompetitorStateModel) {
         return state.selectCompetitor;
+    }
+
+    @Selector()
+    static getActualBrand(state: CompetitorStateModel) {
+        return state.actualBrand;
+    }
+
+    @Action(SaveActualCompetitor)
+    saveActualCompetitor({ getState, patchState }: StateContext<CompetitorStateModel>, { payload }: SaveActualCompetitor) {
+        patchState({
+            actualBrand: payload
+        });
     }
 
     @Action(AddCompetitor)
