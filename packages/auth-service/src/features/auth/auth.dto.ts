@@ -122,3 +122,10 @@ export class ResponseRoleDto {
 
 }
 
+export class RequestCanActive {
+    @IsString()
+    @IsNotEmpty()
+    username: string;
+
+}
+

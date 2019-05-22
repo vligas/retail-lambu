@@ -36,18 +36,11 @@ export default class RoleSeeder implements SeedInterface {
         };
         const managerPermissions: Permission[] = [
             this.getPermission('can-update-products'),
-            this.getPermission('can-read-gap-report')
+            this.getPermission('can-read-gap')
         ];
         await this.saveRole(managerRole, managerPermissions);
 
-        const spyRole: Partial<Role> = {
-            name: 'Espia',
-            description: 'Perry el ornitorrinco'
-        };
-        const spyPermissions: Permission[] = [
-            this.getPermission('can-spy'),
-        ];
-        await this.saveRole(spyRole, spyPermissions);
+        
 
     }
 }

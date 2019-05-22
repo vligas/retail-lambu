@@ -1,5 +1,5 @@
 {
-  "name": "users-service",
+  "name": "auth-service",
   "version": "0.0.1",
   "description": "microservice of users",
   "author": "lambu",
