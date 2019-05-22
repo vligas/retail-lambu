@@ -1,9 +1,10 @@
-import { Controller, Get, Post, Body, All, ValidationPipe, Param, Put, Delete } from '@nestjs/common';
-import { RequestLoginDto, RequestCreateRoleDto, RequestUpdateRoleDto } from './auth.dto';
+import { Controller, Get, Post, Body, All, ValidationPipe, Param, Put, Delete, UseGuards } from '@nestjs/common';
+import { RequestLoginDto, RequestCreateRoleDto, RequestUpdateRoleDto, RequestCanActive } from './auth.dto';
 import { AuthService } from './auth.service';
 import { RoleService } from './role.service';
 import { UserService } from '../userControl/user.service';
-import { ValidateGuard } from 'src/common/guards/permissions.guard';
+import { ValidateGuard } from './guard/guard.service';
+import { logger } from '@retail/common';
 
 
 @Controller('auth')
@@ -62,13 +63,13 @@ export class AuthController {
     }
 
     @Get('can-activate')
-    
-    async canActivate() {
-        console.log('////////////////////////////////////');
-        console.log('user-service');
-        console.log('can active');
+    @UseGuards(ValidateGuard())
+    async canActivate(@Body() user: RequestCanActive) {
+        logger.info(`get permission for user: ${user.username}`);
+        let response= await this.userService.getPermissions(user.username);
+        console.log('response ', response);
         
-        return true
-        // return ValidateGuard(...permission);
+        return response
     }
+
 }

@@ -3,6 +3,7 @@ import { required, number } from 'joi';
 import { UserService } from './user.service';
 import { User } from 'src/database/models/VAD10/user/user.entity';
 import { RequestCreateUserDto, RequestUpdateUserDto } from './user.dto';
+import { ValidateGuard } from '../auth/guard/guard.service';
 
 @Controller('users')
 export class UserControlController {
@@ -23,7 +24,6 @@ export class UserControlController {
     async update(@Param('id') id: number, @Body(new ValidationPipe({ transform: true, whitelist: true })) user: RequestUpdateUserDto) {
         return await this.userControlService.update(id, user);
     }
-
 
 }
 

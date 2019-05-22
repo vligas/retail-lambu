@@ -21,6 +21,7 @@ import { EntityModule } from './database/entity.module';
 import { Role } from './database/models/VAD10/role/role.entity';
 import { config } from '../src/config/config.service';
 import { AUTH_SERVICE_NAME, RETAIL_SERVICE_NAME } from '@retail/common/src/utils/constants';
+import { AuthModule } from './features/auth/auth.module';
 
 export const DATABASEVAD10 = 'DataBaseVAD10';
 
@@ -64,6 +65,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
     ProductModule,
     ReportsModule,
     SpyModule,
+    AuthModule
   ],
   controllers: [],
   providers: [],

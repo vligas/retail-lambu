@@ -20,8 +20,6 @@ export class AuthService {
 
     async checkCredentials(credentials: RequestLoginDto) {
         const user = await this.userService.getByUsername(credentials.username);
-        console.log(user);
-        //const match = await this.userService.compareHash(credentials.password, user.password);
         if (!user || user.password !== credentials.password) {
             throw new UnauthorizedException();
         }
@@ -29,7 +27,6 @@ export class AuthService {
     }
 
     async validateUser(payload: JwtPayload): Promise<boolean | User> {
-        console.log("Entreeeee", payload)
         if (payload && payload.username) {
             return (await this.userService.getByUsername(payload.username)).toJSON() as any;
         }

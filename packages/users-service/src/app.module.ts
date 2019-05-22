@@ -37,7 +37,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
       app: {
         name: AUTH_SERVICE_NAME,
         address: '127.0.0.1',
-        port: 3001,
+        port: parseInt(config.get('APP_PORT')),
       },
       consul: {
         address: '127.0.0.1',
