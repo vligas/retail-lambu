@@ -1,0 +1,162 @@
+<app-breadcrumb>
+</app-breadcrumb>
+
+<div class="separator-breadcumb border-top"></div>
+
+<div class="row list-horizontal">
+    <div class="list-item ng-tns-c6-0 col-md-12 ng-trigger ng-trigger-animate ng-star-inserted">
+        <div class="o-hidden mb-0 d-flex flex-row">
+            <div class="flex-grow-1 pl-2 d-flex">
+                <div
+                    class="card-body align-self-center flex-column justify-content-between align-items-lg-center flex-lg-row">
+                    <!-- <div class="align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row"> -->
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-6 d-none d-lg-block text-center">
+                            <label class=" item-title text-16">Usuario</label>
+                        </div>
+
+                        <div class="col-lg-2 col-md-3 d-none d-lg-block text-left">
+                            <label class=" item-title text-16">Roles</label>
+                        </div>
+
+                        <div class="col-lg-6 col-md-3 d-none d-lg-block text-left">
+                            <label class=" item-title text-16">Descripción</label>
+                        </div>
+
+                        <!-- RESPONSIVE -->
+                        <div class="col-sm-12 col-xs-12 d-lg-none .d-xl-block text-left">
+                            <label class=" item-title text-16">usuarios</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="align-self-center pl-3 pb-2 pr-3 item-select">
+                    <div class="btn-group float-right">
+                        <!-- <button class="btn btn-icon bg-transparent pb-1 pl-1" >
+                            <label class="checkbox checkbox-outline-light">
+                                <input type="checkbox" [(ngModel)]="allSelected" (change)="selectAll($event)">
+                                <span></span>
+                                <span class="checkmark"></span>
+                            </label>
+                        </button> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DATA LIST -->
+<div class="row list-horizontal">
+    <div class="col-md-12 list-item">
+        <div *ngIf="users?.length === 0">
+            <div class="card o-hidden mb-4 d-flex flex-row">
+                <div class="flex-grow-1 pl-2 d-flex">
+                    <div
+                        class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row">
+                        <a class="w-100 w-sm-100">
+                            <div class="item-title text-18 text-black text-center">No hay registros cargados en base de
+                                datos</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SINGLE LIST ITEM -->
+    <div *ngFor="let item of users | paginate: { itemsPerPage: pageSize, currentPage: page }; let i = index"
+        class="list-item col-md-12" [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'50px'}}">
+
+        <div class="card o-hidden mb-4 d-flex flex-row">
+            <div class="flex-grow-1 pl-2 d-flex">
+                <div
+                    class="card-body align-self-center flex-column justify-content-between align-items-lg-center flex-lg-row">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-truncate">
+                            <button class="pl-0 pt-0 btn btn-link item-title text-18 text-primary "
+                                (click)="navToDetail(item)">
+                                {{item.login_name}}
+                            </button>
+                        </div>
+
+
+                        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 d-none d-lg-block ">
+                            <p class="m-0 text-left text-center-sm">
+                                <button class="btn btn-link" (click)="openModal(rolesModal, 'roles' ,item)">
+                                    Roles
+                                </button>
+                            </p>
+                        </div>
+
+                        <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 ">
+                            <p class="m-0 text-left">
+                                {{item.descripcion}}
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="align-self-center pl-3 pb-2 pr-3 item-select">
+                    <div class="btn-group float-right">
+                        <!-- <button class="btn btn-icon bg-transparent pb-1 pl-1" >
+                            <label class="checkbox checkbox-outline-light">
+                                <input type="checkbox" [(ngModel)]="item.isSelected">
+                                <span></span>
+                                <span class="checkmark"></span>
+                            </label>
+                        </button> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- PAGINATION CONTROL -->
+    <div class="col-md-12 mt-3">
+        <pagination-controls (pageChange)="page = $event" previousLabel="" nextLabel=""></pagination-controls>
+    </div>
+</div>
+
+
+<!--Modal roles-->
+
+<ng-template #rolesModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Roles</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card  o-hidden">
+                        <ngx-datatable style=" box-shadow: none" class="material fullscreen" [columnMode]="'force'"
+                            [headerHeight]="50" [footerHeight]="50" [rowHeight]="60" [limit]="5" [rows]="listRoles">
+
+                            <ngx-datatable-column name="name" [width]="200" [maxWidth]="300" [minWidth]="200">
+                                <ng-template ngx-datatable-header-template>
+                                    Rol
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column name="description" [width]="400" [maxWidth]="450" [minWidth]="350">
+                                <ng-template ngx-datatable-header-template>
+                                    Descripción
+                                </ng-template>
+                            </ngx-datatable-column>
+
+                        </ngx-datatable>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark btn-rounded" (click)="modal.close('Cross click')">ok</button>
+    </div>
+</ng-template>

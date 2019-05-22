@@ -1,0 +1,89 @@
+<app-breadcrumb>
+</app-breadcrumb>
+
+<div class="separator-breadcumb border-top"></div>
+
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+  <ngb-panel>
+    <ng-template ngbPanelTitle>
+      <span>Reporte GAP</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <form [formGroup]="gapForm">
+        <h4>Comparacion para el GAP</h4>
+        <hr>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="input-group mb-2">
+              <select class="form-control" formControlName="gapper1">
+                <option *ngFor="let gaper of priceOptions.gapers" [value]="gaper.key" [disabled]="gaper.disabled">
+                  {{gaper.name}}
+                </option>
+              </select>
+
+              <div class="input-group-append">
+                <span class="input-group-text" (click)="twing()"> <i class="i-Sync"></i> </span>
+              </div>
+
+              <select class="form-control" formControlName="gapper2">
+                <option *ngFor="let gaper of priceOptions.gapers" [value]="gaper.key" [disabled]="gaper.disabled">
+                  {{gaper.name}}
+                </option>
+              </select>
+              <div class="input-group-append">
+                <span class="input-group-text" (click)="addGapCombination()"> <i class="i-Add"></i> </span>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <ul class="list-group" *ngIf="gapCombinations.length">
+                <li *ngFor="let gapCombination of gapCombinations; let i = index"
+                  class="list-group-item d-flex justify-content-between align-items-center">
+                  {{gapCombination.gapper1.name}} - {{gapCombination.gapper2.name}}
+                  <span class="badge badge-danger badge-pill" (click)="deleteGapCombination(i)">X</span>
+                </li>
+              </ul>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary float-right" (click)="saveGapConfig()">Guardar</button>
+            </div>
+          </div>
+
+        </div>
+
+      </form>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel>
+    <ng-template ngbPanelTitle>
+      <span>&#9733; <b>Fancy</b> title &#9733;</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+      officia
+      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+      tempor,
+      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+      helvetica,
+      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+      labore sustainable VHS.
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel title="Disabled" [disabled]="true">
+    <ng-template ngbPanelContent>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+      officia
+      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+      tempor,
+      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+      helvetica,
+      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+      labore sustainable VHS.
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>

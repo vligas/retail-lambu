@@ -1,0 +1,20 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "resolveJsonModule": true,
+    "types": []
+  },
+  "include": [
+    "./**/*.ts",
+    "../../../node_modules/@retail/shared/**/*.ts"
+  ],
+  "files": [
+    "main.ts",
+    "polyfills.ts"
+  ],
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ],
+}
