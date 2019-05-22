@@ -14,9 +14,6 @@ export const PermissionsGuard = (...permissions: string[]): any => {
             private http: HttpCommunicationService
         ) {
             super();
-            console.log('---');
-            console.log('permission guard');
-            
         }
 
         async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -36,8 +33,6 @@ export const PermissionsGuard = (...permissions: string[]): any => {
                         password: '123'
                     },
                 });
-                console.log('userPermissions: ', userPermissions);
-                
                 if (permissions.length === 0) {
                     return true;
                 }

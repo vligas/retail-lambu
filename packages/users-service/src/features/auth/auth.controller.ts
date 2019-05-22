@@ -4,7 +4,7 @@ import { AuthService } from './auth.service';
 import { RoleService } from './role.service';
 import { UserService } from '../userControl/user.service';
 import { ValidateGuard } from './guard/guard.service';
-import { logger } from '@retail/common';
+import { logger, PermissionsGuard } from '@retail/common';
 
 
 @Controller('auth')
@@ -67,8 +67,6 @@ export class AuthController {
     async canActivate(@Body() user: RequestCanActive) {
         logger.info(`get permission for user: ${user.username}`);
         let response= await this.userService.getPermissions(user.username);
-        console.log('response ', response);
-        
         return response
     }
 
