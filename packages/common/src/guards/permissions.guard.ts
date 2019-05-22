@@ -1,5 +1,4 @@
-import { Injectable, CanActivate, ExecutionContext, HttpService } from '@nestjs/common';
-import { Observable } from 'rxjs';
+import { Injectable, ExecutionContext, HttpService } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 
 // tslint:disable-next-line: variable-name
@@ -11,20 +10,28 @@ export const PermissionsGuard = (...permissions: string[]): any => {
             private httpService: HttpService
         ) {
             super();
+            console.log('---');
+            console.log('permission guard');
+            
         }
 
         async canActivate(context: ExecutionContext): Promise<boolean> {
-            console.log('///////////////////////process.env.NODE_ENV');
-            console.log(process.env.NODE_ENV);
+            console.log('can active');
             
-            // if (config.get("NODE_ENV") === 'development') {
-            //     return true;
-            // }
-             this.httpService.get('http://localhost:3007/auth/canActivate').subscribe( p =>{
-                 console.log('holaaaaaaaa');
-                 console.log(p);
-             });
-             return true
+            if (process.env.NODE_ENV === 'development') {
+                return true;
+            }
+            return await this.invokeGuard();
+        }
+
+        async invokeGuard() {
+            console.log('invoke');
+            console.log(permissions);
+            
+            await this.httpService.get('http://localhost:3007/auth/can-activate').toPromise();
+            console.log('return invoke:: ');
+            
+            return true;
         }
 
 

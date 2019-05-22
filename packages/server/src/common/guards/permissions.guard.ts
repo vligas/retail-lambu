@@ -42,20 +42,3 @@ export const PermissionsGuard = (...permissions: string[]): any => {
 
     return Guard;
 };
-// @Injectable()
-// export class PermissionsGuard extends AuthGuard('jwt') {
-
-//     constructor(private userService: UserService) {
-//         super();
-//     }
-
-//     canActivate(
-//         context: ExecutionContext
-//     ): boolean | Promise<boolean> | Observable<boolean> {
-//         return super.canActivate(context);
-//     }
-
-//     have;
-
-
-// }

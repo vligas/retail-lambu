@@ -4,6 +4,9 @@ import { config } from './config/config.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(config.get('APP_PORT'));
+  app.listen(config.get('APP_PORT')).then(p =>{
+    console.log(`listen in http://localhost:${config.get('APP_PORT')}`);
+    
+  });
 }
 bootstrap();

@@ -1,9 +1,7 @@
 import { Injectable, ExecutionContext, Logger } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 import { UserService } from 'src/features/userControl/user.service';
-import { RoleService } from 'src/features/auth/role.service';
-
-// tslint:disable-next-line: variable-name
+import { RoleService } from '../role.service';
+import { AuthGuard } from '@nestjs/passport';
 
 export const ValidateGuard = (...permissions: string[]): any => {
 
@@ -11,8 +9,6 @@ export const ValidateGuard = (...permissions: string[]): any => {
     class Guard extends AuthGuard('jwt') {
         constructor(private userService: UserService, private roleService: RoleService) {
             super();
-            console.log('guard service');
-            
             this.roleService.allPermissions().then(dbPermissions => {
                 permissions.forEach(p => {
                     if (!dbPermissions.find(permission => permission.name === p)) {
@@ -39,3 +35,5 @@ export const ValidateGuard = (...permissions: string[]): any => {
 
     return Guard;
 };
+
+
