@@ -1,35 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthLayoutComponent } from '@retail/shared';
-import { AuthGaurd } from './shared/services/auth.gaurd';
-import { AdminLayoutSidebarCompactComponent } from '../app/shared/components/layouts/admin-layout-sidebar-compact/admin-layout-sidebar-compact.component';
-import { AdminLayoutSidebarLargeComponent } from '../app/shared/components/layouts/admin-layout-sidebar-large/admin-layout-sidebar-large.component';
+import { AdminLayoutSidebarQueueComponent } from './shared/components/layouts/admin-layout-sidebar-queue/admin-layout-sidebar-queue.component';
 
 const adminRoutes: Routes = [
   {
     path: 'dashboard',
     loadChildren: './views/dashboard/dashboard.module#DashboardModule'
-  },
-  {
-    path: 'authManagement',
-    loadChildren: './views/authManagement/authManagement.module#AuthManagementModule'
-  },
-  {
-    path: 'params',
-    loadChildren: './views/params/params.module#ParamsModule'
-  },
-  {
-    path: 'purchase',
-    loadChildren: './views/purchase/purchase.module#PurchaseModule'
-  },
-  {
-    path: 'products',
-
-    loadChildren: './views/products/products.module#ProductModule'
-  },
-  {
-    path: 'spy',
-    loadChildren: './views/spy/spy.module#SpyModule'
   }
 ];
 
@@ -51,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: AdminLayoutSidebarLargeComponent,
+    component: AdminLayoutSidebarQueueComponent,
     // canActivate: [AuthGaurd],
     children: adminRoutes
   },
