@@ -26,7 +26,7 @@ export class ConsulService {
     }
 
     getServiceUrl(name: string) {
-        const url = this.watch[name];
+        const url = this.watch[name][0];
         if (url) {
             return url;
         }

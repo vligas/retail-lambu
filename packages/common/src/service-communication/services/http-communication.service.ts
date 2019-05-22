@@ -10,7 +10,8 @@ export class HttpCommunicationService {
 
     async call(service: string, options: HttpOptions) {
         try {
-            const url = this.consul.getServiceUrl(service)[0];
+            const url = this.consul.getServiceUrl(service);
+
             logger.info(`Request to: ${url}/${options.endpoint}`);
             return await this.http.request({
                 method: options.method,
@@ -18,7 +19,7 @@ export class HttpCommunicationService {
                 headers: options.headers,
                 baseURL: url,
                 url: options.endpoint
-            });
+            }).toPromise();
         }
         catch (e) {
             logger.error(e.message);

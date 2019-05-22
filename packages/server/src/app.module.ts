@@ -49,7 +49,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
       app: {
         name: RETAIL_SERVICE_NAME,
         address: '127.0.0.1',
-        port: 3000
+        port: parseInt(config.get('APP_PORT'))
       },
       consul: {
         address: '127.0.0.1',

@@ -6,6 +6,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as MssqlDriver from 'sequelize/lib/dialects/mssql';
 import { CurrencyInterceptor } from './common/interceptors/currency.interceptor';
 import { config } from './config/config.service';
+import { logger } from '@retail/common';
 //MssqlDriver.prototype.supports = { ...MssqlDriver.prototype.supports, returnValues: { output: false } };
 
 declare const module: any;
@@ -32,6 +33,7 @@ async function bootstrap() {
 
 
   await app.listen(config.get('APP_PORT'), '0.0.0.0');
+  logger.info(`app listen on https://localhost:${config.get('APP_PORT')}`);
 
   if (module.hot) {
     module.hot.accept();
