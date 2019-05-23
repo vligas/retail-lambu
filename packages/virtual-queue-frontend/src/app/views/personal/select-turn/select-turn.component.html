@@ -1,0 +1,21 @@
+<div class="card o-hidden" [@animate]="{value:'*',params:{y:'120px',opacity:'0',delay:'100ms', duration: '400ms'}}">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="p-4">
+        <div class="auth-logo text-center mb-4">
+          <img src="assets/images/logo.png" alt="">
+        </div>
+        <div>
+          Seleccione el turno que esta atendiendo
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 text-center " style="background-size: cover;background-image: url(./assets/images/photo-long-3.jpg)">
+      <div class="pr-3 auth-right" >
+        <button *ngFor="let turn of (turns$ | async)" class="btn btn-rounded btn-outline-primary btn-block btn-icon-text">
+          {{turn.name}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
