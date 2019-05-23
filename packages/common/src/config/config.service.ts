@@ -11,6 +11,7 @@ export class EnvConfig {
 @Injectable()
 export class ConfigService {
   private readonly envConfig: EnvConfig;
+  
 
   constructor(filePath: string) {
     const config = dotenv.parse(fs.readFileSync(filePath));

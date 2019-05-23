@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "migrate": "npm run clean && npm run build && node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/build/migrate.js",
+    "migrate": "ts-node -r tsconfig-paths/register src/build/migrate.ts",
+    "seed": "ts-node -r tsconfig-paths/register src/build/seed.ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "clean": "rimraf dist",
     "start": "ts-node -r tsconfig-paths/register src/main.ts",

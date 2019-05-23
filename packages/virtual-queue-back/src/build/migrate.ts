@@ -30,11 +30,15 @@ export async function migrateCommand() {
             await db.query('DROP TABLE SequelizeMeta');
             await migration.up();
         case 'new':
-        // tslint:disable-next-line:no-console
-        console.log('entrando', cmd);
         const name = process.argv[3].trim();
-            const template = copySync(path.resolve(__dirname, './templates/migration.template.txt'), path.resolve(__dirname, `./migrations/${(new Date()).getTime()}_${name}.ts`));
-            break;
+            // tslint:disable-next-line:max-line-length
+            // tslint:disable-next-line:align
+            // tslint:disable-next-line:max-line-length
+        const template = copySync(path.resolve(__dirname, './templates/migration.template.txt'),
+         path.resolve(__dirname, `./migrations/${(new Date()).getTime()}_${name}.ts`));
+         // tslint:disable-next-line:no-console
+        console.log('entrando', cmd);
+        break;
         default:
             logger.error(`comando "${cmd}" invalido... opciones validas: "up" y "down"`);
     }

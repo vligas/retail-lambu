@@ -39,7 +39,7 @@ export async function seedsCommand() {
             const className = `${camelize(name)}Seeder`;
             const seederTemplate = readFileSync(resolve(__dirname, templatePath, 'seeder.template.txt'), 'utf-8');
             const seederContent = formatTemplate(seederTemplate, {
-                className
+                className,
             });
             writeFileSync(resolve(seedsDir, `${name}.seeder.ts`), seederContent);
 
