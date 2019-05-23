@@ -23,6 +23,7 @@ export class HttpCommunicationService {
         }
         catch (e) {
             logger.error(e.message);
+            throw e.message;
         }
     }
 }

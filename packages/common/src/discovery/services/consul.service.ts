@@ -58,7 +58,7 @@ export class ConsulService {
                     }
                 } as any);
                 watcher.on('change', (data) => {
-                    this.watch[microservice] = data.map(d => `http://${d.Service.Address}:${d.Service.Port}/`);
+                    this.watch[microservice] = data.map(d => `http://${d.Service.Address}:${d.Service.Port}`);
                 });
             }
         }

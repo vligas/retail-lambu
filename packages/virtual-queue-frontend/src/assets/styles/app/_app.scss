@@ -1,0 +1,26 @@
+/*
+ *
+ *   GULL - Angular Bootstrap Admin Template
+ *
+ *
+*/
+
+@import '../../../../../../node_modules/perfect-scrollbar/css/perfect-scrollbar.css';
+@import '../../../../../../node_modules/@swimlane/ngx-datatable/release/index.css';
+@import '../../../../../../node_modules/@swimlane/ngx-datatable/release/themes/material.css';
+@import '../../../../../../node_modules/@swimlane/ngx-datatable/release/assets/icons.css';
+@import '../../../../../../node_modules/ngx-toastr/toastr.css';
+@import "../../../../../../node_modules/angular-calendar/css/angular-calendar.css";
+@import '../../../../../../node_modules/quill/dist/quill.core.css';
+@import '../../../../../../node_modules/quill/dist/quill.snow.css';
+@import '../../../../../../node_modules/highlight.js/styles/github.css';
+@import '../../../../../../node_modules/ladda/dist/ladda.min.css';
+@import "../iconsmind/iconsmind.css";
+@import 'variables';
+
+
+// @import 'themes/lite-blue';
+@import 'themes/lite-purple';
+@import '../vendor/bootstrap/bootstrap.scss';
+@import "bootstrap-rtl.scss";
+@import 'globals/globals';

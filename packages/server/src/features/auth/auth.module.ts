@@ -3,7 +3,7 @@ import { AuthController } from './auth.controller';
 import { DatabaseModule } from 'src/database/database.module';
 import { UserModule } from '../userControl/user.module';
 import { AuthService } from './auth.service';
-import { ConfigModule } from '@retail/common';
+import { ConfigModule, ServiceCommunicationModule } from '@retail/common';
 import { config } from 'src/config/config.service';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { PassportModule } from '@nestjs/passport';
@@ -32,7 +32,8 @@ import { Permission } from '../../database/models/VAD10/permission/permission.en
             },
         }),
         UserModule,
-        ConfigModule
+        ConfigModule,
+        ServiceCommunicationModule
     ],
     providers: [AuthService, JwtStrategy, RoleService],
     exports: [AuthService, JwtStrategy, RoleService]

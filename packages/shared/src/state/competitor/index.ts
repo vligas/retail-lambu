@@ -3,7 +3,8 @@ export {
     ChangeCompetitorId,
     DeleteCompetitor,
     FetchCompetitor,
-    UpdateCompetitor
+    UpdateCompetitor,
+    SaveActualCompetitor
 } from './competitor.actions';
 
 export {

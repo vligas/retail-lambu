@@ -1,0 +1,117 @@
+<div class="breadcrumb">
+    <h1>Administrador de Usuarios</h1>
+    <ul>
+        <li>Detalles</li>
+        <li >{{user?.login_name}}</li>
+    </ul>
+</div> 
+
+<div class="separator-breadcumb border-top"></div>
+
+<div class="row pt-4">
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <div class="card-body card-ecommerce-3 o-hidden mb-4">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 ">
+                        <div class=" card-icon-bg card-icon-bg-primary o-hidden mb-4">
+                            <div class="card-body">
+                                <i class="i-Business-Mens"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 ">
+                        <div class="pt-4">
+                            <span class="pt-4 mb-2 line-height-1 text-primary text-24"> {{user?.login_name}} </span> 
+                            <p class="text-8 mt-2 mb-0 "> {{user?.descripcion}} </p>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-right text-right-sm pt-4">
+                    </div>
+                </div>
+
+                <!-- ROLES -->
+                <div class="row">
+                    <div class=" col-xs-6 col-lg-1 col-md-2 col-sm-2 text-left">
+                        <p class="badge badge-primary text-16 p-2">Roles</p>
+                    </div>
+
+                    <div class=" col-xs-6 col-lg-5 col-md-6 col-sm-6 text-left">
+                        <input placeholder="Filtrar roles" [formControl]="searchControl"
+                        class="form-control form-control-rounded">
+                    </div>
+
+                    <div class="col-lg-6 col-md-4 col-sm-4 col-xs-2 text-right">
+                        <button type="button" class=" btn btn-outline-secondary m-1" placement="left"
+                            triggers="mouseenter:mouseleave" ngbPopover="Guardar cambios"
+                            (click)="openModal(modalConfirm)">
+                            <i class="i-Upload1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row pt-0">
+                    <div class="col-md-12">
+                        <div class="separator-breadcumb border-top"></div>
+                        <table class="table">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Rol</th>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of filteredRoles | paginate: { itemsPerPage: pageSize, currentPage: page }; let i = index">
+                                    <td> 
+                                        <button class=" btn btn-link text-primary " (click)="navToDetail(item)"> 
+                                            {{item.name}}
+                                        </button>
+                                    </td>
+
+                                    <td class="font-weight-bold">{{item.description}}</td>
+                                    <td>
+                                        <label class="checkbox" (click)="onSelect(item)"
+                                            [ngClass]="{'checkbox-outline-success': item.isSelected, 
+                                                        'checkbox-outline-secondary': !item.isSelected}">
+                                            <input type="checkbox" [(ngModel)]="item.isSelected">
+                                            <span></span>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="separator-breadcumb border-top"></div>
+                    </div>
+                    <!-- PAGINATION CONTROL -->
+                    <div class="col-md-12 mt-3" *ngIf="filteredRoles?.length">
+                        <pagination-controls (pageChange)="page = $event" previousLabel="" nextLabel=""></pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Modal Save-->
+<ng-template #modalConfirm let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-title">Actualizar Rol</h4>
+        <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p><strong>¿Está seguro que desea actualizar los roles del usuario <span class="text-primary">{{user?.login_name}}</span>?</strong></p>
+            <p>Esta acción tendrá repercusiones sobre los permisos asociados a este usuario</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary btn-rounded" (click)="modal.dismiss('cancel')">Cancel</button>
+        <button type="button" ngbAutofocus class="btn btn-success btn-rounded" (click)="modal.close(user)">Ok</button>
+    </div>
+</ng-template>

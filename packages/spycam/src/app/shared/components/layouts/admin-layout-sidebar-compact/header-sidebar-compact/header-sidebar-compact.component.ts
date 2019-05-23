@@ -1,12 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import { NavigationService } from "src/app/shared/services/navigation.service";
-import { SearchService } from "src/app/shared/services/search.service";
-import { AuthService } from "src/app/shared/services/auth.service";
+import { Component, OnInit } from '@angular/core';
+import {
+  AuthService,
+  SearchService,
+  NavigationService
+} from '@retail/shared';
 
 @Component({
-  selector: "app-header-sidebar-compact",
-  templateUrl: "./header-sidebar-compact.component.html",
-  styleUrls: ["./header-sidebar-compact.component.scss"]
+  selector: 'app-header-sidebar-compact',
+  templateUrl: './header-sidebar-compact.component.html',
+  styleUrls: ['./header-sidebar-compact.component.scss']
 })
 export class HeaderSidebarCompactComponent implements OnInit {
   notifications: any[];
@@ -63,7 +65,7 @@ export class HeaderSidebarCompactComponent implements OnInit {
     ];
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   toggelSidebar() {
     const state = this.navService.sidebarState;

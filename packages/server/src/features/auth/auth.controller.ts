@@ -26,7 +26,7 @@ export class AuthController {
     @All('protected')
     @UseGuards(PermissionsGuard('can-update-products'))
     async protect() {
-        console.log('=========================entre');
+        console.log('pasó el guard');
     }
 
 

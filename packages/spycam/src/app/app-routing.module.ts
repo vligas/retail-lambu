@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthLayoutComponent } from './shared/components/layouts/auth-layout/auth-layout.component';
+import { AuthLayoutComponent } from '@retail/shared';
 
 const routes: Routes = [
-  { 
-    path: 'business', 
-    loadChildren: './views/business/business.module#BusinessPageModule' 
+  {
+    path: 'business',
+    loadChildren: './views/business/business.module#BusinessPageModule'
   },
   {
     path: 'params',

@@ -11,6 +11,7 @@ import RoleSeeder from './role.seeder';
 import ExtUserSeeder from './ext_user.seeder';
 import CompetitorSeeder from './competitor.seeder';
 import BranchofficeSeeder from './branchOffice.seeder';
+import UserPermissionSeeder from './user_permission.seeder';
 
 export const order = [
     CategorySeeder,
@@ -26,4 +27,5 @@ export const order = [
     ConfigSeeder,
     CompetitorSeeder,
     BranchofficeSeeder,
+    UserPermissionSeeder,
 ];
