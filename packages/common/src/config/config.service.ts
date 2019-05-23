@@ -29,12 +29,20 @@ export class ConfigService {
         .default('development'),
       APP_PORT: Joi.number().default(3000),
       APP_SECRET_KEY: Joi.string().required(),
-      DB_NAME: Joi.string().required(),
-      DB_USERNAME: Joi.string().required(),
-      DB_PASSWORD: Joi.string().required(),
-      DB_HOST: Joi.string().required(),
-      DB_PORT: Joi.number().required(),
-      UPLOAD_PATH: Joi.string().required(),
+
+      DB_NAME_VAD10: Joi.string().required(),
+      DB_USERNAME_VAD10: Joi.string().required(),
+      DB_PASSWORD_VAD10: Joi.string().required(),
+      DB_HOST_VAD10: Joi.string().required(),
+      DB_PORT_VAD10: Joi.number().required(),
+      UPLOAD_PATH_VAD10: Joi.string().required(),
+
+      DB_NAME_VAD20: Joi.string().required(),
+      DB_USERNAME_VAD20: Joi.string().required(),
+      DB_PASSWORD_VAD20: Joi.string().required(),
+      DB_HOST_VAD20: Joi.string().required(),
+      DB_PORT_VAD20: Joi.number().required(),
+      UPLOAD_PATH_VAD20: Joi.string().required(),
 
     });
 
