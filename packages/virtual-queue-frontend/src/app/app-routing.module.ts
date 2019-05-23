@@ -5,15 +5,15 @@ import { AdminLayoutSidebarQueueComponent } from './shared/components/layouts/ad
 
 const adminRoutes: Routes = [
   {
-    path: 'dashboard',
-    loadChildren: './views/dashboard/dashboard.module#DashboardModule'
+    path: 'queue',
+    loadChildren: './views/queue/queue.module#QueueModule'
   }
 ];
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard/v1',
+    redirectTo: 'queue/v1',
     pathMatch: 'full'
   },
   {
@@ -28,7 +28,6 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: AdminLayoutSidebarQueueComponent,
     // canActivate: [AuthGaurd],
     children: adminRoutes
   },
