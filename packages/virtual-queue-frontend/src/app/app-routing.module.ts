@@ -23,11 +23,16 @@ const routes: Routes = [
       {
         path: 'sessions',
         loadChildren: './views/sessions/sessions.module#SessionsModule'
+      },
+      {
+        path: 'personal',
+        loadChildren: './views/personal/personal.module#PersonalModule'
       }
     ]
   },
   {
     path: '',
+    component: AdminLayoutSidebarQueueComponent,
     // canActivate: [AuthGaurd],
     children: adminRoutes
   },

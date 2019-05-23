@@ -17,3 +17,13 @@ export class AppModule implements NestModule {
     consumer.apply(LoggerMiddleware).forRoutes('/');
   }
 }
+
+  async onModuleInit() {
+    await this.consulService.register();
+  }
+
+
+  configure(consumer: MiddlewareConsumer){
+    
+  }
+}
