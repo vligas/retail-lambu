@@ -28,7 +28,6 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: AdminLayoutSidebarQueueComponent,
     // canActivate: [AuthGaurd],
     children: adminRoutes
   },
