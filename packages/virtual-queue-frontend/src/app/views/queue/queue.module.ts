@@ -7,6 +7,7 @@ import { SharedComponentsModule } from '../../shared/components/shared-component
 import { SharedPipesModule } from '@retail/shared'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { QueueRoutingModule } from './queue-routing.module';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     CommonModule,
     FormsModule,
+    QueueRoutingModule,
     ReactiveFormsModule,
     NgxPaginationModule,
     NgxDatatableModule,

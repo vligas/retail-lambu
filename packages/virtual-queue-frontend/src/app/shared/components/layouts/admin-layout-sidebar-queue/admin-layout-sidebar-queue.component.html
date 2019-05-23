@@ -1,12 +1,7 @@
-<div class="app-admin-wrap layout-sidebar-large">
-  <div class="side-content-wrap">
-    <app-sidebar-large></app-sidebar-large>
-  </div>
+<div class="layout-sidebar-large auth-layout-wrap" style="background-image: url(./assets/images/photo-wide-4.jpg)">
   <div class="main-content-wrap d-flex flex-column" [ngClass]="{'sidenav-open': navService.sidebarState.sidenavOpen}"
-    [perfectScrollbar]="{suppressScrollX: true}">
+    [perfectScrollbar]="{suppressScrollX: true}" style="background: transparent">
     <router-outlet></router-outlet>
-    <div class="flex-grow-1"></div>
-    <!--<app-footer></app-footer>-->
     <div class="module-loader" *ngIf="moduleLoading">
       <div class="spinner spinner-bubble spinner-bubble-primary mr-3">
       </div>
