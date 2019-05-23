@@ -50,16 +50,6 @@ const routes: Routes = [
       }
     ]
   },
-  {
-    path: '',
-    component: AdminLayoutSidebarLargeComponent,
-    // canActivate: [AuthGaurd],
-    children: adminRoutes
-  },
-  {
-    path: '**',
-    redirectTo: 'others/404'
-  }
 ];
 
 @NgModule({
