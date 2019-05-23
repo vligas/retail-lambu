@@ -3,8 +3,7 @@ import * as fs from 'fs';
 import * as dotenv from 'dotenv';
 import { Injectable } from '@nestjs/common';
 
-@Injectable()
-export class EnvConfig {
+export interface EnvConfig {
   [key: string]: string;
 }
 
@@ -13,6 +12,7 @@ export class ConfigService {
   private readonly envConfig: EnvConfig;
 
   constructor(filePath: string) {
+    // tslint:disable-next-line:no-shadowed-variable
     const config = dotenv.parse(fs.readFileSync(filePath));
     this.envConfig = this.validateInput(config);
   }
@@ -34,7 +34,6 @@ export class ConfigService {
       DB_HOST: Joi.string().required(),
       DB_PORT: Joi.number().required(),
       UPLOAD_PATH: Joi.string().required(),
-
     });
 
     const { error, value: validatedEnvConfig } = Joi.validate(
