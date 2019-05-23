@@ -3,20 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthLayoutComponent } from '@retail/shared';
 import { AdminLayoutSidebarQueueComponent } from './shared/components/layouts/admin-layout-sidebar-queue/admin-layout-sidebar-queue.component';
 
-const adminRoutes: Routes = [
-  {
-    path: 'dashboard',
-    canActivate: [AuthGaurd],
-    loadChildren: './views/dashboard/dashboard.module#DashboardModule'
-  }
-];
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'dashboard/v1',
-    pathMatch: 'full'
-  },
   {
     path: '',
     component: AuthLayoutComponent,
