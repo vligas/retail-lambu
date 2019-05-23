@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthLayoutComponent } from '@retail/shared';
 import { AdminLayoutSidebarQueueComponent } from './shared/components/layouts/admin-layout-sidebar-queue/admin-layout-sidebar-queue.component';
 
+const adminRoutes: Routes = [
+
+]
 
 const routes: Routes = [
   {
@@ -14,11 +17,6 @@ const routes: Routes = [
         loadChildren: './views/sessions/sessions.module#SessionsModule'
       }
     ]
-  },
-  {
-    path: '',
-    // canActivate: [AuthGaurd],
-    children: adminRoutes
   },
   {
     path: '**',
