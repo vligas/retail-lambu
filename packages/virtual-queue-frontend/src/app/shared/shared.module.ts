@@ -37,6 +37,7 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { environment } from '@frontend/environments/environment';
+import { TurnState } from './state/turn/turn.state';
 @NgModule({
   imports: [
     CommonModule,
@@ -59,7 +60,8 @@ import { environment } from '@frontend/environments/environment';
       BranchOfficeState,
       SaleState,
       CompetitorState,
-      BranchOfficeCompetitorState
+      BranchOfficeCompetitorState,
+      TurnState
     ], { developmentMode: !environment.production }),
     // NgxsStoragePluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
