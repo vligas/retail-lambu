@@ -4,10 +4,18 @@ import { AuthLayoutComponent } from '@retail/shared';
 import { AdminLayoutSidebarQueueComponent } from './shared/components/layouts/admin-layout-sidebar-queue/admin-layout-sidebar-queue.component';
 
 const adminRoutes: Routes = [
-
-]
+  {
+    path: 'queue',
+    loadChildren: './views/queue/queue.module#QueueModule'
+  }
+];
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'queue/v1',
+    pathMatch: 'full'
+  },
   {
     path: '',
     component: AuthLayoutComponent,
@@ -17,6 +25,11 @@ const routes: Routes = [
         loadChildren: './views/sessions/sessions.module#SessionsModule'
       }
     ]
+  },
+  {
+    path: '',
+    // canActivate: [AuthGaurd],
+    children: adminRoutes
   },
   {
     path: '**',
