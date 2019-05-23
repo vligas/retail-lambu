@@ -1,0 +1,10 @@
+import { Inject } from "@nestjs/common";
+import { SeedInterface } from "src/common/interfaces/seedInterface.interface";
+
+export default class ${className} implements SeedInterface {
+    constructor(@Inject(Entity) private entityRepository: typeof Entity) {}
+
+    async run() {
+        
+    }
+}
