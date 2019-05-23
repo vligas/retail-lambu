@@ -43,37 +43,40 @@ export class GapService {
 
         const mergedOptions = this.mergeOptions(
             gapOptions,
+            
             this.getOptionsByPriceType(price1, 1),
             this.getOptionsByPriceType(price2, 2),
         );
-
+        
         const gapQuery = `(${mergedOptions.gapQuery[1]} - ${mergedOptions.gapQuery[0]}) / nullif(${mergedOptions.gapQuery[0]}, 0) * 100`;
-
         let gapWhere;
+       
         if (options.query.gap) {
             const operator = Object.keys(options.query.gap)[0];
             const gapQueryOperator = operator === '$lt' ? '<' : operator === '$gt' ? '>' : '';
             gapWhere = `${gapQuery} ${gapQueryOperator} ${options.query.gap[operator]}`;
             delete options.query.gap;
         }
-        // logger.info(gapWhere);
+      
         const { rows: products, count: total } = await this.productRepository.findAndCountAll({
-            ...mergedOptions,
-            attributes: [
+           //...mergedOptions,
+          attributes: [
                 ...mergedOptions.attributes, 
-                [sequelize.literal(gapQuery), 'gap'], 
-                [sequelize.literal(mergedOptions.gapQuery[0]), 'gap1'], 
-                [sequelize.literal(mergedOptions.gapQuery[1]), 'gap2'],
-                // [sequelize.fn('sum', sequelize.col('gap')), 'sumGap']
+                 [sequelize.literal(gapQuery), 'gap'], 
+                 [sequelize.literal(mergedOptions.gapQuery[0]), 'gap1'], 
+                 [sequelize.literal(mergedOptions.gapQuery[1]), 'gap2'],
+                 //[sequelize.fn('sum', sequelize.col('gap')), 'sumGap']
             ],
-            limit: options.pageSize,
-            offset: options.pageSize * (options.page - 1),
-            order: [['c_Codigo', 'DESC']],
+
+           limit: options.pageSize,
+           offset: options.pageSize * (options.page - 1),
+           order: [['c_Codigo', 'DESC']],
             subQuery: false,
-            where: {
-                $and: [options.query, sequelize.literal(gapWhere)]
-            }
+            where: gapWhere ? {
+               $and: [options.query, sequelize.literal(gapWhere)]
+            } : undefined
         });
+       
         const postProcessFunction = pipe(...(await Promise.all(mergedOptions.postProcessFunc.map((func) => func()))));
         return {
             products: products.map(postProcessFunction),

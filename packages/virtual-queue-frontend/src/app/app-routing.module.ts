@@ -6,6 +6,7 @@ import { AdminLayoutSidebarQueueComponent } from './shared/components/layouts/ad
 const adminRoutes: Routes = [
   {
     path: 'dashboard',
+    canActivate: [AuthGaurd],
     loadChildren: './views/dashboard/dashboard.module#DashboardModule'
   }
 ];
