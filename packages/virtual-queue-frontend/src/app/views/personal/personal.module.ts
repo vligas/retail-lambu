@@ -12,9 +12,10 @@ import { SharedPipesModule } from '@retail/shared';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TurnComponent } from './turn/turn.component';
 
 @NgModule({
-  declarations: [SelectTurnComponent],
+  declarations: [SelectTurnComponent, TurnComponent],
   imports: [
     CommonModule,
     PersonalRoutingModule,
