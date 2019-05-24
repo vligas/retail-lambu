@@ -1,0 +1,9 @@
+import { ${className} } from './${fileName}.entity';
+import { Provider } from '@nestjs/common';
+
+export const ${fileName}Providers: Provider[] = [
+    {
+        provide: ${className},
+        useValue: ${className},
+    }
+];

@@ -17,6 +17,7 @@ import {
 } from '@retail/shared';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { FormsModule } from '@angular/forms';
+import { SidebarQueueComponent } from './admin-layout-sidebar-queue/sidebar-queue/sidebar-queue.component';
 
 
 const components = [
@@ -26,7 +27,8 @@ const components = [
   AuthLayoutComponent,
   BlankLayoutComponent,
   MaintenanceLayoutComponent,
-  SidebarLargeComponent
+  SidebarLargeComponent,
+  SidebarQueueComponent
 ];
 
 @NgModule({

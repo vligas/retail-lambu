@@ -1,16 +1,14 @@
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { ConfigModule } from './config/config.module';
-import { DatabaseModule, ServiceDiscoveryModule, ConsulService } from '@retail/common';
-import { config } from './config/config.service';
+import { ConfigModule, ConsulService, DatabaseModule, ServiceDiscoveryModule } from '@retail/common';
+import { VirtualQueueModule } from './features/virtualQueue/virtualQueue.module';
 import { VIRTUAL_QUEUE_NAME } from '@retail/common/src/utils/constants';
+import { config } from '@retail/common/src/config/config.service';
 
 export const DATABASEVAD10 = 'DataBaseVAD10';
 
 @Module({
   imports: [
-    ConfigModule,
+    ConfigModule.forRoot(`./src/config/enviroments/${process.env.NODE_ENV || 'development'}.env`),    
     DatabaseModule.forRoot([
       {
         token: DATABASEVAD10,
@@ -27,7 +25,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
         modelMatch: (filename, member) => {
           return filename.substring(0, filename.indexOf('.entity')).toLocaleLowerCase() === member.toLowerCase();
         },
-      }
+      },
     ]),
 
     ServiceDiscoveryModule.forRoot({
@@ -42,21 +40,21 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
       },
       discover: [],
     }),
+    VirtualQueueModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule implements NestModule {
-  constructor(
-    private consulService: ConsulService
-  ){}
+
+  constructor(private consulService: ConsulService) {}
 
   async onModuleInit() {
     await this.consulService.register();
   }
 
-
-  configure(consumer: MiddlewareConsumer){
-    
+  configure(consumer: MiddlewareConsumer) {
+    // consumer.apply(LoggerMiddleware).forRoutes('/');
+    // consumer.apply(RequestContextMiddleware).forRoutes('/');
   }
 }
