@@ -1,5 +1,5 @@
-import { config } from '../config/config.service';
 import { Sequelize } from 'sequelize-typescript';
+import { config } from '@retail/common/src/config/config.service';
 
 export const DATABASE = 'DataBase';
 export const databaseProviders = [
