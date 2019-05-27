@@ -15,6 +15,8 @@ export class ConfigService {
 
   constructor(filePath: string) {
     const config = dotenv.parse(fs.readFileSync(filePath));
+    console.log(config);
+    
     this.envConfig = this.validateInput(config);
   }
 
@@ -23,6 +25,7 @@ export class ConfigService {
    * including the applied default values.
    */
   private validateInput(envConfig: EnvConfig): EnvConfig {
+    // const envVarsSchema: Joi.ObjectSchema = joiSchema;
     const envVarsSchema: Joi.ObjectSchema = Joi.object({
       NODE_ENV: Joi.string()
         .valid(['development', 'production', 'test', 'provision'])

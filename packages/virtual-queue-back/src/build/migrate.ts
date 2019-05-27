@@ -1,5 +1,4 @@
 import { bootstrap } from './main';
-import { DATABASE } from 'src/database/database.providers';
 import { createUmzug } from './umzug';
 import { logger } from 'src/common/services/logger.service';
 import { readFileSync } from 'fs';
@@ -7,6 +6,7 @@ import { copySync } from 'fs-extra';
 import * as path from 'path';
 import { Sequelize } from 'sequelize-typescript';
 import * as umzug from 'umzug';
+import { DATABASEVAD10 } from 'src/app.module';
 
 export async function migrateCommand() {
     let db: Sequelize;
@@ -15,7 +15,8 @@ export async function migrateCommand() {
     if (cmd !== 'new') {
         // tslint:disable-next-line:no-console
         console.log(cmd);
-        db = await bootstrap(DATABASE);
+        
+        db = await bootstrap(DATABASEVAD10);
         migration = createUmzug(db);
     }
     switch (cmd) {
@@ -31,9 +32,6 @@ export async function migrateCommand() {
             await migration.up();
         case 'new':
         const name = process.argv[3].trim();
-            // tslint:disable-next-line:max-line-length
-            // tslint:disable-next-line:align
-            // tslint:disable-next-line:max-line-length
         const template = copySync(path.resolve(__dirname, './templates/migration.template.txt'),
          path.resolve(__dirname, `./migrations/${(new Date()).getTime()}_${name}.ts`));
          // tslint:disable-next-line:no-console
