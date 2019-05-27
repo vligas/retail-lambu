@@ -6,14 +6,16 @@ import { logger } from '../services/logger.service';
 import { Options } from '../interfaces/options.interface';
 import { ServiceOptions } from '../interfaces/serviceOptions.interface';
 import { Sequelize, Model } from 'sequelize-typescript';
-import { DATABASEVAD10 } from 'src/database/database.providers';
 import sequelize = require('sequelize');
+import { DATABASEVAD10 } from 'src/app.module';
 
 @Injectable()
 export class QueryOptionsInterceptor<T> implements NestInterceptor<T, T> {
 
-    constructor(private readonly reflector: Reflector,
-        @Inject(DATABASEVAD10) private db: Sequelize) { }
+    constructor(
+        private readonly reflector: Reflector,
+        @Inject(DATABASEVAD10) private db: Sequelize
+    ) { }
 
     intercept(
         context: ExecutionContext,
