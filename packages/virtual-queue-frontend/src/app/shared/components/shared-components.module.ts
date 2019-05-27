@@ -8,7 +8,8 @@ import {
   AsideRightComponent,
   SharedPipesModule,
   SharedDirectivesModule,
-  BreadcrumbComponent
+  BreadcrumbComponent,
+  BtnCornerComponent
 } from '@retail/shared';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -19,7 +20,8 @@ const components = [
   FeatherIconComponent,
   BreadcrumbComponent,
   AsideDockComponent,
-  AsideRightComponent
+  AsideRightComponent,
+  BtnCornerComponent
 ];
 
 @NgModule({
