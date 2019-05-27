@@ -1,0 +1,4 @@
+node_modules
+src/config/enviroments/development.env
+dist
+package-lock.json
