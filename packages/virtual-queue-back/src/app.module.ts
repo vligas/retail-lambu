@@ -5,6 +5,7 @@ import { VIRTUAL_QUEUE_NAME } from '@retail/common/src/utils/constants';
 import {  } from '@retail/common/src/config/config.module';
 import * as Joi from 'joi';
 import { config } from '@retail/common/src/config/config.service';
+import { EventsModule } from './features/socket.io/events/events.module';
 
 export const DATABASEVAD10 = 'DataBaseVAD10';
 
@@ -34,6 +35,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
       app: {
         name: VIRTUAL_QUEUE_NAME,
         address: '127.0.0.1',
+        // tslint:disable-next-line:radix
         port: parseInt(config.get('APP_PORT')),
       },
       consul: {
@@ -43,6 +45,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
       discover: [],
     }),
     VirtualQueueModule,
+    EventsModule,
   ],
   controllers: [],
   providers: [],
