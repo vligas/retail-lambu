@@ -22,8 +22,8 @@ const components = [
   BreadcrumbComponent,
   AsideDockComponent,
   AsideRightComponent,
-  ClockComponent,
-  BtnCornerComponent
+  BtnCornerComponent,
+  ClockComponent
 ];
 
 @NgModule({

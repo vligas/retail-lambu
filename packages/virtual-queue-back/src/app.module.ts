@@ -2,8 +2,6 @@ import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { ConfigModule, ConsulService, DatabaseModule, ServiceDiscoveryModule } from '@retail/common';
 import { VirtualQueueModule } from './features/virtualQueue/virtualQueue.module';
 import { VIRTUAL_QUEUE_NAME } from '@retail/common/src/utils/constants';
-import {  } from '@retail/common/src/config/config.module';
-import * as Joi from 'joi';
 import { config } from '@retail/common/src/config/config.service';
 
 export const DATABASEVAD10 = 'DataBaseVAD10';
@@ -23,7 +21,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
         port: parseInt(config.get('DB_PORT_VAD10'), 10),
         database: config.get('DB_NAME_VAD10'),
         benchmark: false,
-        modelPaths: [__dirname + '/database/models/**/*.entity.{ts,js}'],
+        modelPaths: [__dirname + '/database/models/VAD10/**/*.entity.{ts,js}'],
         modelMatch: (filename, member) => {
           return filename.substring(0, filename.indexOf('.entity')).toLocaleLowerCase() === member.toLowerCase();
         },
@@ -49,9 +47,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
 })
 export class AppModule implements NestModule {
 
-  constructor(
-    private consulService: ConsulService,
-  ) {}
+  constructor(private consulService: ConsulService) {}
 
   async onModuleInit() {
     await this.consulService.register();

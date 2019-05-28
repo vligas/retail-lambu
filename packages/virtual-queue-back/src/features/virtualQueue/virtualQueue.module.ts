@@ -4,6 +4,7 @@ import { EntityModule } from '../../database/entity.module';
 import { VirtualQueue} from 'src/database/models/virtualQueue/virtualQueue.entity';
 import { VirtualQueueController } from './virtualQueue.controller';
 import { VirtualQueueService } from './virtualQueue.service';
+import { VirtualQueueGateway } from './virtualQueue.gateway';
 
 @Module({
     imports: [
@@ -11,7 +12,7 @@ import { VirtualQueueService } from './virtualQueue.service';
         ConfigModule,
     ],
     controllers: [VirtualQueueController],
-    providers: [VirtualQueueService],
+    providers: [VirtualQueueService, VirtualQueueGateway],
     exports: [VirtualQueueService],
 })
 export class VirtualQueueModule { }
