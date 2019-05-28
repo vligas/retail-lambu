@@ -23,7 +23,6 @@ export class ConfigService {
    * including the applied default values.
    */
   private validateInput(envConfig: EnvConfig): EnvConfig {
-    // const envVarsSchema: Joi.ObjectSchema = joiSchema;
     const envVarsSchema: Joi.ObjectSchema = Joi.object({
       NODE_ENV: Joi.string()
         .valid(['development', 'production', 'test', 'provision'])

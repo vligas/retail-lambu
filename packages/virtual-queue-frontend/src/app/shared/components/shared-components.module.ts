@@ -14,7 +14,6 @@ import {
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { LayoutsModule } from './layouts/layouts.module';
-import { ClockComponent } from './clock/clock.component';
 
 const components = [
   BtnLoadingComponent,
@@ -22,7 +21,6 @@ const components = [
   BreadcrumbComponent,
   AsideDockComponent,
   AsideRightComponent,
-  ClockComponent,
   BtnCornerComponent
 ];
 
