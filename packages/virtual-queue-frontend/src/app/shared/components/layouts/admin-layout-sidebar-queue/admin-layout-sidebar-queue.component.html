@@ -1,11 +1,6 @@
-<div class="layout-sidebar-large auth-layout-wrap">
-  <div class="main-content-wrap d-flex flex-column" [ngClass]="{'sidenav-open': navService.sidebarState.sidenavOpen}"
-    [perfectScrollbar]="{suppressScrollX: true}" style="background: transparent">
-    <router-outlet></router-outlet>
-    <div class="module-loader" *ngIf="moduleLoading">
-      <div class="spinner spinner-bubble spinner-bubble-primary mr-3">
-      </div>
-    </div>
+<div class="layout-sidebar-large">
+  <div class="d-flex flex-column" style="background: #37474f">
+    <router-outlet>
+    </router-outlet>
   </div>
 </div>
-<app-search *ngIf="searchService.searchOpen"></app-search>
