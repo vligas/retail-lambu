@@ -1,5 +1,6 @@
 import { Module, Provider, DynamicModule, Global } from '@nestjs/common';
 import { ConfigService, EnvConfig } from './config.service';
+import * as Joi from 'joi';
 
 /*const configProvider: Provider = {
     provide: ConfigService,
