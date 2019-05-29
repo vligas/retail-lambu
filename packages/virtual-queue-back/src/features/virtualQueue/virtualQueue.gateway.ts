@@ -42,6 +42,11 @@ export class VirtualQueueGateway implements OnGatewayConnection, OnGatewayDiscon
     findAll(client: Client, data: any): Observable<WsResponse<number>> {
       return from([1, 2, 3]).pipe(map(item => ({ event: 'events', data: item })));
     }
+
+    @SubscribeMessage('events2')
+    onEvent(client: Client, data: any): WsResponse<string> {
+      return { event: 'events2', data: 'data-100' };
+    }
     
     @SubscribeMessage('identity')
     async identity(client: Client, data: number): Promise<number> {

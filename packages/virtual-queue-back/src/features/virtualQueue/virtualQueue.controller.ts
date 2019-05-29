@@ -23,11 +23,12 @@ export class VirtualQueueController {
 
     @Get('test') 
     async test(@QueryOptions() options: ServiceOptions ) { 
-        let clients= this.virtualQueueGateway.clients
+        let clients= this.socket.clients
         for(let i=0 ; i< clients.length; i++){
             Logger.log(`testing client ${clients[i].id}`);
-            clients[i].send(`testing client ${clients[i]}`)
+            clients[i].emit('events', {name: `testing client ${clients[i].id}`})
         }
+        
         return await this.virtualQueueService.all(options); 
     } 
 
@@ -43,9 +44,6 @@ export class VirtualQueueController {
         return await this.virtualQueueService.nextTurn(id); 
     }
 
-    @Post(':id/next-turns')
-    async nextTurns(@Param('id') id: number) {
-        return await this.virtualQueueService.nextTurn(id);
-    }
+
 
 }

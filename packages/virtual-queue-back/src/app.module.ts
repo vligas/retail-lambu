@@ -41,8 +41,8 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
       },
       discover: [],
     }),
-    VirtualQueueModule,
-    EventsModule
+    VirtualQueueModule
+    // EventsModule
   ],
   controllers: [],
   providers: [],
