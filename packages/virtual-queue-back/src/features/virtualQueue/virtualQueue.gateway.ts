@@ -14,7 +14,7 @@ export class VirtualQueueGateway implements OnGatewayConnection, OnGatewayDiscon
         
         // A client has connected
         this.users++;
-        console.log('active users: ', this.users);
+        console.log('[CONNECT]: active users: ', this.users);
 
         // Notify connected clients of current users
         this.server.emit('users', this.users);
@@ -25,6 +25,7 @@ export class VirtualQueueGateway implements OnGatewayConnection, OnGatewayDiscon
 
         // A client has disconnected
         this.users--;
+        console.log('[DISCONNECT]: active users: ', this.users);
 
         // Notify connected clients of current users
         this.server.emit('users', this.users);
