@@ -4,8 +4,8 @@ import { QueryOptionsInterceptor } from 'src/common/interceptors/queryOptions.in
 import { Paginate } from '../../common/decorators/query/pagination.decorator';
 import { QueryOptions } from '../../common/decorators/query/queryOptions.decorator';
 import { ServiceOptions } from '../../common/interfaces/serviceOptions.interface';
-import { Where } from 'src/common/decorators/query/where.decorator'; 
-import { number } from 'joi'; 
+import { Where } from 'src/common/decorators/query/where.decorator';
+import { number } from 'joi';
 import { VirtualQueueGateway } from './virtualQueue.gateway';
 
 @Controller('turns')
@@ -16,28 +16,28 @@ export class VirtualQueueController {
     ) { }
     @Get()
     async all(
-        @QueryOptions() options: ServiceOptions 
+        @QueryOptions() options: ServiceOptions
     ) {
-        return await this.virtualQueueService.all(options); 
+        return await this.virtualQueueService.all(options);
     }
 
-    @Get(':id') 
-    async actualTurns(@Param('id') id: number) { 
-        return await this.virtualQueueService.actualTurn(id); 
+    @Get(':id')
+    async actualTurns(@Param('id') id: number) {
+        return await this.virtualQueueService.actualTurn(id);
     }
 
-    @Get(':test') 
-    async test(@QueryOptions() options: ServiceOptions ) { 
+    @Get(':test')
+    async test(@QueryOptions() options: ServiceOptions) {
         console.log('//////////////////////////////////////////////');
-        
-        console.log(this.virtualQueueGateway.server);
-         
-        return await this.virtualQueueService.all(options); 
-    } 
- 
-    @Post(':id/next-turns') 
-    async nextTurns(@Param('id') id: number) { 
-        return await this.virtualQueueService.nextTurn(id); 
+
+        console.log(this.socket.server);
+
+        return await this.virtualQueueService.all(options);
+    }
+
+    @Post(':id/next-turns')
+    async nextTurns(@Param('id') id: number) {
+        return await this.virtualQueueService.nextTurn(id);
     }
 
 }

@@ -46,26 +46,10 @@ import { TurnState } from './state/turn/turn.state';
       apiUrl: environment.apiUrl
     }),
     NgxsModule.forRoot([
-      SessionState,
-      DollarPriceState,
-      CategoryState,
-      GapState,
-      CurrencyState,
-      TagState,
-      ProductState,
-      ConfigState,
-      ProductState,
-      RoleState,
-      PriceVariationState,
-      UserState,
-      BranchOfficeState,
-      SaleState,
-      CompetitorState,
-      BranchOfficeCompetitorState,
       TurnState
     ], { developmentMode: !environment.production }),
     NgxsWebsocketPluginModule.forRoot({
-      url: 'ws://localhost:3000/websock'
+      url: 'ws://localhost:3000/'
     }),
     // NgxsStoragePluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),

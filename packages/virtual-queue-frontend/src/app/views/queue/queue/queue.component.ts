@@ -6,6 +6,7 @@ import { TurnState } from '@frontend/app/shared/state/turn/turn.state';
 import { Turn } from '@frontend/app/shared/models/turn.model';
 import { Observable } from 'rxjs';
 import { FetchTurns } from '@frontend/app/shared/state/turn/turn.action';
+import { ConnectWebSocket } from '@ngxs/websocket-plugin';
 
 @Component({
   selector: 'app-queue',
@@ -22,6 +23,8 @@ export class QueueComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit() {
+
+    this.store.dispatch(new ConnectWebSocket());
 
     this.store.dispatch(new FetchTurns()).subscribe();
 
