@@ -15,7 +15,7 @@ export async function migrateCommand() {
     if (cmd !== 'new') {
         // tslint:disable-next-line:no-console
         console.log(cmd);
-        db = await bootstrap(DATABASE);
+        db = await bootstrap('DataBaseVAD10');
         migration = createUmzug(db);
     }
     switch (cmd) {

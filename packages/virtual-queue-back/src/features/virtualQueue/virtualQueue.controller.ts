@@ -16,41 +16,38 @@ export class VirtualQueueController {
     ) { }
     @Get()
     async all(
-        @QueryOptions() options: ServiceOptions
+        @QueryOptions() options: ServiceOptions,
     ) {
         return await this.virtualQueueService.all(options);
     }
 
-    @Get('test') 
-    async test(@QueryOptions() options: ServiceOptions ) { 
-        let clients= this.socket.clients
-        for(let i=0 ; i< clients.length; i++){
+    @Get('test')
+    async test(@QueryOptions() options: ServiceOptions ) {
+        const clients = this.socket.clients;
+        console.log(clients.length);
+        for (let i = 0 ; i < clients.length; i++) {
             Logger.log(`testing client ${clients[i].id}`);
-            clients[i].emit('events', {data: `testing client ${clients[i].id}`})
+            clients[i].send(JSON.stringify({data: `testing client ${clients[i].id}`}));
         }
-        
-        return await this.virtualQueueService.all(options); 
-    } 
 
-    @Get(':id') 
-    async actualTurns(@Param('id') id: number) { 
-        return await this.virtualQueueService.actualTurn(id); 
+        return await this.virtualQueueService.all(options);
     }
 
-    
- 
-    @Post(':id/next-turns') 
-    async nextTurns(@Param('id') id: number) { 
-        let register= await this.virtualQueueService.nextTurn(id); 
-        let all= await this.virtualQueueService.all();
-        let clients= this.socket.clients
-        for(let i=0 ; i< clients.length; i++){
-            clients[i].emit('events', {data: all})
+    @Get(':id')
+    async actualTurns(@Param('id') id: number) {
+        return await this.virtualQueueService.actualTurn(id);
+    }
+
+    @Post(':id/next-turns')
+    async nextTurns(@Param('id') id: number) {
+        const register = await this.virtualQueueService.nextTurn(id);
+        const all = await this.virtualQueueService.all();
+        const clients = this.socket.clients;
+        for (let i = 0 ; i < clients.length; i++) {
+            clients[i].send(JSON.stringify({data: all}));
         }
 
         return register;
     }
-
-
 
 }

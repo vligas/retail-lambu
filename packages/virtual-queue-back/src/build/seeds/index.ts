@@ -1,4 +1,4 @@
-import VirtualQueueSeeder from './vieue.seeder';
+import VirtualQueueSeeder from './virtualQueue.seeder';
 
 export const order = [
     VirtualQueueSeeder,
