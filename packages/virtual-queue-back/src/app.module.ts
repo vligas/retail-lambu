@@ -21,13 +21,13 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
         port: parseInt(config.get('DB_PORT_VAD10'), 10),
         database: config.get('DB_NAME_VAD10'),
         benchmark: false,
-        modelPaths: [__dirname + '/database/models/VAD10/**/*.entity.{ts,js}'],
+        modelPaths: [__dirname + '/database/models/virtualQueue/**/*.entity.{ts,js}'],
         modelMatch: (filename, member) => {
           return filename.substring(0, filename.indexOf('.entity')).toLocaleLowerCase() === member.toLowerCase();
         },
       },
     ]),
-
+    //console.log(this.socket.server.clients().forEach(ws => ws.send("hola", { hola: 1})))
     ServiceDiscoveryModule.forRoot({
       app: {
         name: VIRTUAL_QUEUE_NAME,

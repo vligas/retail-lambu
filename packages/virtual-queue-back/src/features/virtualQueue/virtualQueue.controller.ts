@@ -4,10 +4,14 @@ import { QueryOptionsInterceptor } from 'src/common/interceptors/queryOptions.in
 import { Paginate } from '../../common/decorators/query/pagination.decorator';
 import { QueryOptions } from '../../common/decorators/query/queryOptions.decorator';
 import { ServiceOptions } from '../../common/interfaces/serviceOptions.interface';
+import { VirtualQueueGateway } from './virtualQueue.gateway';
 
 @Controller('turns')
 export class VirtualQueueController {
-    constructor(private virtualQueueService: VirtualQueueService) { }
+    constructor(
+        private virtualQueueService: VirtualQueueService,
+        private socket: VirtualQueueGateway,
+    ) { }
     @Get()
     async all(
     ) {
