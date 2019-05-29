@@ -6,10 +6,15 @@ import { QueryOptions } from '../../common/decorators/query/queryOptions.decorat
 import { ServiceOptions } from '../../common/interfaces/serviceOptions.interface';
 import { Where } from 'src/common/decorators/query/where.decorator'; 
 import { number } from 'joi'; 
+import { VirtualQueueGateway } from './virtualQueue.gateway';
 
 @Controller('turns')
 export class VirtualQueueController {
-    constructor(private virtualQueueService: VirtualQueueService) { }
+    constructor(
+        private virtualQueueService: VirtualQueueService,
+        private virtualQueueGateway: VirtualQueueGateway,
+    ) { }
+
     @Get()
     async all(
         @QueryOptions() options: ServiceOptions 
@@ -20,6 +25,15 @@ export class VirtualQueueController {
     @Get(':id') 
     async actualTurns(@Param('id') id: number) { 
         return await this.virtualQueueService.actualTurn(id); 
+    }
+
+    @Get(':test') 
+    async test(@QueryOptions() options: ServiceOptions ) { 
+        console.log('//////////////////////////////////////////////');
+        
+        console.log(this.virtualQueueGateway.server);
+         
+        return await this.virtualQueueService.all(options); 
     } 
  
     @Post(':id/next-turns') 
