@@ -6,6 +6,10 @@ export class VirtualQueueGateway implements OnGatewayConnection, OnGatewayDiscon
     @WebSocketServer() server;
     users: number = 0;
 
+    afterInit() {
+        console.log('ENTREEEEEEEEEE');
+    }
+
     async handleConnection() {
         console.log('ENTREEEEEEEEEE');
 
