@@ -7,14 +7,14 @@ export class VirtualQueueGateway implements OnGatewayConnection, OnGatewayDiscon
     users: number = 0;
 
     afterInit() {
-        console.log('ENTREEEEEEEEEE');
+        console.log('Init Socket: ', this.users);
     }
 
     async handleConnection() {
-        console.log('ENTREEEEEEEEEE');
-
+        
         // A client has connected
         this.users++;
+        console.log('active users: ', this.users);
 
         // Notify connected clients of current users
         this.server.emit('users', this.users);
