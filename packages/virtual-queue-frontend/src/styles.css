@@ -3,3 +3,14 @@
 ::-webkit-scrollbar { 
     display: none; 
 }
+
+
+@font-face{
+    font-family:'digital-clock-font';
+    src: url('./assets/fonts/digital-7.ttf');
+}
+
+@font-face{
+    font-family:'digital-clock-font-mono';
+    src: url('./assets/fonts/digital-7-mono.ttf');
+}
