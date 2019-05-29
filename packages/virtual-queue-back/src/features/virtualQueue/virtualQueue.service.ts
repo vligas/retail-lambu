@@ -9,8 +9,8 @@ export class VirtualQueueService {
         @Inject(VirtualQueue) private readonly virtualQueueRepository: typeof VirtualQueue,
     ) { }
 
-    async all(options: ServiceOptions) { 
-        return await this.virtualQueueRepository.findAll(options); 
+    async all(options?: ServiceOptions) { 
+        return await this.virtualQueueRepository.findAll(); 
     }
 
     async actualTurn(id: number){ 
@@ -19,11 +19,11 @@ export class VirtualQueueService {
  
     async nextTurn(id: number){ 
         const dep = await this.virtualQueueRepository.findOne({ where: {id: id} }) 
-        let bazz = dep.toJSON() as ResponseAllVirtualQueueDto; 
-        bazz.actualTurn= (bazz.actualTurn === bazz.limitTurn)? 0: bazz.actualTurn+1; 
-        this.virtualQueueRepository.update(bazz, {where: {id: id}}); 
+        let register = dep.toJSON() as ResponseAllVirtualQueueDto; 
+        register.actualTurn= (register.actualTurn === register.limitTurn)? 0: register.actualTurn+1; 
+        await this.virtualQueueRepository.update(register, {where: {id: id}}); 
  
-        return bazz; 
+        return register; 
         // this.virtualQueueRepository.update({ field: Sequelize.literal('actualTurn + 1') }, { where: { id: id } }); 
     } 
 
