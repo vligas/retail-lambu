@@ -1266,6 +1266,13 @@
   dependencies:
     socket.io "2.2.0"
 
+"@nestjs/platform-ws@^6.2.4":
+  version "6.2.4"
+  resolved "https://registry.yarnpkg.com/@nestjs/platform-ws/-/platform-ws-6.2.4.tgz#3b56c73c118701b2790291b0aa82c1c53d27b7d4"
+  integrity sha512-bDLl8DEGJBQzlJd0o83NcJ7Aeuz+4IPvgA4l4QPAUlZnH0UwFtM8PcnDMYHQ6OSb4Mt7sYqSa8fpNW9Nd2/QTQ==
+  dependencies:
+    ws "7.0.0"
+
 "@nestjs/swagger@^3.0.2":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@nestjs/swagger/-/swagger-3.0.2.tgz#b15b3354050757f648e7ebc6ae8d15a929220804"
@@ -1740,13 +1747,6 @@
   dependencies:
     "@types/express-serve-static-core" "*"
     "@types/mime" "*"
-
-"@types/socket.io@^2.1.2":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@types/socket.io/-/socket.io-2.1.2.tgz#7165c2587cc3b86b44aa78e2a0060140551de211"
-  integrity sha512-Ind+4qMNfQ62llyB4IMs1D8znMEBsMKohZBPqfBUIXqLQ9bdtWIbNTBWwtdcBWJKnokMZGcmWOOKslatni5vtA==
-  dependencies:
-    "@types/node" "*"
 
 "@types/source-list-map@*":
   version "0.1.2"
@@ -2608,7 +2608,7 @@ async-foreach@^0.1.3:
   resolved "https://registry.yarnpkg.com/async-foreach/-/async-foreach-0.1.3.tgz#36121f845c0578172de419a97dbeb1d16ec34542"
   integrity sha1-NhIfhFwFeBct5Bmpfb6x0W7DRUI=
 
-async-limiter@~1.0.0:
+async-limiter@^1.0.0, async-limiter@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.0.tgz#78faed8c3d074ab81f22b4e985d79e8738f720f8"
   integrity sha512-jp/uFnooOiO+L211eZOoSyzpOITMXx1rBITauYykG3BRYPu8h0UcxsPNB04RR5vo4Tyz3+ay17tR6JVf9qzYWg==
@@ -14057,6 +14057,11 @@ websocket-extensions@>=0.1.1:
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
   integrity sha512-nqHUnMXmBzT0w570r2JpJxfiSD1IzoI+HGVdd3aZ0yNi3ngvQ4jv1dtHt5VGxfI2yj5yqImPhOK4vmIh2xMbGg==
 
+websockets@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/websockets/-/websockets-0.2.0.tgz#ba2fe2e9768e6c5ec3abb0469c172f3789cae158"
+  integrity sha1-ui/i6XaObF7Dq7BGnBcvN4nK4Vg=
+
 whatwg-encoding@^1.0.1, whatwg-encoding@^1.0.3:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/whatwg-encoding/-/whatwg-encoding-1.0.5.tgz#5abacf777c32166a51d085d6b4f3e7d27113ddb0"
@@ -14236,6 +14241,13 @@ write-pkg@^3.1.0:
   dependencies:
     sort-keys "^2.0.0"
     write-json-file "^2.2.0"
+
+ws@7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.0.0.tgz#79351cbc3f784b3c20d0821baf4b4ff809ffbf51"
+  integrity sha512-cknCal4k0EAOrh1SHHPPWWh4qm93g1IuGGGwBjWkXmCG7LsDtL8w9w+YVfaF+KSVwiHQKDIMsSLBVftKf9d1pg==
+  dependencies:
+    async-limiter "^1.0.0"
 
 ws@^5.2.0:
   version "5.2.2"
