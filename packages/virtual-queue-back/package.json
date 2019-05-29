@@ -29,11 +29,13 @@
     "@nestjs/passport": "^6.0.0",
     "@nestjs/platform-ws": "^6.2.4",
     "@nestjs/websockets": "^6.2.4",
+    "@nestjs/platform-socket.io": "^6.2.4",
     "@retail/common": "^0.0.1",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
     "rxjs": "^6.2.2",
-    "typescript": "^3.0.1"
+    "typescript": "^3.0.1",
+    "websockets": "^0.2.0"
   },
   "devDependencies": {
     "@nestjs/testing": "^6.1.1",
