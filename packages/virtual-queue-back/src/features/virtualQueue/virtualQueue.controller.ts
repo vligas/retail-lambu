@@ -14,9 +14,10 @@ export class VirtualQueueController {
         private virtualQueueService: VirtualQueueService,
         private socket: VirtualQueueGateway,
     ) { }
+
     @Get()
     async all(
-        @QueryOptions() options: ServiceOptions
+        @QueryOptions() options: ServiceOptions,
     ) {
         return await this.virtualQueueService.all(options);
     }
@@ -37,21 +38,16 @@ export class VirtualQueueController {
         return await this.virtualQueueService.actualTurn(id);
     }
 
-
-
     @Post(':id/next-turns')
     async nextTurns(@Param('id') id: number) {
-        let register = await this.virtualQueueService.nextTurn(id);
-        let all = await this.virtualQueueService.all();
-        let clients = this.socket.clients
+        const register = await this.virtualQueueService.nextTurn(id);
+        const all = await this.virtualQueueService.all();
+        const clients = this.socket.clients;
         for (let i = 0; i < clients.length; i++) {
-            console.log('enviando data a ', clients[i]);
-            clients[i].emit({ payload: all, type: '[Turn] Set Turn' })
+            clients[i].send(JSON.stringify({ data: all, type: '[Turn] Set Turn' }));
         }
 
         return register;
     }
-
-
 
 }

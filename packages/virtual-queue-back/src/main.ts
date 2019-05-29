@@ -9,7 +9,7 @@ async function bootstrap() {
   app.useWebSocketAdapter(new WsAdapter(app));
 
   app.enableCors();
-  await app.listen(config.get('APP_PORT'));
+    await app.listen(config.get('APP_PORT'));
   logger.info(`app listen on http://localhost:${config.get('APP_PORT')}`);
 }
 bootstrap();

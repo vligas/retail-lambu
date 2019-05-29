@@ -37,8 +37,10 @@ export class TurnState {
 
     @Action(AddTurns)
     addTurns({ patchState }: StateContext<TurnStateModel>, action: AddTurns) {
+
+        console.log(action);
         patchState({
-            turns: [...action.payload]
+            turns: [...action.payload.data]
         });
     }
 }
