@@ -3,7 +3,6 @@ import { ConfigModule, ConsulService, DatabaseModule, ServiceDiscoveryModule } f
 import { VirtualQueueModule } from './features/virtualQueue/virtualQueue.module';
 import { VIRTUAL_QUEUE_NAME } from '@retail/common/src/utils/constants';
 import { config } from '@retail/common/src/config/config.service';
-import { EventsModule } from './features/socket.io/events/event.module';
 
 export const DATABASEVAD10 = 'DataBaseVAD10';
 
@@ -41,8 +40,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
       },
       discover: [],
     }),
-    VirtualQueueModule,
-    EventsModule
+    VirtualQueueModule
   ],
   controllers: [],
   providers: [],

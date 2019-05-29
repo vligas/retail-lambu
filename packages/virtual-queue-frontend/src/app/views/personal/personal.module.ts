@@ -13,6 +13,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TurnComponent } from './turn/turn.component';
+import { SharedModule } from '@frontend/app/shared/shared.module';
 
 @NgModule({
   declarations: [SelectTurnComponent, TurnComponent],
@@ -25,7 +26,8 @@ import { TurnComponent } from './turn/turn.component';
     NgxDatatableModule,
     NgbModule,
     SharedComponentsModule,
-    SharedPipesModule
+    SharedPipesModule,
+    //SharedModule
   ]
 })
 export class PersonalModule { }

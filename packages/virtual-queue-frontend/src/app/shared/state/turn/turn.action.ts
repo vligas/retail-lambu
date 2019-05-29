@@ -4,6 +4,6 @@ export class FetchTurns {
 }
 
 export class AddTurns {
-    static readonly type = '[Turn] Add Turn';
+    static readonly type = '[Turn] Set Turn';
     constructor(public payload: any) { }
 }
