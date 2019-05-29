@@ -1,6 +1,8 @@
 import { Turn } from '../../models/turn.model';
 import { State, Store, Selector, Action, StateContext } from '@ngxs/store';
 import { FetchTurns, AddTurns } from './turn.action';
+import { QueueService } from '../../services/http/queue.service';
+import { tap } from 'rxjs/operators';
 
 export interface TurnStateModel {
     turns: Turn[];
@@ -13,7 +15,8 @@ export interface TurnStateModel {
     }
 })
 export class TurnState {
-    constructor(private store: Store) { }
+    constructor(private store: Store,
+        private queue: QueueService) { }
 
     @Selector()
     static getTurns(state: TurnStateModel) {
@@ -22,19 +25,14 @@ export class TurnState {
 
     @Action(FetchTurns)
     fetch({ patchState }: StateContext<TurnStateModel>) {
-        patchState({
-            turns: [{
-                id: 1,
-                name: 'Carniceria',
-                actualTurn: 1,
-                limitTurn: 100
-            }, {
-                id: 2,
-                name: 'Pescaderia',
-                actualTurn: 3,
-                limitTurn: 100
-            }]
-        });
+        return this.queue.getAll().pipe(
+            tap(resp => {
+                console.log(resp);
+                patchState({
+                    turns: [...resp]
+                })
+            })
+        );
     }
 
     @Action(AddTurns)

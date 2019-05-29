@@ -4,6 +4,7 @@ import { TurnState } from '@frontend/app/shared/state/turn/turn.state';
 import { Turn } from '@frontend/app/shared/models/turn.model';
 import { Observable } from 'rxjs';
 import { Select } from '@ngxs/store';
+import { QueueService } from '@frontend/app/shared/services/http/queue.service';
 
 @Component({
   selector: 'app-turn',
@@ -18,6 +19,7 @@ export class TurnComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    private queueService: QueueService,
     private router: Router
   ) { }
 
@@ -30,6 +32,10 @@ export class TurnComponent implements OnInit {
         this.router.navigate(['personal/select-turn']);
       }
     });
+  }
+
+  nextTurn() {
+    this.queueService.nextTurn(this.turn).subscribe()
   }
 
   onNavBack() {

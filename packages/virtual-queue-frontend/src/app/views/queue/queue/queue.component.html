@@ -3,57 +3,18 @@
   <div class="row">
 
     <div class="col-lg-8 col-md-12">
+      <div class="mb-4">
+        <div class="card-body" style="padding: 0">
+          <video width="100%" height="100%" style="margin: auto" controls>
+            <source src="../../../../assets/videoplayback.mp4" type="video/mp4">
+          </video>
 
-      <div class="row">
-
-        <div class="col-lg-12 col-md-12">
-          <div class="mb-4">
-            <div class="card-body" style="padding: 0">
-              <video width="100%" height="100%" style="margin: auto" controls>
-                <source src="../../../../assets/videoplayback.mp4" type="video/mp4">
-              </video>
-
-            </div>
-          </div>
         </div>
-
-        <div class="col-lg-4">
-          <div class="card card-icon-bg card-icon-bg-secondary o-hidden mb-4">
-            <div class="card-body text-center font-weight-bold">
-              <i class="i-Instagram"></i>
-              <div class="content">
-                <p class="text-muted text-16 mt-2 mb-0">tiendasvalcro</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="card card-icon-bg card-icon-bg-secondary o-hidden mb-4">
-            <div class="card-body text-center font-weight-bold">
-              <i class="i-Facebook"></i>
-              <div class="content">
-                <p class="text-muted text-16 mt-2 mb-0">tiendasvalcro</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="card card-icon-bg card-icon-bg-secondary o-hidden mb-4">
-            <div class="card-body text-center font-weight-bold">
-              <i class="i-Twitter"></i>
-              <div class="content">
-                <p class="text-muted text-16 mt-2 mb-0">tiendasvalcro</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
 
-    <div class="col-lg-4 col-sm-12">
+
+    <div class="col-lg-4">
 
       <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4 gradient-orange">
         <div class="card-body text-center font-weight-bold">
@@ -64,10 +25,10 @@
           </div>
         </div>
       </div>
+    </div>
 
-
-      <div *ngFor="let item of turns"
-        class="card card-icon-bg card-icon-bg-primary o-hidden mb-4 gradient-{{item.name}}">
+    <div *ngFor="let item of turns" class="col-lg-4">
+      <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4 gradient-{{item.name}}">
         <div class="card-body rounded text-center font-weight-bold">
           <div class="etiqueta">
             <p class="text-30 mt-2 mb-0" style="color: white">{{item.name}}</p>
@@ -77,6 +38,40 @@
         </div>
 
       </div>
+    </div>
+
+
+
+    <div class="col-lg-4 col-sm-12">
+
+      <div class="card card-icon-bg card-icon-bg-secondary o-hidden mb-4">
+        <div class="card-body text-center font-weight-bold">
+          <i class="i-Instagram"></i>
+          <div class="content">
+            <p class="text-muted text-16 mt-2 mb-0">tiendasvalcro</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-icon-bg card-icon-bg-secondary o-hidden mb-4">
+        <div class="card-body text-center font-weight-bold">
+          <i class="i-Facebook"></i>
+          <div class="content">
+            <p class="text-muted text-16 mt-2 mb-0">tiendasvalcro</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-icon-bg card-icon-bg-secondary o-hidden mb-4">
+        <div class="card-body text-center font-weight-bold">
+          <i class="i-Twitter"></i>
+          <div class="content">
+            <p class="text-muted text-16 mt-2 mb-0">tiendasvalcro</p>
+          </div>
+        </div>
+      </div>
+
+
     </div>
 
   </div>

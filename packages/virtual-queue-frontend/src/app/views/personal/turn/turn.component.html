@@ -11,10 +11,11 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6 text-center " style="background-size: cover;background-image: url(./assets/images/photo-long-3.jpg)">
-      <div class="pr-3 auth-right" >
+    <div class="col-md-6 text-center "
+      style="background-size: cover;background-image: url(./assets/images/photo-long-3.jpg)">
+      <div class="pr-3 auth-right">
         <p class="display-4">{{turn?.actualTurn}}</p>
-        <button class="btn btn-rounded btn-outline-primary btn-icon-text">
+        <button class="btn btn-rounded btn-outline-primary btn-icon-text" (click)="nextTurn()">
           Siguiente
         </button>
       </div>
