@@ -34,6 +34,7 @@ import { SharedComponentsModule } from './components/shared-components.module';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { NgxsWebsocketPluginModule } from '@ngxs/websocket-plugin';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { environment } from '@frontend/environments/environment';
@@ -63,6 +64,9 @@ import { TurnState } from './state/turn/turn.state';
       BranchOfficeCompetitorState,
       TurnState
     ], { developmentMode: !environment.production }),
+    NgxsWebsocketPluginModule.forRoot({
+      url: 'ws://localhost:3000/websock'
+    }),
     // NgxsStoragePluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),

@@ -1,6 +1,6 @@
 import { Turn } from '../../models/turn.model';
 import { State, Store, Selector, Action, StateContext } from '@ngxs/store';
-import { FetchTurns } from './turn.action';
+import { FetchTurns, AddTurns } from './turn.action';
 
 export interface TurnStateModel {
     turns: Turn[];
@@ -13,7 +13,7 @@ export interface TurnStateModel {
     }
 })
 export class TurnState {
-    constructor(private store: Store) {}
+    constructor(private store: Store) { }
 
     @Selector()
     static getTurns(state: TurnStateModel) {
@@ -21,7 +21,7 @@ export class TurnState {
     }
 
     @Action(FetchTurns)
-    fetch({ patchState } : StateContext<TurnStateModel>) {
+    fetch({ patchState }: StateContext<TurnStateModel>) {
         patchState({
             turns: [{
                 id: 1,
@@ -34,6 +34,13 @@ export class TurnState {
                 actualTurn: 3,
                 limitTurn: 100
             }]
+        });
+    }
+
+    @Action(AddTurns)
+    addTurns({ patchState }: StateContext<TurnStateModel>, action: AddTurns) {
+        patchState({
+            turns: [...action.payload]
         });
     }
 }

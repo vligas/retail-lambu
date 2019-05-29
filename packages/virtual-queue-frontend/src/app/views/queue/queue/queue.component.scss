@@ -2,21 +2,6 @@
     padding: 50px;
     width: 100%;
 }
-.gradient-1{
-    position: relative;
-    background-repeat: no-repeat;
-    background-image: url(../../../../assets/images/pescado1.jpeg);
-    &::after{
-        opacity: 0.6;
-        background: linear-gradient(to right, #663397, #663397, #663397, #663397, #663397);
-        position: absolute;
-        top: 0;
-        left: 0;        
-        height: 100%;
-        width: 100%;
-        content: '';
-    }
-}
 
 .gradient-orange{
     position: relative;
@@ -35,7 +20,7 @@
     }
 }
 
-.gradient-blue{
+.gradient-Pescaderia{
     position: relative;
     background-repeat: no-repeat;
     background-image: url(../../../../assets/images/pescado1.jpeg);
@@ -51,45 +36,13 @@
     }
 }
 
-.gradient-red{
+.gradient-Carniceria{
     position: relative;
     background-repeat: no-repeat;
     background-image: url(../../../../assets/images/carnage2.jpeg);
     &::after{
         opacity: 0.6;
         background: linear-gradient(to right, #f44336, #f44336, #f44336, #f44336, #f44336);
-        position: absolute;
-        top: 0;
-        left: 0;        
-        height: 100%;
-        width: 100%;
-        content: '';
-    }
-}
-
-.gradient-3{
-    position: relative;
-    background-repeat: no-repeat;
-    background-image: url(../../../../assets/images/mod.jpeg);
-    &::after{
-        opacity: 0.6;
-        background: linear-gradient(to right, #663397, #663397, #663397, #663397, #663397);
-        position: absolute;
-        top: 0;
-        left: 0;        
-        height: 100%;
-        width: 100%;
-        content: '';
-    }
-}
-
-.gradient-4{
-    position: relative;
-    background-repeat: no-repeat;
-    background-image: url(../../../../assets/images/cosmetics.jpeg);
-    &::after{
-        opacity: 0.6;
-        background: linear-gradient(to right, #663397, #663397, #663397, #663397, #663397);
         position: absolute;
         top: 0;
         left: 0;        
