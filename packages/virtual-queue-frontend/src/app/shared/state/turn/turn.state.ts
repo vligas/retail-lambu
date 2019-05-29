@@ -40,7 +40,7 @@ export class TurnState {
 
         console.log(action);
         patchState({
-            turns: [...action.payload.data]
+            turns: [...action.data]
         });
     }
 }

@@ -5,5 +5,5 @@ export class FetchTurns {
 
 export class AddTurns {
     static readonly type = '[Turn] Set Turn';
-    constructor(public payload: any) { }
+    constructor(public data: any) { }
 }
