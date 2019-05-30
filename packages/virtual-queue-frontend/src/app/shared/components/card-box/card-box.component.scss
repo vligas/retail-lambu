@@ -1,12 +1,8 @@
-.layout{
-    padding: 25px;
-    width: 100%;
-    height: 100%;
-}
-
 .gradient-orange{
     position: relative;
     background-repeat: no-repeat;
+    background-image: url(../../../../assets/images/Logo-valcro.png);
+    background-size: 30%;
     &::after{
         opacity: 0.8;
         background: linear-gradient(to right, #ff5722, #ff5722, #ff5722, #ff5722, #ff5722);
@@ -19,9 +15,10 @@
     }
 }
 
-.gradient-blue{
+.gradient-1{
     position: relative;
     background-repeat: no-repeat;
+    background-image: url(../../../../assets/images/pescado1.jpeg);
     &::after{
         opacity: 0.8;
         background: linear-gradient(to right, #2196f3, #2196f3, #2196f3, #2196f3, #2196f3);

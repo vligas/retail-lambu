@@ -8,13 +8,16 @@ import {
   AsideRightComponent,
   SharedPipesModule,
   SharedDirectivesModule,
-  BreadcrumbComponent,
   BtnCornerComponent
 } from '@retail/shared';
+import { BreadcrumbComponent } from '../components/breadcrumb/breadcrumb.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { LayoutsModule } from './layouts/layouts.module';
 import { ClockComponent } from './clock/clock.component';
+import { WizardComponent } from '@retail/shared/src/components/form-wizard/wizard/wizard.component';
+import { WizardStepComponent } from '@retail/shared/src/components/form-wizard/wizard-step/wizard-step.component';
+import { CardBoxComponent } from './card-box/card-box.component';
 
 const components = [
   BtnLoadingComponent,
@@ -23,7 +26,10 @@ const components = [
   AsideDockComponent,
   AsideRightComponent,
   BtnCornerComponent,
-  ClockComponent
+  ClockComponent,
+  WizardComponent,
+  WizardStepComponent,
+  CardBoxComponent
 ];
 
 @NgModule({

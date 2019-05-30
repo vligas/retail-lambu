@@ -2,12 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthLayoutComponent } from '@retail/shared';
 import { AdminLayoutSidebarQueueComponent } from './shared/components/layouts/admin-layout-sidebar-queue/admin-layout-sidebar-queue.component';
+import { AdminLayoutSidebarLargeComponent } from './shared/components/layouts/admin-layout-sidebar-large/admin-layout-sidebar-large.component';
 
 const adminRoutes: Routes = [
-  {
-    path: 'queue',
-    loadChildren: './views/queue/queue.module#QueueModule'
-  }
+
 ];
 
 const routes: Routes = [
@@ -34,7 +32,22 @@ const routes: Routes = [
     path: '',
     component: AdminLayoutSidebarQueueComponent,
     // canActivate: [AuthGaurd],
-    children: adminRoutes
+    children: [
+      {
+        path: 'queue',
+        loadChildren: './views/queue/queue.module#QueueModule'
+      },
+    ]
+  },
+  {
+    path: '',
+    component: AdminLayoutSidebarLargeComponent,
+    children: [
+      {
+        path: 'admin',
+        loadChildren: './views/admin/admin.module#AdminModule'
+      }
+    ]
   },
   {
     path: '**',

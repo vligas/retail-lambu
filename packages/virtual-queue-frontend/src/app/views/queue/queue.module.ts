@@ -8,10 +8,12 @@ import { SharedPipesModule } from '@retail/shared'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { QueueRoutingModule } from './queue-routing.module';
+import { SharedModule } from '@frontend/app/shared/shared.module';
+import { PublicPipe } from '@frontend/app/shared/pipes/public.pipe';
 
 
 @NgModule({
-  declarations: [QueueComponent],
+  declarations: [QueueComponent, PublicPipe],
   imports: [
     CommonModule,
     FormsModule,
