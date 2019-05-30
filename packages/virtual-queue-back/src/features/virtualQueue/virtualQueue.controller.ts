@@ -7,8 +7,10 @@ import { ServiceOptions } from '../../common/interfaces/serviceOptions.interface
 import { Where } from 'src/common/decorators/query/where.decorator';
 import { number } from 'joi';
 import { VirtualQueueGateway } from './virtualQueue.gateway';
+import { RequestCreateVirtualQueueDto } from './virtualQueue.dto';
+import { logger } from '@retail/common';
 
-@Controller('turns')
+@Controller('queue')
 export class VirtualQueueController {
     constructor(
         private virtualQueueService: VirtualQueueService,
@@ -22,25 +24,19 @@ export class VirtualQueueController {
         return await this.virtualQueueService.all(options);
     }
 
-    @Get('test')
-    async test(@QueryOptions() options: ServiceOptions) {
-        let clients = this.socket.clients
-        for (let i = 0; i < clients.length; i++) {
-            Logger.log(`testing client ${clients[i].id}`);
-            clients[i].emit('events', { data: `testing client ${clients[i].id}` })
-        }
-
-        return await this.virtualQueueService.all(options);
-    }
-
     @Get(':id')
-    async actualTurns(@Param('id') id: number) {
-        return await this.virtualQueueService.actualTurn(id);
+    async actualQueue(@Param('id') id: number) {
+        return await this.virtualQueueService.actualQueue(id);
+    }
+    
+    @Post()
+    async create(@Body() queue: RequestCreateVirtualQueueDto){
+        return await this.virtualQueueService.create(queue);
     }
 
     @Post(':id/next-turns')
-    async nextTurns(@Param('id') id: number) {
-        const register = await this.virtualQueueService.nextTurn(id);
+    async nextTurnsByQueue(@Param('id') id: number) {
+        const register = await this.virtualQueueService.nextTurnByQueue(id);
         const all = await this.virtualQueueService.all();
         const clients = this.socket.clients;
         for (let i = 0; i < clients.length; i++) {
@@ -48,6 +44,18 @@ export class VirtualQueueController {
         }
 
         return register;
+    }
+
+    @Put(':id')
+    async update(@Param('id') id: number, @Body() queue: RequestCreateVirtualQueueDto){
+        await this.virtualQueueService.update(id, queue);
+        return await this.virtualQueueService.all();
+    }
+
+    @Delete(':id')
+    async delete(@Param('id') id: number) {
+        let rsp= await this.virtualQueueService.delete(id);
+        return ((rsp)?'ok': 'false');
     }
 
 }

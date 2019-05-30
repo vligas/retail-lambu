@@ -6,4 +6,14 @@ export class ResponseAllVirtualQueueDto {
     name: string;
     actualTurn: number;
     limitTurn: number;
+    color: string;
+    pathImg: string;
+}
+
+export class RequestCreateVirtualQueueDto {
+    name: string;
+    actualTurn: number;
+    limitTurn: number;
+    color: string;
+    pathImg: string;
 }

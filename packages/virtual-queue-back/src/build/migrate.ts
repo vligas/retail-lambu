@@ -29,6 +29,7 @@ export async function migrateCommand() {
             await migration.down({ to: 0 });
             await db.query('DROP TABLE SequelizeMeta');
             await migration.up();
+            break;
         case 'new':
             const name = process.argv[3].trim();
             // tslint:disable-next-line:max-line-length

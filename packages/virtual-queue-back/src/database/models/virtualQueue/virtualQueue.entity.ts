@@ -10,8 +10,15 @@ export class VirtualQueue extends ExtendedModel<VirtualQueue> {
 
   @Column
   actualTurn: number;
+
   @Column
   limitTurn: number;
+
+  @Column
+  color: string;
+
+  @Column
+  pathImg: string;
 
   @CreatedAt
   createdAt: Date;
