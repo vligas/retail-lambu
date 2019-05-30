@@ -14,24 +14,24 @@ export class VirtualQueueGateway implements OnGatewayConnection, OnGatewayDiscon
     console.log('Init Socket: ', this.users);
   }
 
-  async handleConnection(client: any) {
-    // A client has connected
-    this.users++;
-    this.clients.push(client);
-    console.log('[CONNECT]: active users: ', this.users, client.id);
+    async handleConnection(client: any) {
+        
+        // A client has connected
+        this.users++;
+        this.clients.push(client);
+        console.log(`[CONNECT]: (${client.id}). Active users: ${this.users}`);
 
     // Notify connected clients of current users
     // this.server.emit('users', this.users);
 
   }
 
-  async handleDisconnect(client: any) {
-    console.log(client);
-    // A client has disconnected
-    this.users--;
-    this.clients = this.clients.filter(p => p.id !== client.id);
-    this.users = this.clients.length;
-    console.log('[DISCONNECT]: active users: ', this.users, this.clients);
+    async handleDisconnect(client: any) {
+        // A client has disconnected
+        this.users--;
+        this.clients= this.clients.filter(p => p.id !== client.id);
+        this.users= this.clients.length
+        console.log(`[DISCONNECT]: (${client.id}). Total active users: ${this.users}`);
 
     // Notify connected clients of current users
     // this.server.emit('users', this.users);
