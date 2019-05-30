@@ -18,6 +18,7 @@ import { ClockComponent } from './clock/clock.component';
 import { WizardComponent } from '@retail/shared/src/components/form-wizard/wizard/wizard.component';
 import { WizardStepComponent } from '@retail/shared/src/components/form-wizard/wizard-step/wizard-step.component';
 import { CardBoxComponent } from './card-box/card-box.component';
+import { PublicPipe } from '../pipes/public.pipe';
 
 const components = [
   BtnLoadingComponent,
@@ -29,7 +30,8 @@ const components = [
   ClockComponent,
   WizardComponent,
   WizardStepComponent,
-  CardBoxComponent
+  CardBoxComponent,
+  PublicPipe
 ];
 
 @NgModule({
