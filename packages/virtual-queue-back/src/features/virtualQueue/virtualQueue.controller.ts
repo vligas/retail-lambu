@@ -28,9 +28,9 @@ export class VirtualQueueController {
     async actualQueue(@Param('id') id: number) {
         return await this.virtualQueueService.actualQueue(id);
     }
-    
+
     @Post()
-    async create(@Body() queue: RequestCreateVirtualQueueDto){
+    async create(@Body() queue: RequestCreateVirtualQueueDto) {
         return await this.virtualQueueService.create(queue);
     }
 
@@ -47,15 +47,15 @@ export class VirtualQueueController {
     }
 
     @Put(':id')
-    async update(@Param('id') id: number, @Body() queue: RequestCreateVirtualQueueDto){
+    async update(@Param('id') id: number, @Body() queue: RequestCreateVirtualQueueDto) {
         await this.virtualQueueService.update(id, queue);
         return await this.virtualQueueService.all();
     }
 
     @Delete(':id')
     async delete(@Param('id') id: number) {
-        let rsp= await this.virtualQueueService.delete(id);
-        return ((rsp)?'ok': 'false');
+        const rsp = await this.virtualQueueService.delete(id);
+        return ((rsp) ? 'ok' : 'false');
     }
 
 }

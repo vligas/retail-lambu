@@ -11,12 +11,15 @@ export default class VirtualQueueSeeder implements SeedInterface {
                 name: 'Pescaderia',
                 actualTurn: 1,
                 limitTurn: 100,
-
+                color: 'blue',
+                pathImg: 'images/carne.jpg',
             },
             {
                 name: 'Charcuteria',
                 actualTurn: 2,
                 limitTurn: 100,
+                color: 'orange',
+                pathImg: 'images/pescado.jpg',
             }];
 
         await this.virtualQueueRepository.bulkCreate(queues);

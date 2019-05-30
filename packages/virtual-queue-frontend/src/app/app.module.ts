@@ -8,9 +8,11 @@ import { SharedModule } from '../app/shared/shared.module';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from '@retail/shared';
 import { HttpClientModule } from '@angular/common/http';
+import { PublicPipe } from './shared/pipes/public.pipe';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PublicPipe
   ],
   imports: [
     BrowserModule,
