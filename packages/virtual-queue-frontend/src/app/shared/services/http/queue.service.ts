@@ -11,10 +11,10 @@ export class QueueService {
     }
 
     getAll() {
-        return this.http.get<any>(`${environment.apiUrl}/turns`);
+        return this.http.get<any>(`${environment.apiUrl}/queue`);
     }
 
     nextTurn(turn: Turn) {
-        return this.http.post<any>(`${environment.apiUrl}/turns/${turn.id}/next-turns`, turn);
+        return this.http.post<any>(`${environment.apiUrl}/queue/${turn.id}/next-turns`, turn);
     }
 }

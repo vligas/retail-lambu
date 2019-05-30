@@ -3,8 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TurnState } from '@frontend/app/shared/state/turn/turn.state';
 import { Turn } from '@frontend/app/shared/models/turn.model';
 import { Observable } from 'rxjs';
-import { Select } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 import { QueueService } from '@frontend/app/shared/services/http/queue.service';
+import { FetchTurns } from '@frontend/app/shared/state/turn/turn.action';
+import { ConnectWebSocket } from '@ngxs/websocket-plugin';
 
 @Component({
   selector: 'app-turn',
@@ -20,10 +22,12 @@ export class TurnComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private queueService: QueueService,
-    private router: Router
+    private router: Router,
+    private store: Store
   ) { }
 
   ngOnInit() {
+    this.store.dispatch(new ConnectWebSocket());
     this.turns$.subscribe(turns => {
       // tslint:disable-next-line:ban
       const id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'), 10);

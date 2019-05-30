@@ -21,7 +21,7 @@
     }
 }
 
-.gradient-Pescaderia{
+.gradient-1{
     position: relative;
     background-repeat: no-repeat;
     background-image: url(../../../../assets/images/pescado1.jpeg);
@@ -37,13 +37,29 @@
     }
 }
 
-.gradient-Carniceria{
+.gradient-2{
     position: relative;
     background-repeat: no-repeat;
     background-image: url(../../../../assets/images/carnage2.jpeg);
     &::after{
         opacity: 0.6;
         background: linear-gradient(to right, #f44336, #f44336, #f44336, #f44336, #f44336);
+        position: absolute;
+        top: 0;
+        left: 0;        
+        height: 100%;
+        width: 100%;
+        content: '';
+    }
+}
+
+.gradient-3{
+    position: relative;
+    background-repeat: no-repeat;
+    background-image: url(../../../../assets/images/carnage2.jpeg);
+    &::after{
+        opacity: 0.6;
+        background: linear-gradient(to right, #1ed3a6, #1ed3a6, #1ed3a6, #1ed3a6, #1ed3a6);
         position: absolute;
         top: 0;
         left: 0;        
