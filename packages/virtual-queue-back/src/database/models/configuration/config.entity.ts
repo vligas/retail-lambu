@@ -4,7 +4,7 @@ import { ExtendedModel } from 'src/common/interfaces/extendedModel';
 @Table({
   tableName: 'L0200mdConfiguration',
 })
-export class Configuration extends ExtendedModel<Configuration> {
+export class Config extends ExtendedModel<Config> {
 
   @Column
   name: string;

@@ -4,15 +4,15 @@ import { VirtualQueueModule } from './features/virtualQueue/virtualQueue.module'
 import { VIRTUAL_QUEUE_NAME } from '@retail/common/src/utils/constants';
 import { config } from '@retail/common/src/config/config.service';
 import { EntityModule } from '@retail/common';
-import { Configuration } from './database/models/Configuration/configuration.entity';
-import { configurationProviders } from './database/models/Configuration/configuration.provider';
+import { Config } from './database/models/configuration/config.entity';
+import { configurationProviders } from './database/models/configuration/configuration.provider';
 import { AppConfigModule } from './features/appConfig/appConfig.module';
 
 export const DATABASEVAD10 = 'DataBaseVAD10';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(`./src/config/enviroments/${process.env.NODE_ENV || 'development'}.env`),    
+    ConfigModule.forRoot(`./src/config/enviroments/${process.env.NODE_ENV || 'development'}.env`),
     DatabaseModule.forRoot([
       {
         token: DATABASEVAD10,
@@ -27,11 +27,12 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
         benchmark: false,
         modelPaths: [__dirname + '/database/models/**/*.entity.{ts,js}'],
         modelMatch: (filename, member) => {
+          console.log('filename - ', filename, filename.substring(0, filename.indexOf('.entity')).toLocaleLowerCase() === member.toLowerCase());
           return filename.substring(0, filename.indexOf('.entity')).toLocaleLowerCase() === member.toLowerCase();
         },
       },
     ]),
-    //EntityModule.forFeature([Configuration]),
+    // EntityModule.forFeature([Configuration]),
     ServiceDiscoveryModule.forRoot({
       app: {
         name: VIRTUAL_QUEUE_NAME,
@@ -48,7 +49,7 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
     AppConfigModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [...configurationProviders],
 })
 export class AppModule implements NestModule {
 

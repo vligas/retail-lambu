@@ -1,9 +1,9 @@
 import { Provider } from '@nestjs/common';
-import { Configuration } from './configuration.entity';
+import { Config } from './config.entity';
 
 export const configurationProviders: Provider[] = [
     {
-        provide: Configuration,
-        useValue: Configuration,
+        provide: Config,
+        useValue: Config,
     },
 ];

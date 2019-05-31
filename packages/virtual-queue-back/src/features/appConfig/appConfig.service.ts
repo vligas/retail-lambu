@@ -1,12 +1,12 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { Configuration } from 'src/database/models/configuration/configuration.entity';
+import { Config } from 'src/database/models/configuration/config.entity';
 import { RequestUpdateConfigDto } from './appConfig.dto';
 
 @Injectable()
 export class AppConfigService {
 
     constructor(
-        @Inject(Configuration) private readonly configRepository: typeof Configuration,
+        @Inject(Config) private readonly configRepository: typeof Config,
     ) { }
 
     async all() {

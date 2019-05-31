@@ -5,7 +5,7 @@ import { VirtualQueue} from 'src/database/models/virtualQueue/virtualQueue.entit
 import { VirtualQueueController } from './virtualQueue.controller';
 import { VirtualQueueService } from './virtualQueue.service';
 import { VirtualQueueGateway } from './virtualQueue.gateway';
-import { Configuration } from '../../database/models/Configuration/configuration.entity';
+import { Config } from '../../database/models/configuration/config.entity';
 
 @Module({
     imports: [
