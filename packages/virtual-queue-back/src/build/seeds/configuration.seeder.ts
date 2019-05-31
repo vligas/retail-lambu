@@ -10,7 +10,7 @@ export default class ConfigurationSeeder implements SeedInterface {
             json: {
                 value: {
                     default: [{
-                        path: 'images/carne.jpg',
+                        path: 'videos/prueba.mp4',
                     }],
                 },
             },
