@@ -18,11 +18,15 @@ import {
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { FormsModule } from '@angular/forms';
 import { SidebarQueueComponent } from './admin-layout-sidebar-queue/sidebar-queue/sidebar-queue.component';
+import { AdminLayoutSidebarLargeComponent } from './admin-layout-sidebar-large/admin-layout-sidebar-large.component';
+import { HeaderSidebarLargeComponent } from './admin-layout-sidebar-large/header-sidebar-large/header-sidebar-large.component';
 
 
 const components = [
   FooterComponent,
   AdminLayoutSidebarQueueComponent,
+  AdminLayoutSidebarLargeComponent,
+  HeaderSidebarLargeComponent,
   CustomizerComponent,
   AuthLayoutComponent,
   BlankLayoutComponent,

@@ -1,9 +1,14 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import {
-	NavigationService,
 	IMenuItem,
 	Utils
 } from '@retail/shared';
+
+import {
+	NavigationService
+} from '../../../../services/navigation.service';
+
+
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 

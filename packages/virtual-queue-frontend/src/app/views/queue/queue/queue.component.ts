@@ -29,7 +29,7 @@ export class QueueComponent implements OnInit {
     this.store.dispatch(new FetchTurns()).subscribe();
 
     this.turns$.subscribe(turns => {
-      this.turns = [...turns];
+      this.turns = turns;
     });
   }
 }

@@ -1,0 +1,91 @@
+<app-breadcrumb></app-breadcrumb>
+
+<div class="separator-breadcrumb border-top"></div>
+
+<div class="row">
+  <div *ngFor="let turn of turns" class="col-lg-6 col-xs-12 col-md-6">
+
+    <div class="card text-primary o-hidden mb-4">
+
+      <app-card-box [item]="turn">
+
+      </app-card-box>
+
+      <div class="p-1 text-left card-footer text-24 font-weight-light d-flex" style="background-color: white">
+
+        <i class="i-Gear-2 mr-2 header-icon" role="button" (click)="open(modalBasic)"></i>
+        <i class="i-Restore-Window mr-2 header-icon" role="button" (click)="open(modalConfirm)"></i>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal Basic-->
+<ng-template #modalBasic let-modal>
+
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Configuracion de </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+
+    <form [formGroup]="turnForm">
+      <div class="form-group">
+        <label for="name">Reiniciar contador</label>
+        <input type="text" formControlName="name" id="name" class="form-control" placeholder="escriba el nombre"
+          name="name">
+      </div>
+
+      <div class="form-group">
+        <label for="denomination">Denominación</label>
+        <input type="text" formControlName="denomination" id="denomination" class="form-control"
+          placeholder="inserte la descripción de la categoría" name="code">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" formControlName="name" id="name" class="form-control" placeholder="escriba el nombre"
+          name="name">
+      </div>
+
+      <div class="form-group">
+        <label for="denomination">Denominación</label>
+        <input type="text" formControlName="denomination" id="denomination" class="form-control"
+          placeholder="inserte la descripción de la categoría" name="code">
+      </div>
+    </form>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark btn-rounded" (click)="modal.close(turnForm.value)">Save</button>
+  </div>
+
+
+</ng-template>
+
+
+<!--Modal Basic-->
+<ng-template #modalConfirm let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Reiniciar contador para</h4>
+    <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title"
+      (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p><strong>Estas seguro que desea reiniciar el contador de <span class="text-primary">"Caja"</span>?</strong></p>
+    <p>El contador de turnos sera reiniciado al valor 0.<br>
+      <span class="text-danger">Esta operacion no puede deshacerse.</span>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary btn-rounded"
+      (click)="modal.dismiss('cancel')">Cancelar</button>
+    <button type="button" ngbAutofocus class="btn btn-danger btn-rounded" (click)="modal.close('Ok')">Ok</button>
+  </div>
+</ng-template>
