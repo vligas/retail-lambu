@@ -4,6 +4,7 @@ import 'reflect-metadata';
 
 export {
     DatabaseModule,
+    EntityModule
 } from './src/database/database.module';
 
 export {

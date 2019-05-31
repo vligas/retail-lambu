@@ -3,6 +3,10 @@ import { ConfigModule, ConsulService, DatabaseModule, ServiceDiscoveryModule } f
 import { VirtualQueueModule } from './features/virtualQueue/virtualQueue.module';
 import { VIRTUAL_QUEUE_NAME } from '@retail/common/src/utils/constants';
 import { config } from '@retail/common/src/config/config.service';
+import { EntityModule } from '@retail/common';
+import { Configuration } from './database/models/Configuration/configuration.entity';
+import { configurationProviders } from './database/models/Configuration/configuration.provider';
+import { AppConfigModule } from './features/appConfig/appConfig.module';
 
 export const DATABASEVAD10 = 'DataBaseVAD10';
 
@@ -21,13 +25,13 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
         port: parseInt(config.get('DB_PORT_VAD10'), 10),
         database: config.get('DB_NAME_VAD10'),
         benchmark: false,
-        modelPaths: [__dirname + '/database/models/virtualQueue/**/*.entity.{ts,js}'],
+        modelPaths: [__dirname + '/database/models/**/*.entity.{ts,js}'],
         modelMatch: (filename, member) => {
           return filename.substring(0, filename.indexOf('.entity')).toLocaleLowerCase() === member.toLowerCase();
         },
       },
     ]),
-    //console.log(this.socket.server.clients().forEach(ws => ws.send("hola", { hola: 1})))
+    //EntityModule.forFeature([Configuration]),
     ServiceDiscoveryModule.forRoot({
       app: {
         name: VIRTUAL_QUEUE_NAME,
@@ -40,7 +44,8 @@ export const DATABASEVAD10 = 'DataBaseVAD10';
       },
       discover: [],
     }),
-    VirtualQueueModule
+    VirtualQueueModule,
+    AppConfigModule,
   ],
   controllers: [],
   providers: [],
