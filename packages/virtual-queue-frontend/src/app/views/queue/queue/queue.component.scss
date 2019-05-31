@@ -20,20 +20,7 @@
     }
 }
 
-.gradient-blue{
-    position: relative;
-    background-repeat: no-repeat;
-    &::after{
-        opacity: 0.8;
-        background: linear-gradient(to right, #2196f3, #2196f3, #2196f3, #2196f3, #2196f3);
-        position: absolute;
-        top: 0;
-        left: 0;        
-        height: 100%;
-        width: 100%;
-        content: '';
-    }
-}
+
 
 .etiqueta{
     margin: auto;
