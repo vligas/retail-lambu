@@ -47,14 +47,17 @@ export class TurnState {
 
     @Action(UpdateTurns)
     UpdateTurns({ patchState, getState }: StateContext<TurnStateModel>, action: UpdateTurns) {
+
         return this.queue.update(action.data).pipe(
+
             tap(resp => {
                 const state = getState();
-                const index = state.turns.findIndex(turn => action.data.id === turn.id);
-                state.turns[index] = { ...state.turns[index], ...action.data };
+                const array = [...state.turns];
+                const index = array.findIndex(turn => action.data.id === turn.id);
+                array[index] = { ...array[index], ...action.data };
                 if (index >= 0) {
                     patchState({
-                        turns: state.turns
+                        turns: array
                     });
                 }
             })
