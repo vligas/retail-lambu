@@ -1,12 +1,10 @@
 import { bootstrap } from './main';
-import { DATABASE } from 'src/database/database.providers';
 import { createUmzug } from './umzug';
-import { logger } from 'src/common/services/logger.service';
-import { readFileSync } from 'fs';
 import { copySync } from 'fs-extra';
 import * as path from 'path';
 import { Sequelize } from 'sequelize-typescript';
 import * as umzug from 'umzug';
+import { logger } from '@retail/common';
 
 export async function migrateCommand() {
     let db: Sequelize;
