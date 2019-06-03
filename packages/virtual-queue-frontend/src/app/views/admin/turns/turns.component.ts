@@ -5,7 +5,7 @@ import { TurnState } from '@frontend/app/shared/state/turn/turn.state';
 import { Observable } from 'rxjs';
 import { Turn } from '@frontend/app/shared/models/turn.model';
 import { ConnectWebSocket } from '@ngxs/websocket-plugin';
-import { FetchTurns } from '@frontend/app/shared/state/turn/turn.action';
+import { FetchTurns, UpdateTurns } from '@frontend/app/shared/state/turn/turn.action';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SaveActualCompetitor } from '@retail/shared';
 
@@ -69,7 +69,7 @@ export class TurnsComponent implements OnInit {
 
         if (option === 2) {
           console.log('confirm reset', result);
-          this.reset();
+          this.reset(turn);
 
         }
 
@@ -82,8 +82,18 @@ export class TurnsComponent implements OnInit {
     //this.store.dispatch(new UpdateTurn()).subscribe();
   }
 
-  reset() {
+  reset(turn: Turn) {
+    const newTurn: Turn = {
+      id: turn.id,
+      actualTurn: 0,
+      name: turn.name,
+      limitTurn: turn.limitTurn,
+      color: turn.color,
+      pathImg: turn.pathImg
+    };
 
+    console.log(newTurn);
+    this.store.dispatch(new UpdateTurns(newTurn)).subscribe();
   }
 
 }

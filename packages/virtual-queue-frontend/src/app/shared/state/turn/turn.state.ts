@@ -44,20 +44,20 @@ export class TurnState {
         });
     }
 
-    /*
+
     @Action(UpdateTurns)
     UpdateTurns({ patchState, getState }: StateContext<TurnStateModel>, action: UpdateTurns) {
         return this.queue.update(action.data).pipe(
             tap(resp => {
                 const state = getState();
-                const index = state.turns.findIndex(turn => action.data.id === turn.id)
-                state.turns[index] = { ...state.turns[index], ...action.data }
+                const index = state.turns.findIndex(turn => action.data.id === turn.id);
+                state.turns[index] = { ...state.turns[index], ...action.data };
                 if (index >= 0) {
                     patchState({
                         turns: state.turns
-                    })
+                    });
                 }
             })
-        )
-    }*/
+        );
+    }
 }

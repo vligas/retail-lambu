@@ -3,4 +3,6 @@ export class Turn {
     actualTurn: number;
     limitTurn: number;
     id: number;
+    color: string;
+    pathImg: string;
 }
