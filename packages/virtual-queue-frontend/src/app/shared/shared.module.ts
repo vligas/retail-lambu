@@ -50,7 +50,7 @@ import { TurnState } from './state/turn/turn.state';
       TurnState
     ], { developmentMode: !environment.production }),
     NgxsWebsocketPluginModule.forRoot({
-      url: 'ws://localhost:3000/'
+      url: 'ws://localhost:3009/'
     }),
     // NgxsStoragePluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
