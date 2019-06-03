@@ -8,19 +8,20 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedComponentsModule } from '@frontend/app/shared/components/shared-components.module';
+import { SharedPipesModule } from '@retail/shared';
 
 @NgModule({
   declarations: [TurnsComponent],
   imports: [
     CommonModule,
-    SharedModule,
     FormsModule,
     AdminRoutingModule,
     ReactiveFormsModule,
     NgxPaginationModule,
     NgxDatatableModule,
     NgbModule,
-    SharedComponentsModule
+    SharedComponentsModule,
+    SharedPipesModule
   ]
 })
 export class AdminModule { }

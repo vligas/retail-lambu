@@ -52,18 +52,19 @@ export class TurnsComponent implements OnInit {
 
 
   /**
-* Show teh popup form to add category
-* @param content 
-*/
+  * Show teh popup form to add category
+  * @param content 
+  */
   open(content, turn: Turn, option: number) {
     console.log('Contenido del modal', turn);
+    this.turnForm.setValue({ limit: '', currentTurn: '' });
 
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then((result) => {
         // tslint:disable-next-line:switch-default
         if (option === 1) {
           console.log('save changes', result);
-          this.saveChanges(result);
+          this.saveChanges(turn);
 
         }
 
@@ -79,7 +80,15 @@ export class TurnsComponent implements OnInit {
   }
 
   saveChanges(turn: Turn) {
-    //this.store.dispatch(new UpdateTurn()).subscribe();
+    const updateTurn: Turn = {
+      id: turn.id,
+      actualTurn: this.turnForm.get('currentTurn').value,
+      name: turn.name,
+      limitTurn: this.turnForm.get('limit').value,
+      color: turn.color,
+      pathImg: turn.pathImg
+    };
+    this.store.dispatch(new UpdateTurns(updateTurn)).subscribe();
   }
 
   reset(turn: Turn) {
@@ -92,7 +101,6 @@ export class TurnsComponent implements OnInit {
       pathImg: turn.pathImg
     };
 
-    console.log(newTurn);
     this.store.dispatch(new UpdateTurns(newTurn)).subscribe();
   }
 
