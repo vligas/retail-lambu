@@ -4,7 +4,6 @@ import { RequestUpdateConfigDto } from './appConfig.dto';
 
 @Injectable()
 export class AppConfigService {
-
     constructor(
         @Inject(Config) private readonly configRepository: typeof Config,
     ) { }

@@ -77,6 +77,10 @@ export {
 } from './appConfig.dto';
 
 export {
+    RequestUpdateMediaConfigDto
+} from './mediaConfig.dto';
+
+export {
     RequestCreateRoleDto,
     RequestCreateRolePermissionDto,
     RequestLoginDto,

@@ -7,22 +7,7 @@ import {
   SearchModule,
   SharedDirectivesModule,
   SharedPipesModule,
-  ServiceModule,
-  BranchOfficeCompetitorState,
-  CompetitorState,
-  SaleState,
-  BranchOfficeState,
-  UserState,
-  PriceVariationState,
-  RoleState,
-  ConfigState,
-  ProductState,
-  CurrencyState,
-  TagState,
-  GapState,
-  CategoryState,
-  DollarPriceState,
-  SessionState
+  ServiceModule
 } from '@retail/shared';
 import {
   ApiCurrencyInterceptor,
@@ -39,6 +24,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { environment } from '@frontend/environments/environment';
 import { TurnState } from './state/turn/turn.state';
+import { ConfigState } from './state/config/config.state';
 
 @NgModule({
   imports: [
@@ -47,7 +33,8 @@ import { TurnState } from './state/turn/turn.state';
       apiUrl: environment.apiUrl
     }),
     NgxsModule.forRoot([
-      TurnState
+      TurnState,
+      ConfigState
     ], { developmentMode: !environment.production }),
     NgxsWebsocketPluginModule.forRoot({
       url: 'ws://localhost:3000/'

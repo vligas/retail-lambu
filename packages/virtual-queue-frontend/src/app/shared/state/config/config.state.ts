@@ -1,0 +1,50 @@
+import { Config } from 'src/app/shared/models/config.model';
+import { State, Selector, Action, StateContext } from '@ngxs/store';
+import { FetchConfig, UpdateConfig } from './config.actions';
+import { AppConfigService } from 'src/app/shared/services/http/app-config.service';
+import { tap } from 'rxjs/operators';
+
+
+export class ConfigStateModel {
+    config: Config[];
+}
+
+@State<ConfigStateModel>({
+    name: 'config',
+    defaults: {
+        config: []
+    }
+})
+export class ConfigState {
+
+    constructor(
+        private config: AppConfigService
+    ) { }
+
+    @Selector()
+    static configurations(state: ConfigStateModel) {
+        return state.config;
+    }
+
+    @Action(FetchConfig)
+    fetch({ patchState }: StateContext<ConfigStateModel>) {
+        return this.config.fetch().pipe(
+            tap((resp) => {
+                patchState({
+                    config: [...resp.data]
+                });
+            })
+        );
+    }
+
+    @Action(UpdateConfig)
+    update({ patchState }: StateContext<ConfigStateModel>, { payload }: UpdateConfig) {
+        return this.config.update(payload).pipe(tap(
+            resp => {
+                patchState({
+                    config: [...resp.data]
+                });
+            }
+        ));
+    }
+}

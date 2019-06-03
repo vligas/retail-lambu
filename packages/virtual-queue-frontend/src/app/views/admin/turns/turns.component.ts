@@ -8,6 +8,7 @@ import { ConnectWebSocket } from '@ngxs/websocket-plugin';
 import { FetchTurns } from '@frontend/app/shared/state/turn/turn.action';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SaveActualCompetitor } from '@retail/shared';
+import { FetchConfig } from '../../../shared/state/config/config.actions';
 
 
 @Component({
@@ -38,6 +39,8 @@ export class TurnsComponent implements OnInit {
     this.store.dispatch(new ConnectWebSocket());
 
     this.store.dispatch(new FetchTurns()).subscribe();
+    
+    this.store.dispatch(new FetchConfig()).subscribe();
 
     this.turns$.subscribe(turns => {
       this.turns = turns;
