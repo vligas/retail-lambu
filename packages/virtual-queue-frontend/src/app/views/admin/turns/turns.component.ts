@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControlOptions, AsyncValidatorFn } from '@angular/forms';
 import { Select, Store } from '@ngxs/store';
 import { TurnState } from '@frontend/app/shared/state/turn/turn.state';
 import { Observable } from 'rxjs';
@@ -7,6 +7,7 @@ import { Turn } from '@frontend/app/shared/models/turn.model';
 import { ConnectWebSocket } from '@ngxs/websocket-plugin';
 import { FetchTurns } from '@frontend/app/shared/state/turn/turn.action';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SaveActualCompetitor } from '@retail/shared';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class TurnsComponent implements OnInit {
 
 
   turnForm: FormGroup;
+  videoSrc: string;
 
   @Select(TurnState.getTurns)
   turns$: Observable<Turn[]>;
@@ -27,7 +29,7 @@ export class TurnsComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private store: Store,
-    private modalService: NgbModal,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit() {
@@ -42,8 +44,8 @@ export class TurnsComponent implements OnInit {
     });
 
     this.turnForm = this.fb.group({
-      name: ['', Validators.required],
-      denomination: ['', Validators.required]
+      limit: ['', Validators.required],
+      currentTurn: ['', Validators.required]
     });
 
   }
@@ -53,16 +55,35 @@ export class TurnsComponent implements OnInit {
 * Show teh popup form to add category
 * @param content 
 */
-  open(content) {
-    console.log('Contenido del modal', content);
+  open(content, turn: Turn, option: number) {
+    console.log('Contenido del modal', turn);
 
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then((result) => {
         // tslint:disable-next-line:switch-default
+        if (option === 1) {
+          console.log('save changes', result);
+          this.saveChanges(result);
+
+        }
+
+        if (option === 2) {
+          console.log('confirm reset', result);
+          this.reset();
+
+        }
 
       }, (reason) => {
-        console.log('Err!', reason);
+        console.log(reason);
       });
+  }
+
+  saveChanges(turn: Turn) {
+    //this.store.dispatch(new UpdateTurn()).subscribe();
+  }
+
+  reset() {
+
   }
 
 }

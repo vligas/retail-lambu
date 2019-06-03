@@ -1,6 +1,6 @@
 import { Turn } from '../../models/turn.model';
 import { State, Store, Selector, Action, StateContext } from '@ngxs/store';
-import { FetchTurns, AddTurns } from './turn.action';
+import { FetchTurns, AddTurns, UpdateTurns } from './turn.action';
 import { QueueService } from '../../services/http/queue.service';
 import { tap } from 'rxjs/operators';
 
@@ -43,4 +43,21 @@ export class TurnState {
             turns: [...action.data]
         });
     }
+
+    /*
+    @Action(UpdateTurns)
+    UpdateTurns({ patchState, getState }: StateContext<TurnStateModel>, action: UpdateTurns) {
+        return this.queue.update(action.data).pipe(
+            tap(resp => {
+                const state = getState();
+                const index = state.turns.findIndex(turn => action.data.id === turn.id)
+                state.turns[index] = { ...state.turns[index], ...action.data }
+                if (index >= 0) {
+                    patchState({
+                        turns: state.turns
+                    })
+                }
+            })
+        )
+    }*/
 }
