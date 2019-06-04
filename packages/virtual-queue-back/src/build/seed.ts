@@ -1,11 +1,11 @@
 import { bootstrap } from './main';
 import { readdirSync, readFileSync, writeFile, writeFileSync } from 'fs';
 import { INestApplication } from '@nestjs/common';
-import { logger } from 'src/common/services/logger.service';
 import { resolve } from 'path';
 import { order } from './seeds';
 import 'reflect-metadata';
 import { camelize, formatTemplate } from 'src/common/utils';
+import { logger } from '@retail/common';
 
 const seedsPath = './seeds';
 const templatePath = './templates';

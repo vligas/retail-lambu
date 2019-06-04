@@ -2,9 +2,11 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { environment } from '@frontend/environments/environment';
 import { Turn } from '../../models/turn.model';
+import { ResponseFormat } from '@retail/shared';
 
 @Injectable({ providedIn: 'root' })
 export class QueueService {
+
 
     constructor(private http: HttpClient) {
 
@@ -16,5 +18,9 @@ export class QueueService {
 
     nextTurn(turn: Turn) {
         return this.http.post<any>(`${environment.apiUrl}/queue/${turn.id}/next-turns`, turn);
+    }
+
+    update(turn: Partial<Turn>) {
+        return this.http.put<ResponseFormat<Turn>>(`${environment.apiUrl}/queue/${turn.id}`, turn);
     }
 }

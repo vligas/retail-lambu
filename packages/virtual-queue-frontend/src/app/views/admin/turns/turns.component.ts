@@ -5,7 +5,7 @@ import { TurnState } from '@frontend/app/shared/state/turn/turn.state';
 import { Observable } from 'rxjs';
 import { Turn } from '@frontend/app/shared/models/turn.model';
 import { ConnectWebSocket } from '@ngxs/websocket-plugin';
-import { FetchTurns } from '@frontend/app/shared/state/turn/turn.action';
+import { FetchTurns, UpdateTurns } from '@frontend/app/shared/state/turn/turn.action';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SaveActualCompetitor } from '@retail/shared';
 import { FetchConfig } from '../../../shared/state/config/config.actions';
@@ -55,24 +55,25 @@ export class TurnsComponent implements OnInit {
 
 
   /**
-* Show teh popup form to add category
-* @param content 
-*/
+  * Show teh popup form to add category
+  * @param content 
+  */
   open(content, turn: Turn, option: number) {
     console.log('Contenido del modal', turn);
+    this.turnForm.setValue({ limit: '', currentTurn: '' });
 
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then((result) => {
         // tslint:disable-next-line:switch-default
         if (option === 1) {
           console.log('save changes', result);
-          this.saveChanges(result);
+          this.saveChanges(turn);
 
         }
 
         if (option === 2) {
           console.log('confirm reset', result);
-          this.reset();
+          this.reset(turn);
 
         }
 
@@ -82,11 +83,28 @@ export class TurnsComponent implements OnInit {
   }
 
   saveChanges(turn: Turn) {
-    //this.store.dispatch(new UpdateTurn()).subscribe();
+    const updateTurn: Turn = {
+      id: turn.id,
+      actualTurn: this.turnForm.get('currentTurn').value,
+      name: turn.name,
+      limitTurn: this.turnForm.get('limit').value,
+      color: turn.color,
+      pathImg: turn.pathImg
+    };
+    this.store.dispatch(new UpdateTurns(updateTurn)).subscribe();
   }
 
-  reset() {
+  reset(turn: Turn) {
+    const newTurn: Turn = {
+      id: turn.id,
+      actualTurn: 0,
+      name: turn.name,
+      limitTurn: turn.limitTurn,
+      color: turn.color,
+      pathImg: turn.pathImg
+    };
 
+    this.store.dispatch(new UpdateTurns(newTurn)).subscribe();
   }
 
 }
